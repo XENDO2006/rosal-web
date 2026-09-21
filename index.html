@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROSAL — Regalos con intención</title>
+
+<style>
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: #f5fbff;
+color: #243746;
+min-height: 100vh;
+}
+
+button {
+font: inherit;
+cursor: pointer;
+}
+
+.screen {
+display: none;
+min-height: 100vh;
+padding: 30px 20px;
+}
+
+.screen.active {
+display: flex;
+}
+
+.container {
+width: 100%;
+max-width: 900px;
+margin: auto;
+}
+
+/* LANDING */
+
+#home {
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+.logo {
+font-size: 52px;
+font-weight: 800;
+letter-spacing: 5px;
+color: #6faed1;
+margin-bottom: 12px;
+}
+
+.tagline {
+font-size: 22px;
+font-weight: 700;
+margin-bottom: 18px;
+}
+
+.subtitle {
+max-width: 570px;
+margin: auto;
+color: #617684;
+line-height: 1.6;
+font-size: 16px;
+}
+
+.gift {
+font-size: 80px;
+margin: 30px 0;
+}
+
+.primary-btn {
+border: none;
+background: #8fc5e3;
+color: white;
+padding: 15px 28px;
+border-radius: 18px;
+font-weight: 700;
+box-shadow: 0 8px 22px rgba(95, 157, 195, 0.25);
+transition: 0.2s;
+}
+
+.primary-btn:hover {
+transform: translateY(-2px);
+background: #78b5d8;
+}
+
+/* CHAT */
+
+#chat {
+align-items: center;
+}
+
+.chat-card {
+background: white;
+border-radius: 28px;
+padding: 30px;
+box-shadow: 0 12px 35px rgba(75, 120, 145, 0.12);
+}
+
+.chat-header {
+display: flex;
+align-items: center;
+gap: 15px;
+margin-bottom: 25px;
+}
+
+.lia-avatar {
+width: 58px;
+height: 58px;
+border-radius: 50%;
+background: #dff2fc;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 28px;
+}
+
+.lia-name {
+font-size: 22px;
+font-weight: 800;
+}
+
+.lia-status {
+color: #78a8bf;
+font-size: 13px;
+margin-top: 3px;
+}
+
+.question {
+font-size: 25px;
+font-weight: 700;
+margin: 25px 0;
+line-height: 1.35;
+}
+
+.options {
+display: grid;
+gap: 12px;
+}
+
+.option {
+border: 2px solid #e2f1f8;
+background: #fbfdff;
+padding: 15px;
+border-radius: 15px;
+text-align: left;
+transition: 0.2s;
+}
+
+.option:hover {
+border-color: #8fc5e3;
+background: #f2faff;
+}
+
+.text-input {
+width: 100%;
+border: 2px solid #e2f1f8;
+border-radius: 15px;
+padding: 15px;
+font-size: 16px;
+outline: none;
+}
+
+.text-input:focus {
+border-color: #8fc5e3;
+}
+
+.next-btn {
+margin-top: 15px;
+}
+
+/* THINKING */
+
+#thinking {
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+.loader {
+font-size: 65px;
+animation: float 1.5s infinite ease-in-out;
+}
+
+@keyframes float {
+0%,100% { transform: translateY(0); }
+50% { transform: translateY(-10px); }
+}
+
+.thinking-title {
+margin-top: 20px;
+font-size: 27px;
+}
+
+.thinking-text {
+margin-top: 10px;
+color: #718692;
+}
+
+/* RESULTS */
+
+#results {
+align-items: flex-start;
+}
+
+.results-title {
+text-align: center;
+font-size: 32px;
+margin-bottom: 10px;
+}
+
+.results-subtitle {
+text-align: center;
+color: #718692;
+margin-bottom: 25px;
+}
+
+.products {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 18px;
+}
+
+.product {
+background: white;
+border-radius: 22px;
+padding: 22px;
+box-shadow: 0 8px 25px rgba(75, 120, 145, 0.10);
+}
+
+.product-icon {
+font-size: 42px;
+}
+
+.product h3 {
+margin: 12px 0 8px;
+}
+
+.price {
+color: #6faed1;
+font-weight: 800;
+font-size: 18px;
+}
+
+.reason {
+color: #687b86;
+margin-top: 10px;
+line-height: 1.5;
+font-size: 14px;
+}
+
+.total {
+background: #e7f6ff;
+border-radius: 18px;
+padding: 18px;
+margin-top: 20px;
+text-align: center;
+font-weight: 700;
+}
+
+.compatibility {
+margin: 20px auto;
+max-width: 500px;
+background: white;
+padding: 20px;
+border-radius: 20px;
+text-align: center;
+box-shadow: 0 8px 25px rgba(75,120,145,0.08);
+}
+
+.compatibility-number {
+font-size: 34px;
+font-weight: 800;
+color: #6faed1;
+}
+
+.disclaimer {
+text-align: center;
+margin: 25px auto;
+max-width: 600px;
+color: #84939b;
+font-size: 13px;
+line-height: 1.5;
+}
+
+.restart {
+display: block;
+margin: 20px auto;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+.logo {
+font-size: 42px;
+}
+
+.tagline {
+font-size: 19px;
+}
+
+.question {
+font-size: 21px;
+}
+
+.chat-card {
+padding: 22px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- INICIO -->
+
+<section id="home" class="screen active">
+<div class="container">
+
+<div class="logo">ROSAL</div>
+
+<div class="tagline">
+El regalo perfecto empieza con una pregunta.
+</div>
+
+<p class="subtitle">
+Cuéntale a LIA cómo es esa persona y te ayudará a encontrar
+una sorpresa que encaje con su personalidad, sus gustos y tu presupuesto.
+</p>
+
+<div class="gift">🎁</div>
+
+<button class="primary-btn" onclick="startApp()">
+Empezar con LIA →
+</button>
+
+</div>
+</section>
+
+
+<!-- CHAT -->
+
+<section id="chat" class="screen">
+<div class="container">
+
+<div class="chat-card">
+
+<div class="chat-header">
+<div class="lia-avatar">✨</div>
+
+<div>
+<div class="lia-name">LIA</div>
+<div class="lia-status">Tu asistente de regalos</div>
+</div>
+</div>
+
+<div id="questionArea"></div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- PENSANDO -->
+
+<section id="thinking" class="screen">
+<div class="container">
+
+<div class="loader">🎁</div>
+
+<div class="thinking-title">
+LIA está pensando...
+</div>
+
+<div id="thinkingText" class="thinking-text">
+Analizando personalidad...
+</div>
+
+</div>
+</section>
+
+
+<!-- RESULTADOS -->
+
+<section id="results" class="screen">
+<div class="container">
+
+<h1 class="results-title">
+Estas sorpresas podrían encajar 💙
+</h1>
+
+<p class="results-subtitle">
+LIA ha encontrado algunas opciones basándose en tus respuestas.
+</p>
+
+<div id="products" class="products"></div>
+
+<div id="total" class="total"></div>
+
+<div class="compatibility">
+<div>Compatibilidad de la selección</div>
+<div id="compatibility" class="compatibility-number"></div>
+<div>✨ Una combinación pensada para esa persona</div>
+</div>
+
+<div class="disclaimer">
+ROSAL es un proyecto educativo. Esta versión es una demostración
+y no permite realizar compras reales.
+</div>
+
+<button class="primary-btn restart" onclick="restart()">
+Probar otra persona
+</button>
+
+</div>
+</section>
+
+
+<script>
+
+const products = [
+
+{
+name:"Vela aromática",
+icon:"🕯️",
+price:9.90,
+tags:["relax","decoracion","tranquila","romantica","hogareña","aromas"],
+age:16
+},
+
+{
+name:"Taza personalizada",
+icon:"☕",
+price:12.90,
+tags:["personalizado","sentimental","divertida","practica","cafe","frases"],
+age:12
+},
+
+{
+name:"Álbum de fotos",
+icon:"📸",
+price:24.90,
+tags:["recuerdos","sentimental","romantica","fotografia","viajes"],
+age:16
+},
+
+{
+name:"Marco de fotos",
+icon:"🖼️",
+price:11.90,
+tags:["recuerdos","sentimental","familiar","romantica","decoracion"],
+age:12
+},
+
+{
+name:"Diario personalizado",
+icon:"📓",
+price:14.90,
+tags:["creativa","reflexiva","organizada","escritura","planificacion"],
+age:14
+},
+
+{
+name:"Calcetines divertidos",
+icon:"🧦",
+price:8.90,
+tags:["humor","divertida","atrevida","moda","personajes"],
+age:12
+},
+
+{
+name:"Llavero personalizado",
+icon:"🔑",
+price:9.90,
+tags:["personalizado","sentimental","practica","recuerdos"],
+age:12
+},
+
+{
+name:"Carta personalizada",
+icon:"💌",
+price:4.90,
+tags:["romantica","sentimental","cariñosa","emociones","recuerdos"],
+age:14
+},
+
+{
+name:"Caja de chocolates",
+icon:"🍫",
+price:10.90,
+tags:["gourmet","golosa","clasica","romantica","chocolate"],
+age:12
+},
+
+{
+name:"Caja de chuches",
+icon:"🍬",
+price:8.90,
+tags:["divertida","infantil","dulces","humor"],
+age:8
+},
+
+{
+name:"Pack de café",
+icon:"☕",
+price:14.90,
+tags:["tranquila","practica","sofisticada","cafe","gourmet"],
+age:18
+},
+
+{
+name:"Pack de tés",
+icon:"🍵",
+price:12.90,
+tags:["tranquila","reflexiva","hogareña","te","relax","bienestar"],
+age:16
+},
+
+{
+name:"Kit de cuidado personal",
+icon:"🧴",
+price:18.90,
+tags:["coqueta","cuidadosa","relajada","cosmetica","bienestar"],
+age:16
+},
+
+{
+name:"Jabones artesanales",
+icon:"🧼",
+price:9.90,
+tags:["natural","tranquila","cuidadosa","aromas","bienestar"],
+age:16
+},
+
+{
+name:"Neceser",
+icon:"💄",
+price:13.90,
+tags:["organizada","practica","coqueta","maquillaje","viajes"],
+age:14
+},
+
+{
+name:"Mini peluche",
+icon:"🧸",
+price:12.90,
+tags:["cariñosa","infantil","sentimental","ternura","animales"],
+age:6
+},
+
+{
+name:"Mini planta",
+icon:"🪴",
+price:9.90,
+tags:["tranquila","responsable","natural","plantas","decoracion"],
+age:16
+},
+
+{
+name:"Mini cactus",
+icon:"🌵",
+price:7.90,
+tags:["practica","minimalista","natural","plantas","decoracion"],
+age:14
+},
+
+{
+name:"Puzzle personalizado",
+icon:"🧩",
+price:19.90,
+tags:["paciente","creativa","sentimental","puzzles","fotografia"],
+age:12
+},
+
+{
+name:"Juego de cartas",
+icon:"🎲",
+price:11.90,
+tags:["social","divertida","competitiva","juegos","amigos"],
+age:12
+},
+
+{
+name:"Accesorio gaming",
+icon:"🎮",
+price:16.90,
+tags:["competitiva","tecnologica","juvenil","videojuegos","gaming"],
+age:12
+},
+
+{
+name:"Soporte para auriculares",
+icon:"🎧",
+price:14.90,
+tags:["organizada","tecnologica","practica","gaming","orden"],
+age:12
+},
+
+{
+name:"Soporte para móvil",
+icon:"📱",
+price:9.90,
+tags:["practica","organizada","tecnologica","movil"],
+age:12
+},
+
+{
+name:"Mini altavoz",
+icon:"🔊",
+price:24.90,
+tags:["social","divertida","musical","musica","fiestas","tecnologia"],
+age:14
+},
+
+{
+name:"Libro",
+icon:"📖",
+price:14.90,
+tags:["curiosa","reflexiva","intelectual","lectura","fantasia","misterio"],
+age:12
+},
+
+{
+name:"Set de papelería",
+icon:"✏️",
+price:11.90,
+tags:["creativa","organizada","estudiosa","papeleria","escritura"],
+age:10
+},
+
+{
+name:"Kit de pintura",
+icon:"🎨",
+price:17.90,
+tags:["artistica","creativa","tranquila","pintura","dibujo","arte"],
+age:10
+},
+
+{
+name:"Kit de cocina",
+icon:"🧑‍🍳",
+price:19.90,
+tags:["creativa","practica","curiosa","cocina","gastronomia"],
+age:16
+},
+
+{
+name:"Pack de comida italiana",
+icon:"🍝",
+price:16.90,
+tags:["gourmet","aventurera","romantica","italia","pasta"],
+age:16
+},
+
+{
+name:"Pack de salsas picantes",
+icon:"🌶️",
+price:13.90,
+tags:["atrevida","aventurera","divertida","picante","retos"],
+age:16
+},
+
+{
+name:"Diario de viaje",
+icon:"✈️",
+price:14.90,
+tags:["aventurera","curiosa","soñadora","viajes","fotografia","escritura"],
+age:14
+},
+
+{
+name:"Mapa para rascar",
+icon:"🗺️",
+price:19.90,
+tags:["aventurera","curiosa","soñadora","viajes","geografia"],
+age:14
+},
+
+{
+name:"Organizador de viaje",
+icon:"🧳",
+price:15.90,
+tags:["organizada","practica","aventurera","viajes"],
+age:16
+},
+
+{
+name:"Accesorio deportivo",
+icon:"⚽",
+price:14.90,
+tags:["competitiva","activa","disciplinada","futbol","padel","running","gimnasio"],
+age:12
+},
+
+{
+name:"Botella deportiva",
+icon:"🏋️",
+price:12.90,
+tags:["activa","saludable","disciplinada","gimnasio","fitness","deporte"],
+age:12
+},
+
+{
+name:"Kit de relajación",
+icon:"🧘",
+price:19.90,
+tags:["tranquila","estresada","reflexiva","relax","meditacion","bienestar"],
+age:16
+},
+
+{
+name:"Mini altavoz Bluetooth",
+icon:"🎵",
+price:24.90,
+tags:["musical","social","divertida","musica","tecnologia","fiestas"],
+age:14
+},
+
+{
+name:"Accesorio musical",
+icon:"🎸",
+price:12.90,
+tags:["artistica","creativa","musical","musica","guitarra"],
+age:12
+},
+
+{
+name:"Vale por una experiencia",
+icon:"🎟️",
+price:20,
+tags:["aventurera","social","romantica","cine","gastronomia","ocio"],
+age:14
+},
+
+{
+name:"Producto sorpresa",
+icon:"🎁",
+price:9.90,
+tags:["aventurera","curiosa","divertida","sorpresas","novedades"],
+age:12
+}
+
+];
+
+
+let answers = {};
+let questionIndex = 0;
+
+
+const questions = [
+
+{
+key:"relationship",
+text:"¿Qué relación tienes con esa persona?",
+options:[
+"💙 Pareja",
+"👨‍👩‍👧 Familiar",
+"😄 Amigo/a",
+"🏫 Compañero/a",
+"✨ Otra persona"
+]
+},
+
+{
+key:"age",
+text:"¿Qué edad tiene aproximadamente?",
+options:[
+"👦 Menos de 12",
+"🧑 12–17",
+"🧑‍🎓 18–25",
+"👩 26–40",
+"🧑‍🦳 Más de 40"
+]
+},
+
+{
+key:"likes",
+text:"¿Qué cosas le gustan?",
+input:true
+},
+
+{
+key:"personality",
+text:"¿Cómo describirías su personalidad?",
+options:[
+"🌿 Tranquila y hogareña",
+"😂 Divertida y social",
+"🎨 Creativa y artística",
+"✈️ Aventurera y curiosa",
+"📋 Práctica y organizada"
+]
+},
+
+{
+key:"occasion",
+text:"¿Para qué ocasión es el regalo?",
+options:[
+"🎂 Cumpleaños",
+"❤️ Aniversario",
+"🎄 Navidad",
+"🎟️ Amigo invisible",
+"✨ Otra ocasión"
+]
+},
+
+{
+key:"budget",
+text:"¿Cuál es tu presupuesto aproximado?",
+options:[
+"💶 Hasta 20 €",
+"💶 20–35 €",
+"💶 35–50 €",
+"💶 50–75 €",
+"💶 Más de 75 €"
+]
+}
+
+];
+
+
+function showScreen(id){
+
+document.querySelectorAll(".screen")
+.forEach(screen => screen.classList.remove("active"));
+
+document.getElementById(id)
+.classList.add("active");
+
+}
+
+
+function startApp(){
+
+answers = {};
+questionIndex = 0;
+
+showScreen("chat");
+
+renderQuestion();
+
+}
+
+
+function renderQuestion(){
+
+const q = questions[questionIndex];
+
+const area = document.getElementById("questionArea");
+
+let html = `
+<div class="question">${q.text}</div>
+`;
+
+if(q.input){
+
+html += `
+<input
+id="answerInput"
+class="text-input"
+placeholder="Por ejemplo: le encanta viajar, la música y el café..."
+>
+
+<button class="primary-btn next-btn" onclick="submitText()">
+Continuar →
+</button>
+`;
+
+}else{
+
+html += `<div class="options">`;
+
+q.options.forEach(option => {
+
+html += `
+<button class="option"
+onclick="selectOption('${option.replace(/'/g,"\\'")}')">
+${option}
+</button>
+`;
+
+});
+
+html += `</div>`;
+
+}
+
+area.innerHTML = html;
+
+}
+
+
+function selectOption(value){
+
+answers[questions[questionIndex].key] = value;
+
+nextQuestion();
+
+}
+
+
+function submitText(){
+
+const input = document.getElementById("answerInput");
+
+if(!input.value.trim()) return;
+
+answers.likes = input.value;
+
+nextQuestion();
+
+}
+
+
+function nextQuestion(){
+
+questionIndex++;
+
+if(questionIndex >= questions.length){
+
+showThinking();
+
+}else{
+
+renderQuestion();
+
+}
+
+}
+
+
+function showThinking(){
+
+showScreen("thinking");
+
+const messages = [
+"Analizando personalidad...",
+"Buscando coincidencias...",
+"Comparando gustos...",
+"Combinando productos...",
+"Preparando la sorpresa... 🎁"
+];
+
+let index = 0;
+
+const text = document.getElementById("thinkingText");
+
+const interval = setInterval(()=>{
+
+text.textContent = messages[index];
+
+index++;
+
+if(index >= messages.length){
+
+clearInterval(interval);
+
+setTimeout(generateResults,500);
+
+}
+
+},650);
+
+}
+
+
+function getAgeNumber(){
+
+const age = answers.age || "";
+
+if(age.includes("Menos")) return 10;
+if(age.includes("12–17")) return 15;
+if(age.includes("18–25")) return 21;
+if(age.includes("26–40")) return 32;
+return 50;
+
+}
+
+
+function getBudget(){
+
+const budget = answers.budget || "";
+
+if(budget.includes("Hasta")) return 20;
+if(budget.includes("20–35")) return 35;
+if(budget.includes("35–50")) return 50;
+if(budget.includes("50–75")) return 75;
+return 100;
+
+}
+
+
+function normalizeText(text){
+
+return text
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"");
+
+}
+
+
+function generateResults(){
+
+const age = getAgeNumber();
+const budget = getBudget();
+
+const text = normalizeText(
+answers.likes + " " +
+answers.personality + " " +
+answers.occasion
+);
+
+let scored = products
+.filter(product => product.age <= age)
+.filter(product => product.price <= budget)
+.map(product => {
+
+let score = 0;
+
+product.tags.forEach(tag => {
+
+if(text.includes(normalizeText(tag))){
+
+score += 3;
+
+}
+
+});
+
+if(answers.personality){
+
+const personality = normalizeText(answers.personality);
+
+product.tags.forEach(tag => {
+
+if(personality.includes(normalizeText(tag))){
+
+score += 4;
+
+}
+
+});
+
+}
+
+return {
+...product,
+score
+};
+
+})
+.sort((a,b)=>b.score-a.score);
+
+
+// Si no hay coincidencias suficientes,
+// mostrar productos dentro del presupuesto.
+
+if(scored.length < 3){
+
+scored = products
+.filter(product => product.age <= age)
+.filter(product => product.price <= budget)
+.sort((a,b)=>a.price-b.price);
+
+}
+
+
+const selected = scored.slice(0,5);
+
+renderResults(selected);
+
+}
+
+
+function renderResults(selected){
+
+showScreen("results");
+
+const container = document.getElementById("products");
+
+container.innerHTML = "";
+
+let total = 0;
+
+selected.forEach(product => {
+
+total += product.price;
+
+const card = document.createElement("div");
+
+card.className = "product";
+
+card.innerHTML = `
+<div class="product-icon">${product.icon}</div>
+
+<h3>${product.name}</h3>
+
+<div class="price">
+${product.price.toFixed(2).replace(".",",")} €
+</div>
+
+<div class="reason">
+✨ LIA lo ha elegido porque combina con algunos de los gustos y características que has contado.
+</div>
+`;
+
+container.appendChild(card);
+
+});
+
+
+document.getElementById("total").textContent =
+"Selección completa: " +
+total.toFixed(2).replace(".",",") +
+" €";
+
+
+const compatibility =
+Math.min(98, 72 + selected.length * 5 + Math.floor(Math.random()*10));
+
+document.getElementById("compatibility").textContent =
+compatibility + "%";
+
+}
+
+
+function restart(){
+
+showScreen("home");
+
+}
+
+</script>
+
+</body>
+</html>
