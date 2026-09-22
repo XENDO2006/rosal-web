@@ -2,565 +2,278 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ROSAL — Regalos inteligentes</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ROSAL · Regalos inteligentes</title>
 
 <style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+*{box-sizing:border-box}
 
 body{
-font-family:Arial, Helvetica, sans-serif;
-background:#f4fbff;
-color:#17324d;
-}
-
-button,
-input,
-select{
-font:inherit;
-}
-
-button{
-cursor:pointer;
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#f5fbff;
+color:#24445c;
 }
 
 header{
+background:white;
+padding:16px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 3px 15px #8bbbd433;
 position:sticky;
 top:0;
-z-index:1000;
-background:rgba(255,255,255,.95);
-backdrop-filter:blur(12px);
-border-bottom:1px solid #dceef8;
-}
-
-.nav{
-max-width:1200px;
-margin:auto;
-padding:15px 20px;
-display:flex;
-align-items:center;
-justify-content:space-between;
+z-index:100;
 }
 
 .logo{
-font-size:28px;
+font-size:32px;
 font-weight:900;
-color:#287da8;
-letter-spacing:2px;
+letter-spacing:3px;
+color:#69afd8;
 }
 
-.nav-buttons{
-display:flex;
-gap:10px;
-}
-
-.nav-btn{
+nav button{
 border:0;
-background:#e7f6ff;
-color:#24627f;
-padding:10px 15px;
-border-radius:14px;
-font-weight:700;
+background:#e2f4fc;
+color:#286082;
+padding:11px 17px;
+border-radius:22px;
+font-weight:bold;
+cursor:pointer;
+margin-left:6px;
 }
 
-.cart-button{
-position:relative;
-}
-
-.cart-count{
-position:absolute;
-top:-6px;
-right:-6px;
-background:#ff7298;
-color:white;
-width:22px;
-height:22px;
-border-radius:50%;
-font-size:12px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
+nav button:hover{background:#cbeafa}
 
 .hero{
-max-width:1100px;
-margin:auto;
-padding:70px 20px 45px;
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:40px;
-align-items:center;
+text-align:center;
+padding:75px 20px;
+background:linear-gradient(135deg,#e3f5ff,#fff);
 }
 
 .hero h1{
-font-size:clamp(42px,6vw,72px);
-line-height:1;
-margin-bottom:20px;
-}
-
-.hero h1 span{
-color:#3b91bc;
+font-size:48px;
+margin:0 0 15px;
 }
 
 .hero p{
 font-size:19px;
-line-height:1.6;
-color:#577184;
-margin-bottom:25px;
-}
-
-.primary{
-background:#3b91bc;
-color:white;
-border:0;
-padding:15px 24px;
-border-radius:18px;
-font-weight:800;
-box-shadow:0 10px 25px rgba(59,145,188,.25);
-transition:.2s;
-}
-
-.primary:hover{
-transform:translateY(-2px);
-}
-
-.hero-card{
-min-height:320px;
-background:linear-gradient(145deg,#dff5ff,#ffffff);
-border-radius:35px;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-overflow:hidden;
-box-shadow:0 20px 60px rgba(54,132,168,.15);
-}
-
-.hero-gift{
-font-size:130px;
-animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0) rotate(-2deg)}
-50%{transform:translateY(-15px) rotate(2deg)}
-}
-
-.container{
-max-width:1200px;
+max-width:720px;
 margin:auto;
-padding:20px;
+line-height:1.6;
 }
 
-.section-title{
-font-size:32px;
-margin:30px 0 20px;
-}
-
-.chat-section{
+.lia{
+max-width:900px;
+margin:40px auto;
 background:white;
+padding:35px;
 border-radius:30px;
-padding:25px;
-box-shadow:0 15px 50px rgba(35,110,150,.10);
-margin-bottom:35px;
-}
-
-.lia-header{
-display:flex;
-align-items:center;
-gap:15px;
-margin-bottom:20px;
+box-shadow:0 10px 35px #6aaed622;
+text-align:center;
 }
 
 .lia-avatar{
-width:75px;
-height:75px;
-background:#dff5ff;
+width:115px;
+height:115px;
 border-radius:50%;
+background:#e2f5ff;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:45px;
-box-shadow:0 8px 20px rgba(55,140,180,.15);
+font-size:68px;
+margin:auto;
+animation:liaTalk .8s infinite alternate;
 }
 
-.lia-avatar.talking{
-animation:talk .35s infinite alternate;
+@keyframes liaTalk{
+from{transform:translateY(0) rotate(-2deg)}
+to{transform:translateY(-7px) rotate(2deg)}
 }
 
-@keyframes talk{
-from{transform:scale(1) rotate(-5deg)}
-to{transform:scale(1.12) rotate(5deg)}
-}
-
-.lia-name{
+.lia-question{
 font-size:24px;
-font-weight:900;
-}
-
-.lia-status{
-color:#7b99aa;
-font-size:13px;
-}
-
-.chat-box{
-min-height:230px;
-background:#f5fbfe;
-border-radius:22px;
-padding:20px;
-}
-
-.message{
-max-width:80%;
-padding:13px 17px;
-border-radius:18px;
-margin-bottom:12px;
-line-height:1.45;
-}
-
-.message.lia{
-background:white;
-border:1px solid #e0f0f7;
-}
-
-.message.user{
-background:#3b91bc;
-color:white;
-margin-left:auto;
-}
-
-.options{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:15px;
-}
-
-.option{
-border:2px solid #cdeaf6;
-background:white;
-color:#24556e;
-padding:11px 16px;
-border-radius:14px;
-transition:.2s;
-}
-
-.option:hover{
-background:#e7f7ff;
-transform:translateY(-2px);
-}
-
-.text-answer{
-width:100%;
-padding:14px;
-border:2px solid #d4edf7;
-border-radius:15px;
-outline:none;
-margin-bottom:10px;
-}
-
-.loading{
-text-align:center;
-padding:50px 20px;
-}
-
-.loading-emoji{
-font-size:70px;
-animation:thinking 1s infinite alternate;
-}
-
-@keyframes thinking{
-from{transform:rotate(-10deg) scale(1)}
-to{transform:rotate(10deg) scale(1.15)}
-}
-
-.dots::after{
-content:"";
-animation:dots 1.5s infinite;
-}
-
-@keyframes dots{
-0%{content:""}
-33%{content:"."}
-66%{content:".."}
-100%{content:"..."}
-}
-
-.controls{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
+font-weight:bold;
 margin:25px 0;
 }
 
-.search{
-flex:1;
-min-width:220px;
-padding:14px 17px;
-border:2px solid #d8edf6;
-border-radius:15px;
-outline:none;
-background:white;
-}
-
-.filter{
+.lia input,
+.lia select{
+width:90%;
+max-width:520px;
 padding:14px;
-border:2px solid #d8edf6;
+border:2px solid #c9e8f7;
+border-radius:15px;
+font-size:16px;
+background:white;
+}
+
+.btn{
+border:0;
+background:#70b6dc;
+color:white;
+padding:14px 25px;
+border-radius:25px;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px;
+}
+
+.btn:hover{background:#529fc9}
+
+section{padding:50px 6%}
+
+.section-title{
+text-align:center;
+font-size:32px;
+margin-bottom:30px;
+}
+
+.filters{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+margin-bottom:30px;
+}
+
+.filters input,
+.filters select{
+padding:12px;
+border:1px solid #c8e6f5;
 border-radius:15px;
 background:white;
 }
 
-.products-grid{
+.products{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-gap:18px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
 }
 
 .product{
 background:white;
-border-radius:22px;
-padding:18px;
-border:1px solid #e2f1f7;
-box-shadow:0 8px 25px rgba(30,100,140,.07);
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 6px 22px #477e9820;
 transition:.25s;
-position:relative;
 }
 
 .product:hover{
-transform:translateY(-5px);
-box-shadow:0 15px 35px rgba(30,100,140,.13);
+transform:translateY(-7px);
+box-shadow:0 12px 30px #477e9830;
 }
 
-.product-icon{
-height:130px;
-border-radius:18px;
-background:linear-gradient(145deg,#e9f8ff,#fafdff);
+.product-image{
+height:205px;
+background:linear-gradient(145deg,#e8f7ff,#fafdff);
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:70px;
-margin-bottom:14px;
+padding:15px;
 }
 
-.favorite{
-position:absolute;
-right:15px;
-top:15px;
-border:0;
-background:white;
-border-radius:50%;
-width:38px;
-height:38px;
-box-shadow:0 3px 12px rgba(0,0,0,.08);
+.product-image svg{
+width:100%;
+height:100%;
+max-width:190px;
 }
 
-.product h3{
-margin-bottom:7px;
+.product-info{
+padding:18px;
 }
 
-.category{
+.product-category{
 font-size:12px;
-color:#5e94ac;
-font-weight:700;
+color:#7d9baa;
+font-weight:bold;
 text-transform:uppercase;
+letter-spacing:.6px;
+}
+
+.product-info h3{
+font-size:18px;
+margin:8px 0;
+min-height:43px;
 }
 
 .price{
-font-size:21px;
-font-weight:900;
-margin:10px 0;
-color:#24749b;
+font-size:20px;
+font-weight:bold;
+color:#579ec8;
 }
 
-.reason{
-color:#688291;
-font-size:14px;
-line-height:1.4;
-min-height:40px;
-}
-
-.product-actions{
-display:flex;
-gap:8px;
-margin-top:14px;
-}
-
-.product-actions button{
-flex:1;
+.product button{
+width:100%;
+padding:11px;
+margin-top:12px;
 border:0;
-padding:10px;
-border-radius:12px;
-font-weight:700;
-}
-
-.add{
-background:#3b91bc;
-color:white;
-}
-
-.customize{
-background:#e7f7ff;
-color:#27627c;
-}
-
-.results-header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.compatibility{
-background:#e6f8ff;
-padding:12px 18px;
 border-radius:15px;
-color:#246b8d;
-font-weight:800;
+background:#e2f4fc;
+color:#286082;
+font-weight:bold;
+cursor:pointer;
 }
 
-.cart-panel{
+.product button:hover{
+background:#c9eafa;
+}
+
+#recommendations{display:none}
+
+.cart{
 position:fixed;
-right:-430px;
-top:0;
-width:min(420px,100%);
-height:100vh;
-background:white;
-z-index:2000;
-box-shadow:-15px 0 50px rgba(0,0,0,.15);
-transition:.35s;
-display:flex;
-flex-direction:column;
-}
-
-.cart-panel.open{
-right:0;
-}
-
-.cart-header{
-padding:20px;
-border-bottom:1px solid #e4eef3;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.close{
-border:0;
-background:#edf7fb;
-width:38px;
-height:38px;
-border-radius:50%;
-}
-
-.cart-items{
-padding:20px;
-overflow:auto;
-flex:1;
-}
-
-.cart-item{
-display:flex;
-gap:12px;
-padding:13px 0;
-border-bottom:1px solid #edf2f4;
-}
-
-.cart-item-icon{
-width:55px;
-height:55px;
-background:#effaff;
-border-radius:12px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-}
-
-.cart-item-info{
-flex:1;
-}
-
-.qty{
-display:flex;
-gap:8px;
-align-items:center;
-margin-top:5px;
-}
-
-.qty button{
-width:25px;
-height:25px;
-border:0;
-background:#e7f6fc;
-border-radius:7px;
-}
-
-.cart-footer{
-padding:20px;
-border-top:1px solid #e4eef3;
-}
-
-.total{
-display:flex;
-justify-content:space-between;
-font-size:23px;
-font-weight:900;
-margin-bottom:15px;
-}
-
-.overlay{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(13,42,60,.35);
-z-index:1500;
-}
-
-.overlay.show{
-display:block;
+right:20px;
+bottom:20px;
+background:#70b6dc;
+color:white;
+padding:17px 23px;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+z-index:150;
+box-shadow:0 6px 20px #4b94bd55;
 }
 
 .modal{
-display:none;
 position:fixed;
 inset:0;
-z-index:3000;
+background:#24445c99;
+display:none;
 align-items:center;
 justify-content:center;
+z-index:300;
 padding:20px;
 }
 
-.modal.show{
-display:flex;
-}
-
-.modal-card{
-width:min(850px,100%);
+.modal-content{
+background:white;
+width:100%;
+max-width:620px;
 max-height:90vh;
 overflow:auto;
-background:white;
-border-radius:28px;
-padding:25px;
-box-shadow:0 25px 70px rgba(0,0,0,.2);
+border-radius:30px;
+padding:30px;
 }
 
-.modal-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:25px;
+.close{
+float:right;
+border:0;
+background:#eaf7fd;
+width:36px;
+height:36px;
+border-radius:50%;
+cursor:pointer;
 }
 
-.preview{
-background:#f0faff;
-min-height:350px;
-border-radius:22px;
+.custom-preview{
+width:300px;
+height:250px;
+margin:20px auto;
+background:#edf9ff;
+border-radius:25px;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -568,508 +281,213 @@ position:relative;
 overflow:hidden;
 }
 
-.preview-product{
-width:230px;
-min-height:230px;
-background:white;
-border-radius:20px;
-box-shadow:0 15px 35px rgba(40,100,130,.15);
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-padding:20px;
-text-align:center;
-}
-
-.preview-emoji{
-font-size:90px;
-}
-
-.preview-text{
-font-size:20px;
-font-weight:900;
-margin-top:10px;
-color:#27647e;
-}
-
-.preview-image{
-width:90px;
-height:90px;
-object-fit:cover;
-border-radius:12px;
-margin-top:10px;
-}
-
-.form-group{
-margin-bottom:15px;
-}
-
-.form-group label{
-display:block;
-font-weight:800;
-margin-bottom:7px;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select{
+.custom-preview svg{
 width:100%;
+height:100%;
+}
+
+.custom-text{
+position:absolute;
+bottom:20px;
+background:#ffffffdd;
+padding:7px 12px;
+border-radius:10px;
+font-weight:bold;
+}
+
+.modal input[type=text],
+.modal input[type=number]{
 padding:12px;
-border:2px solid #d9edf5;
+border:1px solid #c8e6f5;
 border-radius:12px;
-outline:none;
 }
 
-.modal-actions{
-display:flex;
-gap:10px;
-margin-top:15px;
-}
-
-.modal-actions button{
-flex:1;
-padding:13px;
-border:0;
-border-radius:14px;
-font-weight:800;
-}
-
-.secondary{
-background:#edf7fb;
-color:#2a6179;
-}
-
-.educational{
-margin-top:35px;
-padding:18px;
-border-radius:18px;
-background:#fff9e9;
-color:#745f2c;
-font-size:14px;
-line-height:1.5;
-}
+.modal input[type=text]{width:100%}
 
 footer{
-margin-top:70px;
-background:#173b52;
-color:white;
-padding:35px 20px;
 text-align:center;
+background:#def3ff;
+padding:35px;
+margin-top:40px;
 }
 
-.hidden{
-display:none!important;
+@media(max-width:600px){
+.hero h1{font-size:34px}
+.lia-question{font-size:20px}
+header{padding:14px}
+.logo{font-size:26px}
+nav button{padding:9px}
 }
-
-@media(max-width:750px){
-
-.hero{
-grid-template-columns:1fr;
-padding-top:40px;
-}
-
-.hero-card{
-min-height:230px;
-}
-
-.hero-gift{
-font-size:90px;
-}
-
-.modal-grid{
-grid-template-columns:1fr;
-}
-
-.preview{
-min-height:250px;
-}
-
-.message{
-max-width:92%;
-}
-}
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="nav">
-
 <div class="logo">ROSAL</div>
 
-<div class="nav-buttons">
-
-<button class="nav-btn" onclick="scrollToCatalog()">
-🎁 Catálogo
-</button>
-
-<button class="nav-btn cart-button" onclick="openCart()">
-🛒 Carrito
-<span class="cart-count" id="cartCount">0</span>
-</button>
-
-</div>
-
-</div>
-
+<nav>
+<button onclick="irCatalogo()">🎁 Catálogo</button>
+<button onclick="mostrarCarrito()">🛒 <span id="cartCount">0</span></button>
+</nav>
 </header>
 
 
-<section class="hero">
+<div class="hero">
 
-<div>
-
-<h1>
-El regalo perfecto
-<span>empieza con una pregunta.</span>
-</h1>
+<h1>El regalo perfecto empieza con una pregunta 💙</h1>
 
 <p>
-ROSAL utiliza a LIA para ayudarte a encontrar un regalo
-adaptado a la persona, la ocasión, sus gustos y tu presupuesto.
+ROSAL te ayuda a encontrar un regalo según la persona,
+sus gustos, su personalidad, la ocasión y tu presupuesto.
 </p>
 
-<button class="primary" onclick="startLia()">
-🤓 Hablar con LIA →
-</button>
-
 </div>
 
-<div class="hero-card">
 
-<div class="hero-gift">🎁</div>
+<section class="lia">
 
+<div class="lia-avatar">🤓</div>
+
+<div id="liaQuestion" class="lia-question">
+¡Hola! Soy LIA 🤓
+<br>
+Vamos a encontrar el regalo perfecto.
 </div>
 
-</section>
+<div id="liaInput"></div>
 
-
-<main class="container">
-
-<section class="chat-section" id="liaSection">
-
-<div class="lia-header">
-
-<div class="lia-avatar" id="liaAvatar">
-🤓
-</div>
-
-<div>
-
-<div class="lia-name">LIA</div>
-
-<div class="lia-status" id="liaStatus">
-Tu asesora inteligente de regalos
-</div>
-
-</div>
-
-</div>
-
-<div class="chat-box" id="chatBox">
-
-<div class="message lia">
-¡Hola! Soy LIA 🤓. Voy a hacerte unas preguntas
-para intentar encontrar un regalo que encaje de verdad.
-</div>
-
-<div class="options">
-
-<button class="primary" onclick="startLia()">
+<button class="btn" id="liaButton" onclick="siguientePregunta()">
 Empezar
 </button>
 
-</div>
-
-</div>
-
 </section>
 
 
-<section id="resultsSection" class="hidden">
-
-<div class="results-header">
-
-<div>
+<section id="catalogo">
 
 <h2 class="section-title">
-🎯 Regalos recomendados
+🎁 Catálogo ROSAL
 </h2>
 
-<p id="resultDescription">
-He encontrado algunas ideas para ti.
-</p>
-
-</div>
-
-<div class="compatibility" id="compatibility">
-✨ 0% compatibilidad
-</div>
-
-</div>
-
-<div class="controls">
+<div class="filters">
 
 <input
-class="search"
-id="searchInput"
-placeholder="🔎 Buscar entre los productos..."
-oninput="renderProducts()"
+id="search"
+placeholder="🔎 Buscar producto..."
+oninput="filtrarProductos()"
 >
 
-<select class="filter" id="categoryFilter" onchange="renderProducts()">
-
-<option value="all">
-Todas las categorías
-</option>
-
+<select id="category" onchange="filtrarProductos()">
+<option value="">Todas las categorías</option>
 </select>
 
-<select class="filter" id="priceFilter" onchange="renderProducts()">
-
-<option value="all">
-Cualquier precio
-</option>
-
-<option value="20">
-Hasta 20 €
-</option>
-
-<option value="35">
-Hasta 35 €
-</option>
-
-<option value="50">
-Hasta 50 €
-</option>
-
-<option value="75">
-Hasta 75 €
-</option>
-
+<select id="price" onchange="filtrarProductos()">
+<option value="">Todos los precios</option>
+<option value="10">Hasta 10 €</option>
+<option value="20">Hasta 20 €</option>
+<option value="30">Hasta 30 €</option>
+<option value="50">Hasta 50 €</option>
 </select>
 
 </div>
 
-<div class="products-grid" id="productsGrid"></div>
+<div id="productGrid" class="products"></div>
 
 </section>
 
 
-<section id="catalogSection">
+<section id="recommendations">
 
 <h2 class="section-title">
-🛍️ Catálogo ROSAL
+✨ LIA ha encontrado estas ideas para ti
 </h2>
 
-<p style="color:#66818f;margin-bottom:15px">
-Explora todos los productos disponibles en la simulación.
-</p>
-
-<div class="products-grid" id="catalogGrid"></div>
+<div id="recommendationGrid" class="products"></div>
 
 </section>
 
 
-<div class="educational">
+<div class="cart" onclick="mostrarCarrito()">
+🛒 Carrito:
+<span id="cartTotal">0.00</span> €
+</div>
 
-<strong>🎓 Proyecto educativo</strong><br>
 
-ROSAL es una simulación/prototipo. Los productos, precios,
-carrito y personalizaciones sirven únicamente para demostrar
-el funcionamiento de una tienda inteligente. No se realizan
-pagos ni compras reales.
+<div id="modal" class="modal">
+
+<div class="modal-content">
+
+<button class="close" onclick="cerrarModal()">✕</button>
+
+<h2 id="modalTitle"></h2>
+
+<div class="custom-preview" id="customPreview"></div>
+
+<label>
+<strong>Personalización</strong>
+</label>
+
+<br><br>
+
+<input
+id="customText"
+type="text"
+placeholder="Escribe un nombre o frase..."
+oninput="actualizarPreview()"
+>
+
+<br><br>
+
+<label>
+Cantidad:
+</label>
+
+<input
+id="quantity"
+type="number"
+value="1"
+min="1"
+style="width:80px"
+>
+
+<br>
+
+<button class="btn" onclick="agregarCarrito()">
+Añadir al carrito 🎁
+</button>
 
 </div>
 
-</main>
+</div>
 
 
 <footer>
 
-<div style="font-size:25px;font-weight:900;margin-bottom:10px">
-ROSAL
-</div>
+<strong>ROSAL</strong>
 
-<div>
-Regalos pensados con ayuda de LIA 🤓
-</div>
-
-<div style="margin-top:10px;opacity:.7">
-Proyecto educativo · Sin compras reales
-</div>
+<p>
+Proyecto educativo · No se realizan compras ni pagos reales.
+</p>
 
 </footer>
 
 
-<!-- CARRITO -->
-
-<div class="overlay" id="overlay" onclick="closeAll()"></div>
-
-<aside class="cart-panel" id="cartPanel">
-
-<div class="cart-header">
-
-<h2>🛒 Tu carrito</h2>
-
-<button class="close" onclick="closeCart()">✕</button>
-
-</div>
-
-<div class="cart-items" id="cartItems"></div>
-
-<div class="cart-footer">
-
-<div class="total">
-
-<span>Total</span>
-
-<span id="cartTotal">
-0,00 €
-</span>
-
-</div>
-
-<button
-class="primary"
-style="width:100%"
-onclick="simulateCheckout()"
->
-🎓 Continuar con la simulación
-</button>
-
-</div>
-
-</aside>
-
-
-<!-- MODAL PERSONALIZACIÓN -->
-
-<div class="modal" id="customModal">
-
-<div class="modal-card">
-
-<h2 id="customTitle">
-Personaliza tu regalo
-</h2>
-
-<p style="margin:8px 0 20px;color:#718996">
-Mira cómo quedaría antes de añadirlo al carrito.
-</p>
-
-<div class="modal-grid">
-
-<div class="preview">
-
-<div class="preview-product">
-
-<div class="preview-emoji" id="previewEmoji">
-☕
-</div>
-
-<div class="preview-text" id="previewText">
-Tu texto
-</div>
-
-<img
-id="previewImage"
-class="preview-image hidden"
->
-
-</div>
-
-</div>
-
-
-<div>
-
-<div class="form-group">
-
-<label>
-Texto personalizado
-</label>
-
-<input
-id="customText"
-placeholder="Ej. Para María ❤️"
-oninput="updatePreview()"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Foto
-</label>
-
-<input
-type="file"
-accept="image/*"
-onchange="loadPhoto(event)"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Cantidad
-</label>
-
-<select id="customQuantity">
-
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-
-</select>
-
-</div>
-
-
-<div class="modal-actions">
-
-<button class="secondary" onclick="closeCustomization()">
-Cancelar
-</button>
-
-<button class="primary" onclick="addCustomized()">
-Añadir al carrito
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
 <script>
 
-/* =====================================================
-CATÁLOGO ROSAL
-20 categorías × 10 productos = 200 productos
-===================================================== */
+/* =========================================================
+ROSAL
+200 PRODUCTOS
+CADA PRODUCTO TIENE SU PROPIA ILUSTRACIÓN SVG
+========================================================= */
 
-const catalogSeed = [
+
+const categorias=[
 
 {
-category:"Relax",
-emoji:"🕯️",
-items:[
+nombre:"Relax",
+tags:["relax","hogar","tranquila","decoración","aromas"],
+productos:[
 ["Vela aromática de vainilla",9.90],
 ["Vela de lavanda",10.90],
 ["Vela de coco",11.90],
@@ -1080,14 +498,13 @@ items:[
 ["Vela artesanal",15.90],
 ["Vela premium",18.90],
 ["Set de velas aromáticas",19.90]
-],
-tags:["relax","hogar","tranquila","decoración","aromas"]
+]
 },
 
 {
-category:"Personalizados",
-emoji:"☕",
-items:[
+nombre:"Personalizados",
+tags:["personalizado","sentimental","recuerdos","foto","nombre"],
+productos:[
 ["Taza personalizada",12.90],
 ["Taza con frase",13.90],
 ["Taza con foto",14.90],
@@ -1098,14 +515,13 @@ items:[
 ["Marco personalizado",16.90],
 ["Caja personalizada",19.90],
 ["Álbum personalizado",24.90]
-],
-tags:["personalizado","sentimental","recuerdos","foto","nombre"]
+]
 },
 
 {
-category:"Recuerdos",
-emoji:"📸",
-items:[
+nombre:"Recuerdos",
+tags:["recuerdos","fotografía","sentimental","familia","romántica"],
+productos:[
 ["Álbum de fotos",24.90],
 ["Marco de fotos",11.90],
 ["Caja de recuerdos",18.90],
@@ -1116,14 +532,13 @@ items:[
 ["Libro de recuerdos",27.90],
 ["Tarjeta de recuerdos",6.90],
 ["Pack de fotografías",12.90]
-],
-tags:["recuerdos","fotografía","sentimental","familia","romántica"]
+]
 },
 
 {
-category:"Gourmet",
-emoji:"🍫",
-items:[
+nombre:"Gourmet",
+tags:["comida","chocolate","dulces","café","té","gourmet"],
+productos:[
 ["Caja de chocolates",10.90],
 ["Caja de chuches",8.90],
 ["Pack de café",14.90],
@@ -1134,14 +549,13 @@ items:[
 ["Caja gourmet",24.90],
 ["Pack de dulces",13.90],
 ["Pack degustación",29.90]
-],
-tags:["comida","chocolate","dulces","café","té","gourmet"]
+]
 },
 
 {
-category:"Bienestar",
-emoji:"🧘",
-items:[
+nombre:"Bienestar",
+tags:["bienestar","relax","cuidado","tranquila","salud"],
+productos:[
 ["Kit de relajación",19.90],
 ["Kit de cuidado personal",18.90],
 ["Jabones artesanales",9.90],
@@ -1152,14 +566,13 @@ items:[
 ["Antifaz relajante",9.90],
 ["Cojín relajante",22.90],
 ["Pack bienestar",32.90]
-],
-tags:["bienestar","relax","cuidado","tranquila","salud"]
+]
 },
 
 {
-category:"Creatividad",
-emoji:"🎨",
-items:[
+nombre:"Creatividad",
+tags:["creativa","arte","pintura","dibujo","manualidades"],
+productos:[
 ["Kit de pintura",17.90],
 ["Set de dibujo",14.90],
 ["Set de rotuladores",12.90],
@@ -1170,14 +583,13 @@ items:[
 ["Bloc de ilustración",13.90],
 ["Set de pinceles",11.90],
 ["Kit artístico premium",34.90]
-],
-tags:["creativa","arte","pintura","dibujo","manualidades"]
+]
 },
 
 {
-category:"Papelería",
-emoji:"📓",
-items:[
+nombre:"Papelería",
+tags:["papelería","estudio","organizada","escritura","creativa"],
+productos:[
 ["Set de papelería",11.90],
 ["Agenda bonita",15.90],
 ["Cuaderno premium",14.90],
@@ -1188,14 +600,13 @@ items:[
 ["Set de notas",8.90],
 ["Diario de ideas",14.90],
 ["Pack de escritorio",22.90]
-],
-tags:["papelería","estudio","organizada","escritura","creativa"]
+]
 },
 
 {
-category:"Tecnología",
-emoji:"📱",
-items:[
+nombre:"Tecnología",
+tags:["tecnología","móvil","práctica","organizada","digital"],
+productos:[
 ["Soporte para móvil",9.90],
 ["Mini altavoz",24.90],
 ["Mini altavoz Bluetooth",24.90],
@@ -1206,14 +617,13 @@ items:[
 ["Lámpara USB",15.90],
 ["Hub USB",21.90],
 ["Accesorio tecnológico",18.90]
-],
-tags:["tecnología","móvil","práctica","organizada","digital"]
+]
 },
 
 {
-category:"Gaming",
-emoji:"🎮",
-items:[
+nombre:"Gaming",
+tags:["gaming","videojuegos","tecnología","competitiva","juvenil"],
+productos:[
 ["Accesorio gaming",16.90],
 ["Soporte para auriculares",14.90],
 ["Alfombrilla gaming",19.90],
@@ -1224,14 +634,13 @@ items:[
 ["Soporte RGB",22.90],
 ["Accesorio para consola",19.90],
 ["Pack gaming",39.90]
-],
-tags:["gaming","videojuegos","tecnología","competitiva","juvenil"]
+]
 },
 
 {
-category:"Lectura",
-emoji:"📖",
-items:[
+nombre:"Lectura",
+tags:["libros","lectura","cultura","curiosa","intelectual"],
+productos:[
 ["Libro",14.90],
 ["Novela",15.90],
 ["Libro de misterio",17.90],
@@ -1242,14 +651,13 @@ items:[
 ["Libro ilustrado",21.90],
 ["Libro de desarrollo personal",18.90],
 ["Edición especial",29.90]
-],
-tags:["libros","lectura","cultura","curiosa","intelectual"]
+]
 },
 
 {
-category:"Viajes",
-emoji:"✈️",
-items:[
+nombre:"Viajes",
+tags:["viajes","aventurera","curiosa","viajar","organizada"],
+productos:[
 ["Diario de viaje",14.90],
 ["Mapa para rascar",19.90],
 ["Organizador de viaje",15.90],
@@ -1260,16 +668,15 @@ items:[
 ["Portadocumentos",19.90],
 ["Pack viajero",29.90],
 ["Accesorio para viajeros",18.90]
-],
-tags:["viajes","aventurera","curiosa","viajar","organizada"]
+]
 },
 
 {
-category:"Deporte",
-emoji:"🏋️",
-items:[
+nombre:"Deporte",
+tags:["deporte","fútbol","fitness","gimnasio","activa","saludable"],
+productos:[
+["Balón de fútbol",19.90],
 ["Botella deportiva",12.90],
-["Accesorio deportivo",14.90],
 ["Toalla deportiva",13.90],
 ["Cinta deportiva",9.90],
 ["Bolsa deportiva",24.90],
@@ -1278,14 +685,13 @@ items:[
 ["Accesorio gimnasio",18.90],
 ["Pack deportivo",29.90],
 ["Botella premium",22.90]
-],
-tags:["deporte","fitness","gimnasio","activa","saludable"]
+]
 },
 
 {
-category:"Música",
-emoji:"🎵",
-items:[
+nombre:"Música",
+tags:["música","musical","guitarra","artística","creativa"],
+productos:[
 ["Accesorio musical",12.90],
 ["Mini altavoz musical",24.90],
 ["Soporte para guitarra",19.90],
@@ -1296,14 +702,13 @@ items:[
 ["Decoración musical",14.90],
 ["Set para músicos",27.90],
 ["Pack fan de la música",29.90]
-],
-tags:["música","musical","guitarra","artística","creativa"]
+]
 },
 
 {
-category:"Hogar",
-emoji:"🏠",
-items:[
+nombre:"Hogar",
+tags:["hogar","decoración","plantas","minimalista","tranquila"],
+productos:[
 ["Mini planta",9.90],
 ["Mini cactus",7.90],
 ["Maceta decorativa",13.90],
@@ -1314,14 +719,13 @@ items:[
 ["Lámpara decorativa",29.90],
 ["Caja organizadora",17.90],
 ["Pack para el hogar",34.90]
-],
-tags:["hogar","decoración","plantas","minimalista","tranquila"]
+]
 },
 
 {
-category:"Moda",
-emoji:"🧦",
-items:[
+nombre:"Moda",
+tags:["moda","coqueta","divertida","accesorios","estilo"],
+productos:[
 ["Calcetines divertidos",8.90],
 ["Neceser",13.90],
 ["Gorra",14.90],
@@ -1332,14 +736,13 @@ items:[
 ["Pack de accesorios",24.90],
 ["Bolso pequeño",29.90],
 ["Set de moda",34.90]
-],
-tags:["moda","coqueta","divertida","accesorios","estilo"]
+]
 },
 
 {
-category:"Experiencias",
-emoji:"🎟️",
-items:[
+nombre:"Experiencias",
+tags:["experiencias","ocio","aventurera","social","romántica"],
+productos:[
 ["Vale por una experiencia",20],
 ["Vale para cine",15],
 ["Vale gastronómico",25],
@@ -1350,14 +753,13 @@ items:[
 ["Experiencia creativa",27.90],
 ["Actividad aventurera",39.90],
 ["Experiencia premium",49.90]
-],
-tags:["experiencias","ocio","aventurera","social","romántica"]
+]
 },
 
 {
-category:"Diversión",
-emoji:"🎲",
-items:[
+nombre:"Diversión",
+tags:["juegos","diversión","social","amigos","competitiva"],
+productos:[
 ["Juego de cartas",11.90],
 ["Puzzle",14.90],
 ["Puzzle personalizado",19.90],
@@ -1368,14 +770,13 @@ items:[
 ["Pack de juegos",24.90],
 ["Puzzle premium",29.90],
 ["Kit de diversión",22.90]
-],
-tags:["juegos","diversión","social","amigos","competitiva"]
+]
 },
 
 {
-category:"Cocina",
-emoji:"🧑‍🍳",
-items:[
+nombre:"Cocina",
+tags:["cocina","gastronomía","recetas","creativa","práctica"],
+productos:[
 ["Kit de cocina",19.90],
 ["Delantal",15.90],
 ["Set de utensilios",24.90],
@@ -1386,14 +787,13 @@ items:[
 ["Accesorio de cocina",13.90],
 ["Pack gastronómico",29.90],
 ["Kit chef",34.90]
-],
-tags:["cocina","gastronomía","recetas","creativa","práctica"]
+]
 },
 
 {
-category:"Aventura",
-emoji:"🗺️",
-items:[
+nombre:"Aventura",
+tags:["aventura","explorar","curiosa","aventurera","viajes"],
+productos:[
 ["Mapa para rascar",19.90],
 ["Brújula decorativa",14.90],
 ["Kit aventurero",24.90],
@@ -1404,14 +804,13 @@ items:[
 ["Cuaderno explorador",13.90],
 ["Pack aventura",34.90],
 ["Kit explorador premium",44.90]
-],
-tags:["aventura","explorar","curiosa","aventurera","viajes"]
+]
 },
 
 {
-category:"Sorpresa",
-emoji:"🎁",
-items:[
+nombre:"Sorpresa",
+tags:["sorpresa","divertida","curiosa","aventurera","novedad"],
+productos:[
 ["Producto sorpresa",9.90],
 ["Caja sorpresa",14.90],
 ["Mini sorpresa",7.90],
@@ -1422,495 +821,1093 @@ items:[
 ["Sorpresa divertida",12.90],
 ["Sorpresa romántica",22.90],
 ["Gran sorpresa",39.90]
-],
-tags:["sorpresa","divertida","curiosa","aventurera","novedad"]
-}
-
-];
-
-
-let products=[];
-
-let productId=1;
-
-catalogSeed.forEach(group=>{
-
-group.items.forEach(item=>{
-
-products.push({
-
-id:productId++,
-
-name:item[0],
-
-price:item[1],
-
-category:group.category,
-
-emoji:group.emoji,
-
-tags:group.tags,
-
-customizable:[
-"Taza",
-"personalizada",
-"Marco",
-"Álbum",
-"Llavero",
-"Diario",
-"Puzzle",
-"Carta",
-"Caja personalizada",
-"Botella personalizada",
-"Pulsera personalizada"
-].some(x=>item[0].toLowerCase().includes(x.toLowerCase()))
-
-});
-
-});
-
-});
-
-
-/* =====================================================
-ESTADO
-===================================================== */
-
-let answers={};
-
-let currentQuestion=0;
-
-let cart=[];
-
-let favorites=[];
-
-let selectedProduct=null;
-
-let selectedPhoto="";
-
-
-/* =====================================================
-PREGUNTAS DE LIA
-===================================================== */
-
-const questions=[
-
-{
-key:"relationship",
-text:"Primero dime, ¿para quién es el regalo?",
-options:[
-"Pareja",
-"Familiar",
-"Amigo/a",
-"Compañero/a",
-"Otra persona"
 ]
-},
-
-{
-key:"age",
-text:"¿Qué edad aproximada tiene?",
-options:[
-"Menos de 18",
-"18–25",
-"26–35",
-"36–50",
-"Más de 50"
-]
-},
-
-{
-key:"likes",
-text:"¿Qué cosas le gustan? Puedes escribir varias.",
-textInput:true
-},
-
-{
-key:"personality",
-text:"¿Cuál de estas personalidades se parece más?",
-options:[
-"Tranquila / hogareña",
-"Divertida / social",
-"Creativa / artística",
-"Aventurera / curiosa",
-"Práctica / organizada"
-]
-},
-
-{
-key:"occasion",
-text:"¿Qué ocasión estás celebrando?",
-options:[
-"Cumpleaños",
-"Aniversario",
-"Navidad",
-"Amigo invisible",
-"Graduación",
-"Otra ocasión"
-]
-},
-
-{
-key:"budget",
-text:"¿Cuál es tu presupuesto aproximado?",
-options:[
-"Hasta 20 €",
-"20–35 €",
-"35–50 €",
-"50–75 €",
-"Más de 75 €"
-]
-}
-
-];
-
-
-/* =====================================================
-LIA
-===================================================== */
-
-function startLia(){
-
-answers={};
-
-currentQuestion=0;
-
-document.getElementById("resultsSection").classList.add("hidden");
-
-document.getElementById("liaSection")
-.scrollIntoView({behavior:"smooth"});
-
-renderQuestion();
-
-}
-
-
-function speakLia(){
-
-const avatar=document.getElementById("liaAvatar");
-
-avatar.classList.add("talking");
-
-document.getElementById("liaStatus").textContent=
-"LIA está hablando...";
-
-setTimeout(()=>{
-
-avatar.classList.remove("talking");
-
-document.getElementById("liaStatus").textContent=
-"Tu asesora inteligente de regalos";
-
-},900);
-
-}
-
-
-function renderQuestion(){
-
-const box=document.getElementById("chatBox");
-
-const q=questions[currentQuestion];
-
-box.innerHTML="";
-
-const message=document.createElement("div");
-
-message.className="message lia";
-
-message.textContent=q.text;
-
-box.appendChild(message);
-
-speakLia();
-
-if(q.textInput){
-
-const input=document.createElement("input");
-
-input.className="text-answer";
-
-input.id="liaText";
-
-input.placeholder="Ej. fútbol, música, café, viajes...";
-
-box.appendChild(input);
-
-const button=document.createElement("button");
-
-button.className="primary";
-
-button.textContent="Continuar →";
-
-button.onclick=()=>{
-
-const value=document.getElementById("liaText").value.trim();
-
-if(!value)return;
-
-saveAnswer(value);
-
 };
 
-box.appendChild(button);
 
-return;
+/* =========================================================
+CREAR LOS 200 PRODUCTOS
+========================================================= */
 
-}
+let productos=[];
+let id=1;
 
-const options=document.createElement("div");
+categorias.forEach(cat=>{
 
-options.className="options";
+cat.productos.forEach(p=>{
 
-q.options.forEach(option=>{
+productos.push({
+id:id,
+nombre:p[0],
+precio:p[1],
+categoria:cat.nombre,
+tags:cat.tags
+});
 
-const button=document.createElement("button");
-
-button.className="option";
-
-button.textContent=option;
-
-button.onclick=()=>saveAnswer(option);
-
-options.appendChild(button);
+id++;
 
 });
 
-box.appendChild(options);
+});
+
+
+/* =========================================================
+GENERADOR DE ICONOS SVG
+NO NECESITA IMÁGENES EXTERNAS
+========================================================= */
+
+function esc(s){
+return s.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;");
+}
+
+
+function svgBase(contenido,color="#75b8df"){
+
+return `
+<svg viewBox="0 0 240 200"
+xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+<linearGradient id="g${Math.random().toString(36).slice(2)}"
+x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#dff4ff"/>
+<stop offset="100%" stop-color="#ffffff"/>
+</linearGradient>
+
+</defs>
+
+<ellipse cx="120" cy="174"
+rx="62" ry="10"
+fill="#b9ddeb"
+opacity=".45"/>
+
+${contenido}
+
+</svg>`;
+}
+
+
+/* =========================================================
+ILUSTRACIONES INDIVIDUALES
+========================================================= */
+
+function crearIcono(p){
+
+const n=p.nombre.toLowerCase();
+const c=p.categoria;
+
+
+/* VELAS */
+
+if(n.includes("vela")){
+
+return svgBase(`
+<rect x="78" y="60" width="84" height="92"
+rx="12" fill="#fff" stroke="#72b7db" stroke-width="4"/>
+
+<ellipse cx="120" cy="60" rx="42" ry="12"
+fill="#dff3fc" stroke="#72b7db" stroke-width="4"/>
+
+<path d="M120 51 C108 38 124 30 120 18
+C139 34 134 48 120 51Z"
+fill="#75b8df"/>
+
+<path d="M103 105 Q120 90 137 105"
+fill="none" stroke="#a7d7ec" stroke-width="4"/>
+
+<text x="120" y="135"
+text-anchor="middle"
+font-size="13"
+fill="#579ec8"
+font-family="Arial">ROSAL</text>
+`);
+}
+
+
+/* TAZAS */
+
+if(n.includes("taza")){
+
+return svgBase(`
+<path d="M70 65 H158 V135
+Q158 153 140 153 H88
+Q70 153 70 135Z"
+fill="white" stroke="#72b7db" stroke-width="5"/>
+
+<path d="M158 82 H177
+Q195 82 195 101
+Q195 120 177 120 H158"
+fill="none" stroke="#72b7db" stroke-width="5"/>
+
+<path d="M84 94 Q115 72 145 94"
+fill="none" stroke="#9ed4ea" stroke-width="5"/>
+
+<circle cx="115" cy="116" r="17"
+fill="#dff3fc"/>
+
+<text x="115" y="121"
+text-anchor="middle"
+font-size="12"
+fill="#579ec8"
+font-weight="bold">♡</text>
+`);
+}
+
+
+/* BOTELLAS */
+
+if(n.includes("botella")){
+
+return svgBase(`
+<rect x="88" y="45" width="64" height="120"
+rx="20" fill="#dff3fc"
+stroke="#68acd2" stroke-width="5"/>
+
+<rect x="102" y="27" width="36" height="25"
+rx="7" fill="#75b8df"/>
+
+<path d="M105 90 Q120 76 135 90"
+fill="none" stroke="#fff" stroke-width="6"/>
+
+<circle cx="120" cy="119" r="17"
+fill="#fff"/>
+
+<text x="120" y="124"
+text-anchor="middle"
+font-size="11"
+fill="#579ec8"
+font-weight="bold">R</text>
+`);
+}
+
+
+/* LLAVERO */
+
+if(n.includes("llavero")){
+
+return svgBase(`
+<circle cx="105" cy="82" r="25"
+fill="none" stroke="#75b8df" stroke-width="8"/>
+
+<circle cx="105" cy="82" r="10"
+fill="#e5f6fd"/>
+
+<path d="M125 101 L161 137"
+stroke="#75b8df" stroke-width="8"
+stroke-linecap="round"/>
+
+<path d="M155 131 L174 150"
+stroke="#75b8df" stroke-width="8"
+stroke-linecap="round"/>
+
+<rect x="139" y="124" width="42" height="30"
+rx="8" fill="#fff"
+stroke="#75b8df" stroke-width="4"/>
+`);
+}
+
+
+/* MARCOS */
+
+if(n.includes("marco")){
+
+return svgBase(`
+<rect x="55" y="30" width="130" height="135"
+rx="6" fill="#75b8df"/>
+
+<rect x="68" y="43" width="104" height="109"
+fill="white"/>
+
+<circle cx="120" cy="78" r="20"
+fill="#dff3fc"/>
+
+<path d="M78 135 L105 105
+L125 125 L143 102 L165 135Z"
+fill="#b6deee"/>
+`);
+}
+
+
+/* ALBUM / FOTOS */
+
+if(n.includes("álbum") || n.includes("album") || n.includes("fotograf")){
+
+return svgBase(`
+<path d="M58 50
+Q58 38 70 38
+H174 Q182 38 182 50
+V154 Q182 165 171 165
+H69 Q58 165 58 154Z"
+fill="#dff3fc"
+stroke="#6eb3d8"
+stroke-width="5"/>
+
+<rect x="75" y="58" width="70" height="78"
+fill="white"
+stroke="#9acfe5"
+stroke-width="3"/>
+
+<circle cx="110" cy="82" r="15"
+fill="#c3e5f3"/>
+
+<path d="M80 126 L102 104
+L118 119 L130 107 L143 126"
+fill="#9ed1e6"/>
+`);
+}
+
+
+/* CHOCOLATE */
+
+if(n.includes("chocolate") || n.includes("bombon")){
+
+return svgBase(`
+<rect x="55" y="65" width="130" height="85"
+rx="14" fill="#c8e9f7"
+stroke="#67acd1" stroke-width="5"/>
+
+${[0,1,2,3,4].map(i=>
+`<circle cx="${75+i*22}" cy="108" r="13"
+fill="#fff" stroke="#75b8df" stroke-width="3"/>`
+).join("")}
+
+<path d="M70 65 Q120 30 170 65"
+fill="none" stroke="#75b8df" stroke-width="5"/>
+`);
+}
+
+
+/* CAFÉ */
+
+if(n.includes("café") || n.includes("cafe")){
+
+return svgBase(`
+<path d="M70 75 H158 V132
+Q158 151 140 151 H88
+Q70 151 70 132Z"
+fill="#fff" stroke="#70b5da" stroke-width="5"/>
+
+<path d="M158 89 H178
+Q190 89 190 103
+Q190 117 178 117 H158"
+fill="none" stroke="#70b5da" stroke-width="5"/>
+
+<path d="M92 62 Q92 42 104 32"
+fill="none" stroke="#9ccfe3" stroke-width="5"/>
+
+<path d="M118 62 Q118 42 130 32"
+fill="none" stroke="#9ccfe3" stroke-width="5"/>
+`);
+}
+
+
+/* TÉ */
+
+if(n.includes("té") || n.includes("te")){
+
+return svgBase(`
+<path d="M70 75 H158 V132
+Q158 151 140 151 H88
+Q70 151 70 132Z"
+fill="#fff" stroke="#70b5da" stroke-width="5"/>
+
+<path d="M158 90 H179
+Q190 90 190 104
+Q190 118 179 118 H158"
+fill="none" stroke="#70b5da" stroke-width="5"/>
+
+<path d="M130 130 L165 160"
+stroke="#75b8df" stroke-width="4"/>
+
+<rect x="158" y="153" width="28" height="18"
+rx="5" fill="#dff3fc"/>
+`);
+}
+
+
+/* KIT / CAJA */
+
+if(n.includes("kit") || n.includes("caja")){
+
+return svgBase(`
+<path d="M52 75 L120 45 L188 75
+V145 L120 175 L52 145Z"
+fill="#dff3fc"
+stroke="#6caed4"
+stroke-width="5"/>
+
+<path d="M52 75 L120 105 L188 75"
+fill="none" stroke="#6caed4" stroke-width="5"/>
+
+<path d="M120 105 V175"
+stroke="#6caed4" stroke-width="5"/>
+
+<path d="M110 70 Q120 58 130 70"
+fill="none" stroke="#75b8df" stroke-width="7"/>
+`);
+}
+
+
+/* MASAJEADOR */
+
+if(n.includes("masajeador")){
+
+return svgBase(`
+<rect x="91" y="45" width="58" height="110"
+rx="28" fill="#dff3fc"
+stroke="#6eafd2" stroke-width="5"/>
+
+<circle cx="120" cy="65" r="13"
+fill="#75b8df"/>
+
+<circle cx="120" cy="101" r="13"
+fill="#75b8df"/>
+
+<circle cx="120" cy="137" r="13"
+fill="#75b8df"/>
+`);
+}
+
+
+/* PINTURA / ACUARELAS */
+
+if(n.includes("pintura") || n.includes("acuarela")){
+
+return svgBase(`
+<rect x="58" y="50" width="124" height="105"
+rx="14" fill="#fff"
+stroke="#70b5da" stroke-width="5"/>
+
+${[0,1,2,3,4,5].map(i=>
+`<circle cx="${82+(i%3)*38}"
+cy="${78+Math.floor(i/3)*38}"
+r="13"
+fill="${["#75b8df","#b8e0ef","#8ac6e3","#d0edf8","#5fa7cf","#a5d6e9"][i]}"/>`
+).join("")}
+`);
+}
+
+
+/* ROTULADORES / BOLÍGRAFOS */
+
+if(n.includes("rotuladores") || n.includes("bolígrafos") || n.includes("boligrafos")){
+
+return svgBase(`
+${[0,1,2,3,4].map(i=>`
+<rect x="${65+i*25}" y="${48+i*8}"
+width="17" height="108"
+rx="8"
+fill="${["#75b8df","#9ed3e8","#62a9d0","#c3e7f4","#579ec8"][i]}"
+transform="rotate(${i*3-6} 100 100)"/>
+`).join("")}
+`);
+}
+
+
+/* CUADERNO / DIARIO / AGENDA */
+
+if(n.includes("cuaderno") || n.includes("diario") || n.includes("agenda") || n.includes("planificador")){
+
+return svgBase(`
+<rect x="67" y="32" width="108" height="140"
+rx="8"
+fill="#dff3fc"
+stroke="#6aafd5"
+stroke-width="5"/>
+
+<line x1="82" y1="62" x2="160" y2="62"
+stroke="#9acfe5" stroke-width="4"/>
+
+<line x1="82" y1="88" x2="160" y2="88"
+stroke="#9acfe5" stroke-width="4"/>
+
+<line x1="82" y1="114" x2="145" y2="114"
+stroke="#9acfe5" stroke-width="4"/>
+
+<line x1="82" y1="140" x2="152" y2="140"
+stroke="#9acfe5" stroke-width="4"/>
+
+<circle cx="82" cy="43" r="4" fill="#75b8df"/>
+<circle cx="120" cy="43" r="4" fill="#75b8df"/>
+<circle cx="158" cy="43" r="4" fill="#75b8df"/>
+`);
+}
+
+
+/* MÓVIL / TABLET / TECNOLOGÍA */
+
+if(n.includes("móvil") || n.includes("movil") || n.includes("tablet")){
+
+return svgBase(`
+<rect x="76" y="30" width="88" height="145"
+rx="15"
+fill="#d9f1fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<rect x="87" y="48" width="66" height="105"
+rx="5"
+fill="white"/>
+
+<circle cx="120" cy="163" r="5"
+fill="#65a9cf"/>
+
+<path d="M102 94 L120 78 L138 94 L120 110Z"
+fill="#9dd2e8"/>
+`);
+}
+
+
+/* ALTAVOZ */
+
+if(n.includes("altavoz")){
+
+return svgBase(`
+<rect x="78" y="42" width="84" height="118"
+rx="20"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<circle cx="120" cy="92" r="28"
+fill="white"
+stroke="#75b8df"
+stroke-width="4"/>
+
+<circle cx="120" cy="92" r="13"
+fill="#75b8df"/>
+
+<circle cx="120" cy="137" r="7"
+fill="#75b8df"/>
+`);
+}
+
+
+/* CABLES / HUB */
+
+if(n.includes("cable") || n.includes("hub")){
+
+return svgBase(`
+<rect x="72" y="65" width="96" height="70"
+rx="12"
+fill="#dff3fc"
+stroke="#68acd2"
+stroke-width="5"/>
+
+${[0,1,2].map(i=>`
+<rect x="${88+i*27}" y="85"
+width="15" height="30"
+rx="4"
+fill="#75b8df"/>
+`).join("")}
+
+<path d="M120 135 V165"
+stroke="#75b8df" stroke-width="5"/>
+`);
+}
+
+
+/* GAMING / MANDO */
+
+if(n.includes("gaming") || n.includes("mando") || n.includes("consola")){
+
+return svgBase(`
+<path d="M65 95
+Q70 65 94 70
+L107 78 H133 L146 70
+Q170 65 175 95
+L180 132
+Q181 150 165 151
+Q154 152 145 135
+L136 120 H104
+L95 135
+Q86 152 75 151
+Q59 150 60 132Z"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M82 98 H103 M92 88 V108"
+stroke="#65a9cf" stroke-width="5"/>
+
+<circle cx="145" cy="94" r="6" fill="#75b8df"/>
+<circle cx="160" cy="105" r="6" fill="#75b8df"/>
+`);
+}
+
+
+/* LIBRO */
+
+if(n.includes("libro") || n.includes("novela") || n.includes("edición")){
+
+return svgBase(`
+<path d="M60 45 Q90 32 120 48 V165
+Q90 148 60 160Z"
+fill="#dff3fc"
+stroke="#6caed4"
+stroke-width="5"/>
+
+<path d="M120 48 Q150 32 180 45 V160
+Q150 148 120 165Z"
+fill="#edf9fd"
+stroke="#6caed4"
+stroke-width="5"/>
+
+<line x1="78" y1="76" x2="104" y2="76"
+stroke="#75b8df" stroke-width="4"/>
+
+<line x1="136" y1="76" x2="163" y2="76"
+stroke="#75b8df" stroke-width="4"/>
+`);
+}
+
+
+/* MAPA */
+
+if(n.includes("mapa")){
+
+return svgBase(`
+<path d="M48 48
+L98 35 L145 50 L192 37
+V153 L145 168 L98 151 L48 165Z"
+fill="#e5f5fb"
+stroke="#68acd2"
+stroke-width="5"/>
+
+<path d="M98 35 V151
+M145 50 V168"
+stroke="#9acfe5"
+stroke-width="4"/>
+
+<path d="M72 125
+Q92 88 112 112
+T154 85
+T180 112"
+fill="none"
+stroke="#75b8df"
+stroke-width="5"/>
+
+<circle cx="112" cy="112" r="7"
+fill="#579ec8"/>
+`);
+}
+
+
+/* VIAJE / DOCUMENTOS */
+
+if(n.includes("viaje") || n.includes("viajero") || n.includes("documentos")){
+
+return svgBase(`
+<rect x="68" y="45" width="104" height="120"
+rx="10"
+fill="#dff3fc"
+stroke="#68acd2"
+stroke-width="5"/>
+
+<rect x="82" y="65" width="76" height="12"
+rx="5"
+fill="#a4d5e9"/>
+
+<rect x="82" y="90" width="50" height="12"
+rx="5"
+fill="#a4d5e9"/>
+
+<rect x="82" y="115" width="64" height="12"
+rx="5"
+fill="#a4d5e9"/>
+
+<circle cx="145" cy="145" r="12"
+fill="#75b8df"/>
+`);
+}
+
+
+/* BALÓN */
+
+if(n.includes("balón") || n.includes("balon")){
+
+return svgBase(`
+<circle cx="120" cy="100" r="62"
+fill="#fff"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M120 68 L139 82
+L132 105 L108 105
+L101 82Z"
+fill="#75b8df"/>
+
+<path d="M101 82 L78 73
+M139 82 L162 73
+M108 105 L93 127
+M132 105 L147 127
+M120 68 V43"
+stroke="#65a9cf"
+stroke-width="4"
+fill="none"/>
+`);
+}
+
+
+/* BOTELLA DEPORTE */
+if(n.includes("deportiva") || n.includes("premium")){
+
+return svgBase(`
+<path d="M92 48 H148
+V68
+Q160 82 160 100
+V143
+Q160 160 143 160
+H97
+Q80 160 80 143
+V100
+Q80 82 92 68Z"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<rect x="102" y="30" width="36" height="20"
+rx="6" fill="#75b8df"/>
+
+<path d="M96 112 H144"
+stroke="#75b8df" stroke-width="6"/>
+`);
+}
+
+
+/* GUITARRA */
+
+if(n.includes("guitarra") || n.includes("musical") || n.includes("instrument")){
+
+return svgBase(`
+<ellipse cx="120" cy="126" rx="38" ry="34"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<ellipse cx="120" cy="92" rx="28" ry="23"
+fill="#eaf8fd"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M120 72 V38"
+stroke="#65a9cf" stroke-width="12"/>
+
+<path d="M108 38 H132"
+stroke="#65a9cf" stroke-width="7"/>
+
+<circle cx="120" cy="110" r="8"
+fill="#75b8df"/>
+`);
+}
+
+
+/* PLANTA */
+
+if(n.includes("planta") || n.includes("cactus") || n.includes("maceta")){
+
+return svgBase(`
+<path d="M80 110
+Q120 95 160 110
+L151 160 H89Z"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M120 111
+C105 85 108 56 120 48
+C132 56 135 85 120 111Z"
+fill="#9ed5b0"
+stroke="#63aa84"
+stroke-width="4"/>
+
+<path d="M119 76
+C100 70 91 81 96 96"
+fill="none"
+stroke="#63aa84"
+stroke-width="7"/>
+
+<path d="M122 84
+C143 76 151 88 146 102"
+fill="none"
+stroke="#63aa84"
+stroke-width="7"/>
+`);
+}
+
+
+/* COJÍN */
+
+if(n.includes("cojín") || n.includes("cojin")){
+
+return svgBase(`
+<rect x="55" y="55" width="130" height="100"
+rx="28"
+fill="#dff3fc"
+stroke="#6baed3"
+stroke-width="5"/>
+
+<path d="M75 75 Q120 105 165 75"
+fill="none"
+stroke="#a1d3e6"
+stroke-width="4"/>
+`);
+}
+
+
+/* GORRA */
+
+if(n.includes("gorra")){
+
+return svgBase(`
+<path d="M62 118
+Q65 65 120 58
+Q165 60 176 105
+Q135 89 62 118Z"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M62 118
+Q112 102 176 105
+Q157 130 104 130
+Q78 130 62 118Z"
+fill="#bfe3f1"
+stroke="#65a9cf"
+stroke-width="5"/>
+`);
+}
+
+
+/* BUFANDA */
+
+if(n.includes("bufanda")){
+
+return svgBase(`
+<path d="M82 45
+Q100 35 120 45
+L120 145
+L92 165
+L92 70Z"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M120 90
+Q145 85 164 95
+L164 165
+L135 150
+L135 105Z"
+fill="#bfe3f1"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M92 165 V180
+M105 158 V180
+M135 150 V180
+M150 157 V180"
+stroke="#65a9cf" stroke-width="4"/>
+`);
+}
+
+
+/* COLLAR / PULSERA */
+
+if(n.includes("pulsera") || n.includes("collar")){
+
+return svgBase(`
+<ellipse cx="120" cy="102"
+rx="62" ry="50"
+fill="none"
+stroke="#75b8df"
+stroke-width="14"/>
+
+<circle cx="120" cy="53" r="15"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="4"/>
+
+<circle cx="120" cy="151" r="15"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="4"/>
+`);
+}
+
+
+/* BOLSO / NECESER */
+
+if(n.includes("bolso") || n.includes("neceser")){
+
+return svgBase(`
+<path d="M65 75
+Q65 60 80 60
+H160 Q175 60 175 75
+V150 Q175 165 160 165
+H80 Q65 165 65 150Z"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M90 60
+Q90 30 120 30
+Q150 30 150 60"
+fill="none"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<rect x="103" y="95"
+width="34" height="12"
+rx="5"
+fill="#75b8df"/>
+`);
+}
+
+
+/* VALES / EXPERIENCIAS */
+
+if(n.includes("vale") || n.includes("experiencia") || n.includes("actividad") || n.includes("plan para")){
+
+return svgBase(`
+<rect x="48" y="55" width="144" height="90"
+rx="15"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<circle cx="58" cy="100" r="10"
+fill="#f5fbff"/>
+
+<circle cx="182" cy="100" r="10"
+fill="#f5fbff"/>
+
+<path d="M78 88 H162
+M78 111 H145"
+stroke="#75b8df"
+stroke-width="7"
+stroke-linecap="round"/>
+
+<text x="120" y="132"
+text-anchor="middle"
+font-size="13"
+font-weight="bold"
+fill="#579ec8">EXPERIENCIA</text>
+`);
+}
+
+
+/* JUEGOS / PUZZLE */
+
+if(n.includes("puzzle") || n.includes("juego") || n.includes("cartas") || n.includes("retos")){
+
+return svgBase(`
+<rect x="55" y="50" width="130" height="110"
+rx="12"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M55 105 H185
+M120 50 V160"
+stroke="#8bc5df"
+stroke-width="4"/>
+
+<circle cx="120" cy="77" r="13"
+fill="#75b8df"/>
+
+<circle cx="87" cy="130" r="13"
+fill="#9ed3e8"/>
+
+<circle cx="153" cy="130" r="13"
+fill="#579ec8"/>
+`);
+}
+
+
+/* COCINA */
+
+if(n.includes("cocina") || n.includes("utensilios") || n.includes("chef") || n.includes("repostería") || n.includes("reposteria")){
+
+return svgBase(`
+<rect x="65" y="75" width="110" height="85"
+rx="12"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M88 75 V42
+M105 75 V42
+M135 75 V42
+M152 75 V42"
+stroke="#65a9cf"
+stroke-width="8"
+stroke-linecap="round"/>
+
+<circle cx="120" cy="118" r="22"
+fill="white"
+stroke="#75b8df"
+stroke-width="4"/>
+`);
+}
+
+
+/* BRÚJULA */
+
+if(n.includes("brújula") || n.includes("brujula") || n.includes("explorador") || n.includes("excursión") || n.includes("excursion")){
+
+return svgBase(`
+<circle cx="120" cy="100" r="62"
+fill="#fff"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M120 50
+L133 100
+L120 150
+L107 100Z"
+fill="#75b8df"/>
+
+<path d="M70 100 H170
+M120 50 V150"
+stroke="#a2d4e7"
+stroke-width="3"/>
+
+<circle cx="120" cy="100" r="8"
+fill="#579ec8"/>
+`);
+}
+
+
+/* SORPRESA */
+
+if(c==="Sorpresa"){
+
+return svgBase(`
+<path d="M55 78 H185 V155
+H55Z"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M50 62 H190 V88 H50Z"
+fill="#bfe3f1"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M120 62 V155"
+stroke="#75b8df"
+stroke-width="7"/>
+
+<path d="M120 62
+C92 60 86 40 103 35
+C118 31 120 52 120 62Z"
+fill="#75b8df"/>
+
+<path d="M120 62
+C148 60 154 40 137 35
+C122 31 120 52 120 62Z"
+fill="#9ed3e8"/>
+`);
+}
+
+
+/* ICONO GENÉRICO PERO DIFERENTE */
+
+return svgBase(`
+<circle cx="120" cy="95" r="55"
+fill="#dff3fc"
+stroke="#65a9cf"
+stroke-width="5"/>
+
+<path d="M90 110
+Q120 65 150 110"
+fill="none"
+stroke="#75b8df"
+stroke-width="8"/>
+
+<circle cx="100" cy="90" r="8"
+fill="#75b8df"/>
+
+<circle cx="140" cy="90" r="8"
+fill="#75b8df"/>
+
+<path d="M100 125 Q120 140 140 125"
+fill="none"
+stroke="#65a9cf"
+stroke-width="5"/>
+`);
 
 }
 
 
-function saveAnswer(value){
+/* =========================================================
+CREAR TARJETA DE PRODUCTO
+========================================================= */
 
-const key=questions[currentQuestion].key;
+function tarjeta(p){
 
-answers[key]=value;
+return `
+<div class="product">
 
-const box=document.getElementById("chatBox");
+<div class="product-image">
+${crearIcono(p)}
+</div>
 
-const user=document.createElement("div");
+<div class="product-info">
 
-user.className="message user";
+<div class="product-category">
+${p.categoria}
+</div>
 
-user.textContent=value;
+<h3>${p.nombre}</h3>
 
-box.appendChild(user);
+<div class="price">
+${p.precio.toFixed(2)} €
+</div>
 
-currentQuestion++;
-
-if(currentQuestion<questions.length){
-
-setTimeout(renderQuestion,350);
-
-}else{
-
-showThinking();
-
-}
-
-}
-
-
-function showThinking(){
-
-const box=document.getElementById("chatBox");
-
-box.innerHTML=`
-
-<div class="loading">
-
-<div class="loading-emoji">🤓</div>
-
-<h2>LIA está pensando<span class="dots"></span></h2>
-
-<p style="margin-top:12px;color:#718996">
-Analizando personalidad...
-</p>
+<button onclick="abrirProducto(${p.id})">
+Ver regalo 🎁
+</button>
 
 </div>
 
+</div>
 `;
 
-speakLia();
+}
 
-setTimeout(()=>{
 
-box.querySelector("p").textContent=
-"Buscando coincidencias...";
+/* =========================================================
+MOSTRAR CATÁLOGO
+========================================================= */
 
-},900);
+function mostrarProductos(lista=productos){
 
-setTimeout(()=>{
+const grid=document.getElementById("productGrid");
 
-box.querySelector("p").textContent=
-"Combinando productos...";
-
-},1700);
-
-setTimeout(()=>{
-
-box.querySelector("p").textContent=
-"Preparando la sorpresa... 🎁";
-
-},2500);
-
-setTimeout(generateResults,3300);
+grid.innerHTML=lista.map(tarjeta).join("");
 
 }
 
 
-/* =====================================================
-RECOMENDACIÓN
-===================================================== */
+/* =========================================================
+CATEGORÍAS
+========================================================= */
 
-function budgetNumber(){
+function cargarCategorias(){
 
-const b=answers.budget||"";
+const select=document.getElementById("category");
 
-if(b.includes("20–35"))return 35;
-
-if(b.includes("35–50"))return 50;
-
-if(b.includes("50–75"))return 75;
-
-if(b.includes("Más de 75"))return 1000;
-
-return 20;
-
-}
-
-
-function generateResults(){
-
-const budget=budgetNumber();
-
-const text=Object.values(answers)
-.join(" ")
-.toLowerCase();
-
-const scored=products.map(product=>{
-
-let score=0;
-
-product.tags.forEach(tag=>{
-
-if(text.includes(tag.toLowerCase())){
-
-score+=3;
-
-}
-
-});
-
-if(
-answers.personality &&
-product.tags.some(t=>
-answers.personality
-.toLowerCase()
-.includes(t)
-)
-){
-
-score+=4;
-
-}
-
-if(
-answers.likes &&
-product.tags.some(t=>
-answers.likes
-.toLowerCase()
-.includes(t)
-)
-){
-
-score+=5;
-
-}
-
-if(product.price<=budget){
-
-score+=2;
-
-}else{
-
-score-=8;
-
-}
-
-if(
-answers.occasion &&
-product.category==="Experiencias"
-){
-
-score+=1;
-
-}
-
-return {...product,score};
-
-});
-
-scored.sort((a,b)=>b.score-a.score);
-
-const results=scored
-.filter(p=>p.price<=budget)
-.slice(0,12);
-
-window.currentRecommendations=results;
-
-const compatibility=Math.min(
-99,
-Math.max(
-65,
-65+Math.floor(
-results.reduce(
-(sum,p)=>sum+p.score,
-0
-)/(results.length||1)*2
-)
-)
-);
-
-document.getElementById("compatibility").textContent=
-`✨ ${compatibility}% compatibilidad`;
-
-document.getElementById("resultDescription").textContent=
-`LIA ha encontrado ${results.length} opciones según tus respuestas.`;
-
-document.getElementById("resultsSection")
-.classList.remove("hidden");
-
-populateFilters();
-
-renderProducts(results);
-
-document.getElementById("resultsSection")
-.scrollIntoView({behavior:"smooth"});
-
-}
-
-
-/* =====================================================
-CATÁLOGO
-===================================================== */
-
-function populateFilters(){
-
-const select=document.getElementById("categoryFilter");
-
-select.innerHTML=
-`<option value="all">Todas las categorías</option>`;
-
-[...new Set(products.map(p=>p.category))]
-.forEach(category=>{
+categorias.forEach(c=>{
 
 const option=document.createElement("option");
 
-option.value=category;
-
-option.textContent=category;
+option.value=c.nombre;
+option.textContent=c.nombre;
 
 select.appendChild(option);
 
@@ -1919,561 +1916,495 @@ select.appendChild(option);
 }
 
 
-function productHTML(product){
+/* =========================================================
+FILTROS
+========================================================= */
 
-const isFav=favorites.includes(product.id);
+function filtrarProductos(){
 
-return `
-
-<article class="product">
-
-<button
-class="favorite"
-onclick="toggleFavorite(${product.id})"
->
-${isFav?"❤️":"♡"}
-</button>
-
-<div class="product-icon">
-${product.emoji}
-</div>
-
-<div class="category">
-${product.category}
-</div>
-
-<h3>
-${product.name}
-</h3>
-
-<div class="price">
-${product.price.toFixed(2).replace(".",",")} €
-</div>
-
-<div class="reason">
-
-${
-product.score
-?
-"🤓 LIA cree que puede encajar especialmente contigo."
-:
-"Una opción interesante para regalar."
-}
-
-</div>
-
-<div class="product-actions">
-
-${
-product.customizable
-?
-`<button
-class="customize"
-onclick="openCustomization(${product.id})"
->
-✏️ Personalizar
-</button>`
-:
-""
-}
-
-<button
-class="add"
-onclick="addToCart(${product.id})"
->
-🛒 Añadir
-</button>
-
-</div>
-
-</article>
-
-`;
-
-}
-
-
-function renderProducts(source){
-
-const grid=document.getElementById("productsGrid");
-
-let list=source||window.currentRecommendations||products.slice(0,12);
-
-const search=document
-.getElementById("searchInput")
+const texto=
+document.getElementById("search")
 .value
 .toLowerCase();
 
-const category=document
-.getElementById("categoryFilter")
+const categoria=
+document.getElementById("category")
 .value;
 
-const price=document
-.getElementById("priceFilter")
+const precio=
+document.getElementById("price")
 .value;
 
-list=list.filter(product=>{
+const lista=productos.filter(p=>{
 
-const matchSearch=
-product.name.toLowerCase().includes(search) ||
-product.category.toLowerCase().includes(search);
+return (
 
-const matchCategory=
-category==="all" ||
-product.category===category;
+p.nombre.toLowerCase().includes(texto)
 
-const matchPrice=
-price==="all" ||
-product.price<=Number(price);
+&&
 
-return matchSearch &&
-matchCategory &&
-matchPrice;
+(!categoria || p.categoria===categoria)
+
+&&
+
+(!precio || p.precio<=Number(precio))
+
+);
 
 });
 
-grid.innerHTML=
-list.length
-?
-list.map(productHTML).join("")
-:
-`<p>No hemos encontrado productos con esos filtros.</p>`;
+mostrarProductos(lista);
 
 }
 
 
-function renderCatalog(){
+/* =========================================================
+MODAL
+========================================================= */
 
-const grid=document.getElementById("catalogGrid");
+let productoActual=null;
 
-grid.innerHTML=
-products.map(productHTML).join("");
+function abrirProducto(id){
 
-}
+productoActual=
+productos.find(p=>p.id===id);
 
+if(!productoActual)return;
 
-/* =====================================================
-FAVORITOS
-===================================================== */
+document.getElementById("modalTitle")
+.textContent=productoActual.nombre;
 
-function toggleFavorite(id){
-
-if(favorites.includes(id)){
-
-favorites=favorites.filter(x=>x!==id);
-
-}else{
-
-favorites.push(id);
-
-}
-
-renderCatalog();
-
-if(window.currentRecommendations){
-
-renderProducts();
-
-}
-
-}
-
-
-/* =====================================================
-CARRITO
-===================================================== */
-
-function addToCart(id){
-
-const product=products.find(p=>p.id===id);
-
-if(!product)return;
-
-const existing=cart.find(
-item=>item.id===id &&
-!item.customText
-);
-
-if(existing){
-
-existing.quantity++;
-
-}else{
-
-cart.push({
-
-id:product.id,
-
-name:product.name,
-
-price:product.price,
-
-emoji:product.emoji,
-
-quantity:1,
-
-customText:"",
-
-photo:""
-
-});
-
-}
-
-updateCart();
-
-openCart();
-
-}
-
-
-function addCustomized(){
-
-if(!selectedProduct)return;
-
-const quantity=
-Number(document.getElementById("customQuantity").value);
-
-const text=
-document.getElementById("customText").value.trim();
-
-cart.push({
-
-id:selectedProduct.id,
-
-name:selectedProduct.name,
-
-price:selectedProduct.price,
-
-emoji:selectedProduct.emoji,
-
-quantity,
-
-customText:text,
-
-photo:selectedPhoto
-
-});
-
-updateCart();
-
-closeCustomization();
-
-openCart();
-
-}
-
-
-function updateCart(){
-
-const container=document.getElementById("cartItems");
-
-const count=cart.reduce(
-(sum,item)=>sum+item.quantity,
-0
-);
-
-document.getElementById("cartCount").textContent=count;
-
-if(!cart.length){
-
-container.innerHTML=`
-
-<div style="text-align:center;padding:50px 10px">
-
-<div style="font-size:60px">
-🛒
-</div>
-
-<h3>Tu carrito está vacío</h3>
-
-<p style="color:#7b929e;margin-top:8px">
-Añade algún regalo para verlo aquí.
-</p>
-
-</div>
-
-`;
-
-}else{
-
-container.innerHTML=cart.map((item,index)=>`
-
-<div class="cart-item">
-
-<div class="cart-item-icon">
-${item.emoji}
-</div>
-
-<div class="cart-item-info">
-
-<strong>
-${item.name}
-</strong>
-
-${
-item.customText
-?
-`<div style="font-size:12px;color:#698896">
-✏️ ${item.customText}
-</div>`
-:
-""
-}
-
-<div style="margin-top:5px">
-${(item.price*item.quantity)
-.toFixed(2)
-.replace(".",",")} €
-</div>
-
-<div class="qty">
-
-<button onclick="changeQuantity(${index},-1)">
-−
-</button>
-
-<span>
-${item.quantity}
-</span>
-
-<button onclick="changeQuantity(${index},1)">
-+
-</button>
-
-<button
-onclick="removeCartItem(${index})"
-style="margin-left:8px"
->
-🗑️
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-`).join("");
-
-}
-
-const total=cart.reduce(
-(sum,item)=>
-sum+item.price*item.quantity,
-0
-);
-
-document.getElementById("cartTotal").textContent=
-total.toFixed(2).replace(".",",")+" €";
-
-}
-
-
-function changeQuantity(index,change){
-
-cart[index].quantity+=change;
-
-if(cart[index].quantity<=0){
-
-cart.splice(index,1);
-
-}
-
-updateCart();
-
-}
-
-
-function removeCartItem(index){
-
-cart.splice(index,1);
-
-updateCart();
-
-}
-
-
-function openCart(){
-
-document
-.getElementById("cartPanel")
-.classList.add("open");
-
-document
-.getElementById("overlay")
-.classList.add("show");
-
-}
-
-
-function closeCart(){
-
-document
-.getElementById("cartPanel")
-.classList.remove("open");
-
-document
-.getElementById("overlay")
-.classList.remove("show");
-
-}
-
-
-function closeAll(){
-
-closeCart();
-
-closeCustomization();
-
-}
-
-
-/* =====================================================
-PERSONALIZACIÓN
-===================================================== */
-
-function openCustomization(id){
-
-selectedProduct=
-products.find(p=>p.id===id);
-
-if(!selectedProduct)return;
-
-selectedPhoto="";
-
-document.getElementById("customTitle").textContent=
-"Personaliza: "+selectedProduct.name;
-
-document.getElementById("previewEmoji").textContent=
-selectedProduct.emoji;
+document.getElementById("customPreview")
+.innerHTML=crearIcono(productoActual);
 
 document.getElementById("customText").value="";
 
-document.getElementById("previewText").textContent=
-"Tu texto";
+document.getElementById("quantity").value=1;
 
-document.getElementById("previewImage")
-.classList.add("hidden");
-
-document.getElementById("customQuantity").value="1";
-
-document
-.getElementById("customModal")
-.classList.add("show");
-
-document
-.getElementById("overlay")
-.classList.add("show");
+document.getElementById("modal")
+.style.display="flex";
 
 }
 
 
-function closeCustomization(){
+function cerrarModal(){
 
-document
-.getElementById("customModal")
-.classList.remove("show");
-
-document
-.getElementById("overlay")
-.classList.remove("show");
+document.getElementById("modal")
+.style.display="none";
 
 }
 
 
-function updatePreview(){
+function actualizarPreview(){
 
-const text=
+const texto=
+document.getElementById("customText")
+.value;
+
+const preview=
+document.getElementById("customPreview");
+
+preview.innerHTML=
+crearIcono(productoActual);
+
+if(texto){
+
+const div=document.createElement("div");
+
+div.className="custom-text";
+
+div.textContent=texto;
+
+preview.appendChild(div);
+
+}
+
+}
+
+
+/* =========================================================
+CARRITO
+========================================================= */
+
+let carrito=[];
+
+function agregarCarrito(){
+
+if(!productoActual)return;
+
+const cantidad=
+Number(document.getElementById("quantity").value);
+
+const texto=
 document.getElementById("customText").value;
 
-document.getElementById("previewText").textContent=
-text || "Tu texto";
+carrito.push({
+
+producto:productoActual,
+
+cantidad:cantidad,
+
+texto:texto
+
+});
+
+actualizarCarrito();
+
+cerrarModal();
+
+alert(
+"🎁 ¡Producto añadido al carrito!\n\n"+
+"ROSAL es una simulación educativa."
+);
 
 }
 
 
-function loadPhoto(event){
+function actualizarCarrito(){
 
-const file=event.target.files[0];
+let unidades=0;
+let total=0;
 
-if(!file)return;
+carrito.forEach(item=>{
 
-const reader=new FileReader();
+unidades+=item.cantidad;
 
-reader.onload=function(e){
+total+=
+item.producto.precio*
+item.cantidad;
 
-selectedPhoto=e.target.result;
+});
 
-const image=document.getElementById("previewImage");
+document.getElementById("cartCount")
+.textContent=unidades;
 
-image.src=selectedPhoto;
-
-image.classList.remove("hidden");
-
-};
-
-reader.readAsDataURL(file);
+document.getElementById("cartTotal")
+.textContent=total.toFixed(2);
 
 }
 
 
-/* =====================================================
-CHECKOUT EDUCATIVO
-===================================================== */
+function mostrarCarrito(){
 
-function simulateCheckout(){
+if(!carrito.length){
 
-if(!cart.length){
-
-alert("Tu carrito está vacío.");
+alert(
+"🛒 Tu carrito está vacío.\n\n"+
+"Proyecto educativo ROSAL."
+);
 
 return;
 
 }
 
-const total=cart.reduce(
-(sum,item)=>sum+item.price*item.quantity,
-0
-);
+let texto="🛒 CARRITO ROSAL\n\n";
 
-alert(
+carrito.forEach((item,i)=>{
 
-"🎓 SIMULACIÓN EDUCATIVA\n\n"+
-"Tu selección está preparada.\n\n"+
-"Total simulado: "+
-total.toFixed(2).replace(".",",")+
-" €\n\n"+
-"No se ha realizado ningún pago ni compra real.\n"+
-"ROSAL es un prototipo educativo."
+texto+=
+`${i+1}. ${item.producto.nombre}\n`+
+`Cantidad: ${item.cantidad}\n`;
 
-);
+if(item.texto){
+
+texto+=
+`Personalización: ${item.texto}\n`;
+
+}
+
+texto+="\n";
+
+});
+
+texto+=
+"----------------------\n"+
+"Simulación educativa.\n"+
+"No se realizan pagos reales.";
+
+alert(texto);
 
 }
 
 
-/* =====================================================
+/* =========================================================
+LIA
+========================================================= */
+
+const preguntas=[
+
+{
+texto:"¿Para quién estás buscando el regalo?",
+tipo:"select",
+opciones:[
+"Pareja",
+"Amigo/a",
+"Familia",
+"Compañero/a",
+"Otra persona"
+]
+},
+
+{
+texto:"¿Qué edad tiene aproximadamente?",
+tipo:"select",
+opciones:[
+"Menos de 18",
+"18-25",
+"26-35",
+"36-50",
+"Más de 50"
+]
+},
+
+{
+texto:"¿Qué cosas le gustan?",
+tipo:"text"
+},
+
+{
+texto:"¿Cómo describirías su personalidad?",
+tipo:"select",
+opciones:[
+"Creativa",
+"Tranquila",
+"Divertida",
+"Aventurera",
+"Organizada",
+"Deportista",
+"Curiosa",
+"Romántica"
+]
+},
+
+{
+texto:"¿Para qué ocasión es?",
+tipo:"select",
+opciones:[
+"Cumpleaños",
+"Aniversario",
+"Amistad",
+"Navidad",
+"Celebración",
+"Porque sí 💙"
+]
+},
+
+{
+texto:"¿Cuál es tu presupuesto?",
+tipo:"select",
+opciones:[
+"Hasta 10 €",
+"Hasta 20 €",
+"Hasta 30 €",
+"Hasta 50 €"
+]
+}
+
+];
+
+let paso=0;
+
+let respuestas={};
+
+
+function mostrarPregunta(){
+
+const p=preguntas[paso];
+
+document.getElementById("liaQuestion")
+.textContent=p.texto;
+
+const contenedor=
+document.getElementById("liaInput");
+
+if(p.tipo==="text"){
+
+contenedor.innerHTML=`
+<input
+id="liaAnswer"
+type="text"
+placeholder="Ejemplo: fútbol, música, café..."
+>
+`;
+
+}else{
+
+contenedor.innerHTML=`
+
+<select id="liaAnswer">
+
+<option value="">
+Selecciona una opción
+</option>
+
+${p.opciones.map(o=>
+`<option>${o}</option>`
+).join("")}
+
+</select>
+
+`;
+
+}
+
+}
+
+
+function siguientePregunta(){
+
+const respuesta=
+document.getElementById("liaAnswer");
+
+if(!respuesta)return;
+
+if(!respuesta.value){
+
+alert("Selecciona una respuesta para continuar.");
+
+return;
+
+}
+
+respuestas[paso]=respuesta.value;
+
+paso++;
+
+if(paso<preguntas.length){
+
+mostrarPregunta();
+
+}else{
+
+generarRecomendaciones();
+
+}
+
+}
+
+
+/* =========================================================
+RECOMENDACIONES DE LIA
+========================================================= */
+
+function generarRecomendaciones(){
+
+const gustos=
+(respuestas[2]||"").toLowerCase();
+
+const personalidad=
+(respuestas[3]||"").toLowerCase();
+
+let presupuesto=50;
+
+if((respuestas[5]||"").includes("10"))
+presupuesto=10;
+
+else if((respuestas[5]||"").includes("20"))
+presupuesto=20;
+
+else if((respuestas[5]||"").includes("30"))
+presupuesto=30;
+
+
+const palabras=
+gustos
+.split(/[ ,;]+/)
+.filter(Boolean);
+
+
+let resultados=
+
+productos
+.filter(p=>p.precio<=presupuesto)
+.map(p=>{
+
+let puntos=0;
+
+palabras.forEach(palabra=>{
+
+p.tags.forEach(tag=>{
+
+if(
+tag.includes(palabra) ||
+palabra.includes(tag)
+){
+
+puntos+=5;
+
+}
+
+});
+
+});
+
+
+p.tags.forEach(tag=>{
+
+if(personalidad.includes(tag))
+puntos+=3;
+
+});
+
+
+return {
+...p,
+puntos:puntos
+};
+
+})
+.sort((a,b)=>b.puntos-a.puntos)
+.slice(0,8);
+
+
+document.getElementById("recommendationGrid")
+.innerHTML=
+resultados.map(tarjeta).join("");
+
+
+document.getElementById("recommendations")
+.style.display="block";
+
+
+document.getElementById("liaQuestion")
+.innerHTML=
+"¡Listo! 🤓✨<br>He encontrado estas ideas para ti.";
+
+
+document.getElementById("liaButton")
+.style.display="none";
+
+
+document.getElementById("recommendations")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================================================
 NAVEGACIÓN
-===================================================== */
+========================================================= */
 
-function scrollToCatalog(){
+function irCatalogo(){
 
-document
-.getElementById("catalogSection")
-.scrollIntoView({behavior:"smooth"});
+document.getElementById("catalogo")
+.scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
 
-/* =====================================================
-INICIO
-===================================================== */
+/* =========================================================
+INICIAR ROSAL
+========================================================= */
 
-populateFilters();
+cargarCategorias();
 
-renderCatalog();
+mostrarProductos();
 
-updateCart();
+mostrarPregunta();
 
 </script>
 
