@@ -4,662 +4,658 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ROSAL | Regalos inteligentes</title>
+<title>ROSAL · Regalos inteligentes</title>
 
 <style>
 *{
-box-sizing:border-box;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#f4fbff;
-color:#19384d;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4fbff;
+  color:#21465b;
 }
 
-button,input,select{
-font:inherit;
+button,
+input,
+select{
+  font:inherit;
 }
 
 button{
-cursor:pointer;
+  cursor:pointer;
 }
 
 header{
-position:sticky;
-top:0;
-z-index:100;
-background:white;
-border-bottom:1px solid #dcecf4;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:white;
+  border-bottom:1px solid #dceef6;
 }
 
 .nav{
-max-width:1150px;
-margin:auto;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+  max-width:1200px;
+  margin:auto;
+  padding:16px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .logo{
-color:#2e83ad;
-font-size:29px;
-font-weight:900;
-letter-spacing:3px;
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:4px;
+  color:#3189b5;
 }
 
-.nav-right{
-display:flex;
-gap:10px;
+.nav-buttons{
+  display:flex;
+  gap:10px;
 }
 
-.nav-button{
-border:0;
-background:#e8f7fd;
-color:#27617b;
-padding:11px 15px;
-border-radius:14px;
-font-weight:bold;
-}
-
-.cart-button{
-position:relative;
-}
-
-.cart-number{
-position:absolute;
-top:-7px;
-right:-7px;
-width:22px;
-height:22px;
-border-radius:50%;
-background:#ff7197;
-color:white;
-font-size:12px;
-display:flex;
-align-items:center;
-justify-content:center;
+.nav-btn{
+  border:0;
+  background:#e7f7fd;
+  color:#28647e;
+  padding:11px 16px;
+  border-radius:14px;
+  font-weight:bold;
 }
 
 .hero{
-max-width:1150px;
-margin:auto;
-padding:70px 20px;
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:40px;
-align-items:center;
+  max-width:1200px;
+  margin:auto;
+  padding:70px 20px 50px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
 }
 
 .hero h1{
-font-size:clamp(42px,6vw,72px);
-line-height:1;
-margin:0 0 20px;
+  font-size:clamp(42px,6vw,70px);
+  line-height:1;
+  margin-bottom:20px;
+  color:#193e53;
 }
 
 .hero h1 span{
-color:#378db8;
+  color:#348bb7;
 }
 
 .hero p{
-font-size:19px;
-line-height:1.6;
-color:#607b8a;
+  font-size:19px;
+  line-height:1.6;
+  color:#6b8491;
+  margin-bottom:25px;
 }
 
 .primary{
-border:0;
-background:#378db8;
-color:white;
-padding:15px 23px;
-border-radius:17px;
-font-weight:800;
-box-shadow:0 10px 25px rgba(55,141,184,.25);
+  border:0;
+  background:#348bb7;
+  color:white;
+  padding:14px 22px;
+  border-radius:15px;
+  font-weight:bold;
+  box-shadow:0 8px 20px rgba(52,139,183,.2);
 }
 
 .primary:hover{
-transform:translateY(-2px);
+  transform:translateY(-2px);
 }
 
-.hero-box{
-height:330px;
-border-radius:35px;
-background:linear-gradient(145deg,#dff5ff,#fff);
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 20px 50px rgba(50,130,165,.12);
+.hero-art{
+  height:330px;
+  border-radius:35px;
+  background:linear-gradient(135deg,#dff5ff,#ffffff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.gift{
-font-size:130px;
-animation:float 3s ease-in-out infinite;
+.hero-gift{
+  font-size:130px;
+  animation:flotar 3s infinite ease-in-out;
 }
 
-@keyframes float{
-0%,100%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(-15px);
-}
+@keyframes flotar{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
 }
 
 .container{
-max-width:1150px;
-margin:auto;
-padding:20px;
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
 }
 
-.chat{
-background:white;
-border-radius:30px;
-padding:25px;
-box-shadow:0 15px 45px rgba(40,110,145,.1);
+.lia-box{
+  background:white;
+  border-radius:28px;
+  padding:25px;
+  box-shadow:0 10px 35px rgba(40,100,130,.08);
+  margin-bottom:40px;
 }
 
-.lia-head{
-display:flex;
-align-items:center;
-gap:15px;
-margin-bottom:20px;
+.lia-header{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:20px;
 }
 
-.lia{
-width:75px;
-height:75px;
-border-radius:50%;
-background:#dff5ff;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:45px;
+.lia-avatar{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  background:#dff5ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:43px;
 }
 
-.lia.talking{
-animation:talk .35s infinite alternate;
+.lia-avatar.talking{
+  animation:liaTalk .4s infinite alternate;
 }
 
-@keyframes talk{
-from{
-transform:scale(1) rotate(-5deg);
-}
-to{
-transform:scale(1.1) rotate(5deg);
-}
+@keyframes liaTalk{
+  from{transform:scale(1)}
+  to{transform:scale(1.1)}
 }
 
 .lia-name{
-font-size:24px;
-font-weight:900;
+  font-size:25px;
+  font-weight:900;
 }
 
 .lia-status{
-color:#76909d;
-font-size:13px;
-margin-top:4px;
+  color:#7b919d;
+  margin-top:5px;
+  font-size:14px;
 }
 
-.chat-box{
-background:#f4fbfe;
-border-radius:22px;
-padding:20px;
-min-height:180px;
+.chat{
+  background:#f2faff;
+  padding:20px;
+  border-radius:20px;
+  min-height:170px;
 }
 
 .message{
-padding:13px 17px;
-border-radius:18px;
-max-width:80%;
-margin-bottom:12px;
-line-height:1.45;
+  padding:13px 16px;
+  border-radius:17px;
+  max-width:80%;
+  margin-bottom:12px;
+  line-height:1.5;
 }
 
-.message.lia-message{
-background:white;
+.lia-message{
+  background:white;
 }
 
-.message.user-message{
-background:#378db8;
-color:white;
-margin-left:auto;
+.user-message{
+  background:#348bb7;
+  color:white;
+  margin-left:auto;
 }
 
 .options{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .option{
-background:white;
-border:2px solid #cce9f5;
-color:#275d76;
-padding:11px 16px;
-border-radius:14px;
+  border:2px solid #cceaf5;
+  background:white;
+  color:#285e76;
+  padding:11px 16px;
+  border-radius:13px;
 }
 
 .option:hover{
-background:#e8f8ff;
-}
-
-.text-input{
-width:100%;
-padding:14px;
-border:2px solid #d4ebf4;
-border-radius:14px;
-margin-bottom:10px;
-outline:none;
+  background:#e8f8ff;
 }
 
 .section-title{
-font-size:32px;
-margin:45px 0 15px;
+  font-size:32px;
+  margin:45px 0 12px;
 }
 
-.catalog-controls{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin:20px 0;
+.controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:20px 0;
 }
 
 .search{
-flex:1;
-min-width:220px;
-padding:14px;
-border:2px solid #d8edf5;
-border-radius:14px;
-outline:none;
+  flex:1;
+  min-width:230px;
+  padding:14px;
+  border:2px solid #d6ebf3;
+  border-radius:14px;
+  outline:none;
 }
 
 .select{
-padding:14px;
-border:2px solid #d8edf5;
-border-radius:14px;
-background:white;
+  padding:14px;
+  border:2px solid #d6ebf3;
+  border-radius:14px;
+  background:white;
+  color:#315c70;
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-gap:18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:18px;
 }
 
 .card{
-background:white;
-border:1px solid #dfedf3;
-border-radius:22px;
-padding:17px;
-box-shadow:0 8px 25px rgba(30,100,135,.06);
-position:relative;
-transition:.2s;
+  position:relative;
+  background:white;
+  border:1px solid #dfedf3;
+  border-radius:22px;
+  padding:15px;
+  transition:.2s;
+  box-shadow:0 7px 22px rgba(40,100,130,.06);
 }
 
 .card:hover{
-transform:translateY(-4px);
-box-shadow:0 14px 35px rgba(30,100,135,.12);
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(40,100,130,.12);
 }
 
-.card-icon{
-height:125px;
-border-radius:17px;
-background:#eefaff;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:65px;
-margin-bottom:13px;
+.product-icon{
+  height:145px;
+  border-radius:17px;
+  background:#effaff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:78px;
+  margin-bottom:14px;
 }
 
-.card-category{
-color:#6092a8;
-font-size:12px;
-font-weight:bold;
-text-transform:uppercase;
+.category{
+  color:#6b9ab0;
+  font-size:12px;
+  font-weight:bold;
+  text-transform:uppercase;
 }
 
 .card h3{
-margin:7px 0;
-font-size:18px;
+  font-size:18px;
+  margin:7px 0;
+  min-height:43px;
 }
 
 .price{
-color:#26789f;
-font-size:20px;
-font-weight:900;
-margin:8px 0;
+  color:#287ba3;
+  font-size:20px;
+  font-weight:900;
+  margin:8px 0;
 }
 
-.card p{
-color:#718895;
-font-size:13px;
-min-height:35px;
+.tags{
+  color:#8196a0;
+  font-size:12px;
+  min-height:34px;
 }
 
-.card-buttons{
-display:flex;
-gap:7px;
-margin-top:12px;
+.card-actions{
+  display:flex;
+  gap:7px;
+  margin-top:12px;
 }
 
-.card-buttons button{
-flex:1;
-padding:10px 7px;
-border:0;
-border-radius:11px;
-font-weight:bold;
+.card-actions button{
+  flex:1;
+  border:0;
+  padding:10px 5px;
+  border-radius:11px;
+  font-weight:bold;
 }
 
-.add-button{
-background:#378db8;
-color:white;
+.add{
+  background:#348bb7;
+  color:white;
 }
 
-.custom-button{
-background:#e8f7fd;
-color:#27617b;
+.custom{
+  background:#e7f7fd;
+  color:#28647e;
 }
 
 .favorite{
-position:absolute;
-top:12px;
-right:12px;
-width:35px;
-height:35px;
-border:0;
-border-radius:50%;
-background:white;
-box-shadow:0 3px 12px rgba(0,0,0,.08);
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:35px;
+  height:35px;
+  border:0;
+  border-radius:50%;
+  background:white;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
 
 .hidden{
-display:none!important;
+  display:none!important;
 }
 
-.results-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-gap:15px;
+.results-info{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
 .compatibility{
-background:#e5f8ff;
-color:#276c8c;
-padding:11px 16px;
-border-radius:14px;
-font-weight:bold;
+  background:#e5f8ff;
+  color:#28708d;
+  padding:11px 15px;
+  border-radius:13px;
+  font-weight:bold;
 }
 
-.loading{
-text-align:center;
-padding:30px;
+.notice{
+  margin:50px 0;
+  background:#fff8df;
+  color:#75612b;
+  padding:20px;
+  border-radius:18px;
+  line-height:1.5;
 }
 
-.loading-emoji{
-font-size:65px;
-animation:thinking 1s infinite alternate;
-}
-
-@keyframes thinking{
-from{
-transform:rotate(-8deg);
-}
-to{
-transform:rotate(8deg);
-}
+footer{
+  background:#183c52;
+  color:white;
+  text-align:center;
+  padding:35px 20px;
 }
 
 .cart{
-position:fixed;
-right:-430px;
-top:0;
-width:min(420px,100%);
-height:100vh;
-background:white;
-z-index:500;
-transition:.3s;
-box-shadow:-15px 0 45px rgba(0,0,0,.15);
-display:flex;
-flex-direction:column;
+  position:fixed;
+  right:-430px;
+  top:0;
+  width:min(420px,100%);
+  height:100vh;
+  background:white;
+  z-index:300;
+  box-shadow:-15px 0 40px rgba(0,0,0,.15);
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
 }
 
 .cart.open{
-right:0;
+  right:0;
 }
 
 .cart-header{
-padding:20px;
-border-bottom:1px solid #e5edf1;
-display:flex;
-justify-content:space-between;
-align-items:center;
+  padding:20px;
+  border-bottom:1px solid #e5edf1;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .close{
-border:0;
-background:#edf7fb;
-width:38px;
-height:38px;
-border-radius:50%;
+  border:0;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#edf7fb;
 }
 
 .cart-items{
-flex:1;
-overflow:auto;
-padding:20px;
+  flex:1;
+  overflow:auto;
+  padding:20px;
 }
 
 .cart-item{
-display:flex;
-gap:12px;
-border-bottom:1px solid #edf1f3;
-padding:13px 0;
+  display:flex;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid #edf1f3;
 }
 
 .cart-icon{
-width:55px;
-height:55px;
-background:#effaff;
-border-radius:12px;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:30px;
+  width:58px;
+  height:58px;
+  border-radius:12px;
+  background:#effaff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
 }
 
 .cart-info{
-flex:1;
+  flex:1;
 }
 
 .quantity{
-display:flex;
-align-items:center;
-gap:7px;
-margin-top:7px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:7px;
 }
 
 .quantity button{
-border:0;
-width:26px;
-height:26px;
-border-radius:7px;
-background:#e7f6fc;
+  border:0;
+  background:#e7f6fc;
+  width:28px;
+  height:28px;
+  border-radius:7px;
 }
 
 .cart-footer{
-border-top:1px solid #e5edf1;
-padding:20px;
+  border-top:1px solid #e5edf1;
+  padding:20px;
 }
 
 .total{
-display:flex;
-justify-content:space-between;
-font-size:22px;
-font-weight:900;
-margin-bottom:15px;
+  display:flex;
+  justify-content:space-between;
+  font-size:22px;
+  font-weight:900;
+  margin-bottom:15px;
 }
 
 .overlay{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(20,55,75,.35);
-z-index:400;
+  position:fixed;
+  inset:0;
+  background:rgba(20,60,80,.35);
+  z-index:250;
+  display:none;
 }
 
 .overlay.show{
-display:block;
+  display:block;
 }
 
 .modal{
-display:none;
-position:fixed;
-inset:0;
-z-index:600;
-align-items:center;
-justify-content:center;
-padding:20px;
+  position:fixed;
+  inset:0;
+  z-index:400;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
 .modal.show{
-display:flex;
+  display:flex;
 }
 
 .modal-box{
-width:min(800px,100%);
-max-height:90vh;
-overflow:auto;
-background:white;
-border-radius:28px;
-padding:25px;
+  width:min(850px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:white;
+  border-radius:28px;
+  padding:25px;
 }
 
 .modal-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
 }
 
 .preview{
-min-height:320px;
-background:#effaff;
-border-radius:20px;
-display:flex;
-align-items:center;
-justify-content:center;
+  min-height:330px;
+  border-radius:20px;
+  background:#effaff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .preview-product{
-width:230px;
-min-height:220px;
-border-radius:20px;
-background:white;
-box-shadow:0 12px 30px rgba(40,100,130,.13);
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-text-align:center;
-padding:20px;
+  width:250px;
+  min-height:250px;
+  background:white;
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 30px rgba(30,100,130,.12);
+  padding:20px;
 }
 
 .preview-icon{
-font-size:85px;
+  font-size:90px;
 }
 
 .preview-text{
-color:#27647e;
-font-weight:900;
-font-size:20px;
+  font-weight:bold;
+  color:#28647e;
+  font-size:19px;
+  text-align:center;
+  margin-top:10px;
 }
 
 .preview-image{
-width:90px;
-height:90px;
-object-fit:cover;
-border-radius:12px;
-margin-top:10px;
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-top:10px;
 }
 
 .form-group{
-margin-bottom:15px;
+  margin-bottom:16px;
 }
 
 .form-group label{
-display:block;
-font-weight:bold;
-margin-bottom:7px;
+  display:block;
+  font-weight:bold;
+  margin-bottom:7px;
 }
 
 .form-group input,
 .form-group select{
-width:100%;
-padding:12px;
-border:2px solid #d9edf5;
-border-radius:12px;
+  width:100%;
+  padding:12px;
+  border:2px solid #d9edf5;
+  border-radius:12px;
 }
 
-.modal-buttons{
-display:flex;
-gap:10px;
+.modal-actions{
+  display:flex;
+  gap:10px;
 }
 
-.modal-buttons button{
-flex:1;
-padding:13px;
-border:0;
-border-radius:13px;
-font-weight:bold;
+.modal-actions button{
+  flex:1;
+  padding:13px;
+  border:0;
+  border-radius:13px;
+  font-weight:bold;
 }
 
 .cancel{
-background:#edf7fb;
-color:#28617b;
+  background:#edf7fb;
+  color:#28617b;
 }
 
-.notice{
-margin:45px 0;
-background:#fff9e8;
-color:#705e2c;
-padding:18px;
-border-radius:18px;
-line-height:1.5;
+.cart-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:21px;
+  height:21px;
+  border-radius:50%;
+  background:#ff7197;
+  color:white;
+  font-size:11px;
+  margin-left:4px;
 }
 
-footer{
-background:#173b52;
-color:white;
-text-align:center;
-padding:35px 20px;
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,20px);
+  background:#183c52;
+  color:white;
+  padding:13px 18px;
+  border-radius:13px;
+  opacity:0;
+  transition:.25s;
+  z-index:500;
+  pointer-events:none;
+  font-weight:bold;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+.empty{
+  background:white;
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+  color:#718894;
 }
 
 @media(max-width:750px){
 
-.hero{
-grid-template-columns:1fr;
-padding-top:40px;
-}
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:40px;
+  }
 
-.hero-box{
-height:230px;
-}
+  .hero-art{
+    height:230px;
+  }
 
-.gift{
-font-size:90px;
-}
+  .hero-gift{
+    font-size:90px;
+  }
 
-.modal-grid{
-grid-template-columns:1fr;
-}
+  .modal-grid{
+    grid-template-columns:1fr;
+  }
 
-.message{
-max-width:95%;
-}
+  .message{
+    max-width:95%;
+  }
+
 }
 </style>
 </head>
@@ -668,53 +664,53 @@ max-width:95%;
 
 <header>
 
-<div class="nav">
+  <div class="nav">
 
-<div class="logo">
-ROSAL
-</div>
+    <div class="logo">
+      ROSAL
+    </div>
 
-<div class="nav-right">
+    <div class="nav-buttons">
 
-<button class="nav-button" onclick="goCatalog()">
-🎁 Catálogo
-</button>
+      <button class="nav-btn" onclick="irCatalogo()">
+        🎁 Catálogo
+      </button>
 
-<button class="nav-button cart-button" onclick="openCart()">
-🛒 Carrito
-<span class="cart-number" id="cartNumber">0</span>
-</button>
+      <button class="nav-btn" onclick="abrirCarrito()">
+        🛒 Carrito
+        <span class="cart-number" id="cartNumber">0</span>
+      </button>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
 </header>
 
 
 <section class="hero">
 
-<div>
+  <div>
 
-<h1>
-El regalo perfecto
-<span>empieza con una pregunta.</span>
-</h1>
+    <h1>
+      El regalo perfecto
+      <span>empieza con una pregunta.</span>
+    </h1>
 
-<p>
-Habla con LIA y descubre regalos adaptados a la persona,
-sus gustos, la ocasión y tu presupuesto.
-</p>
+    <p>
+      Habla con LIA 🤓 y encuentra regalos adaptados a la persona,
+      sus gustos, su personalidad, la ocasión y tu presupuesto.
+    </p>
 
-<button class="primary" onclick="startLia()">
-🤓 Hablar con LIA →
-</button>
+    <button class="primary" onclick="iniciarLia()">
+      🤓 Hablar con LIA
+    </button>
 
-</div>
+  </div>
 
-<div class="hero-box">
-<div class="gift">🎁</div>
-</div>
+  <div class="hero-art">
+    <div class="hero-gift">🎁</div>
+  </div>
 
 </section>
 
@@ -722,1927 +718,2323 @@ sus gustos, la ocasión y tu presupuesto.
 <main class="container">
 
 
-<section class="chat" id="liaSection">
+<!-- ================= LIA ================= -->
 
-<div class="lia-head">
+<section class="lia-box" id="liaSection">
 
-<div class="lia" id="liaAvatar">
-🤓
-</div>
+  <div class="lia-header">
 
-<div>
+    <div class="lia-avatar" id="liaAvatar">
+      🤓
+    </div>
 
-<div class="lia-name">
-LIA
-</div>
+    <div>
 
-<div class="lia-status" id="liaStatus">
-Tu asesora inteligente de regalos
-</div>
+      <div class="lia-name">
+        LIA
+      </div>
 
-</div>
+      <div class="lia-status" id="liaStatus">
+        Tu asesora inteligente de regalos
+      </div>
 
-</div>
+    </div>
+
+  </div>
 
 
-<div class="chat-box" id="chatBox">
+  <div class="chat" id="chatBox">
 
-<div class="message lia-message">
-¡Hola! Soy LIA 🤓. Te haré unas preguntas para encontrar
-un regalo que encaje con esa persona.
-</div>
+    <div class="message lia-message">
+      ¡Hola! Soy LIA 🤓.
+      Te haré unas preguntas y después buscaré regalos
+      que encajen contigo.
+    </div>
 
-<button class="primary" onclick="startLia()">
-Empezar
-</button>
+    <button class="primary" onclick="iniciarLia()">
+      Empezar
+    </button>
 
-</div>
+  </div>
 
 </section>
 
+
+<!-- ================= RESULTADOS ================= -->
 
 <section id="resultsSection" class="hidden">
 
-<div class="results-top">
+  <div class="results-info">
 
-<div>
+    <div>
 
-<h2 class="section-title">
-🎯 Regalos para ti
-</h2>
+      <h2 class="section-title">
+        🎯 Regalos recomendados
+      </h2>
 
-<p id="resultText">
-LIA ha encontrado algunas opciones.
-</p>
+      <p id="resultText">
+        LIA ha encontrado estas opciones.
+      </p>
 
-</div>
+    </div>
 
-<div class="compatibility" id="compatibility">
-✨ 0% compatibilidad
-</div>
+    <div class="compatibility" id="compatibility">
+      ✨ 0% compatibilidad
+    </div>
 
-</div>
+  </div>
 
-<div class="catalog-controls">
 
-<input
-id="resultSearch"
-class="search"
-placeholder="🔎 Buscar..."
-oninput="renderResults()"
->
+  <div class="controls">
 
-<select
-id="resultCategory"
-class="select"
-onchange="renderResults()"
->
+    <input
+      class="search"
+      id="resultSearch"
+      placeholder="🔎 Buscar en las recomendaciones..."
+      oninput="mostrarResultados()"
+    >
 
-<option value="all">
-Todas las categorías
-</option>
+    <select
+      class="select"
+      id="resultCategory"
+      onchange="mostrarResultados()"
+    >
+      <option value="Todas">
+        Todas las categorías
+      </option>
+    </select>
 
-</select>
+  </div>
 
-</div>
 
-<div class="grid" id="resultsGrid"></div>
+  <div class="grid" id="resultsGrid"></div>
 
 </section>
 
 
+<!-- ================= CATALOGO ================= -->
+
 <section id="catalogSection">
 
-<h2 class="section-title">
-🛍️ Catálogo ROSAL
-</h2>
+  <h2 class="section-title">
+    🛍️ Catálogo ROSAL
+  </h2>
 
-<p style="color:#718995">
-Tenemos más de 200 ideas para regalar.
-</p>
+  <p style="color:#718995">
+    200 ideas para regalar.
+    Cada producto tiene su propio icono.
+  </p>
 
-<div class="catalog-controls">
 
-<input
-id="catalogSearch"
-class="search"
-placeholder="🔎 Buscar productos..."
-oninput="renderCatalog()"
->
+  <div class="controls">
 
-<select
-id="catalogCategory"
-class="select"
-onchange="renderCatalog()"
->
+    <input
+      class="search"
+      id="catalogSearch"
+      placeholder="🔎 Buscar producto..."
+      oninput="mostrarCatalogo()"
+    >
 
-<option value="all">
-Todas las categorías
-</option>
+    <select
+      class="select"
+      id="catalogCategory"
+      onchange="mostrarCatalogo()"
+    >
+      <option value="Todas">
+        Todas las categorías
+      </option>
+    </select>
 
-</select>
+  </div>
 
-</div>
 
-<div class="grid" id="catalogGrid"></div>
+  <div class="grid" id="catalogGrid"></div>
 
 </section>
 
 
 <div class="notice">
 
-<strong>🎓 Proyecto educativo</strong><br>
+  <strong>🎓 Proyecto educativo</strong>
 
-ROSAL es un prototipo educativo. El carrito, los precios,
-las personalizaciones y la simulación final sirven solamente
-para demostrar cómo podría funcionar una plataforma real.
+  <br><br>
 
-<strong>No se realizan pagos ni compras reales.</strong>
+  ROSAL es un proyecto educativo que simula una tienda
+  inteligente de regalos.
+
+  <br><br>
+
+  El carrito y los precios son solamente una simulación.
+
+  <br>
+
+  <strong>
+    No se realizan pagos ni compras reales.
+  </strong>
 
 </div>
+
 
 </main>
 
 
 <footer>
 
-<div style="font-size:27px;font-weight:900">
-ROSAL
-</div>
+  <div style="font-size:28px;font-weight:900">
+    ROSAL
+  </div>
 
-<div style="margin-top:8px">
-Regalos pensados con ayuda de LIA 🤓
-</div>
+  <div style="margin-top:8px">
+    Regalos pensados con ayuda de LIA 🤓
+  </div>
 
-<div style="opacity:.7;margin-top:8px">
-Proyecto educativo · Sin compras reales
-</div>
+  <div style="margin-top:8px;opacity:.7">
+    Proyecto educativo · Sin compras reales
+  </div>
 
 </footer>
 
 
-<!-- CARRITO -->
+<!-- ================= CARRITO ================= -->
 
-<div class="overlay" id="overlay" onclick="closeEverything()"></div>
+<div class="overlay" id="overlay" onclick="cerrarTodo()"></div>
+
 
 <aside class="cart" id="cart">
 
-<div class="cart-header">
+  <div class="cart-header">
 
-<h2>🛒 Tu carrito</h2>
+    <h2>
+      🛒 Tu carrito
+    </h2>
 
-<button class="close" onclick="closeCart()">
-✕
-</button>
+    <button class="close" onclick="cerrarCarrito()">
+      ✕
+    </button>
 
-</div>
+  </div>
 
-<div class="cart-items" id="cartItems"></div>
 
-<div class="cart-footer">
+  <div class="cart-items" id="cartItems"></div>
 
-<div class="total">
 
-<span>Total</span>
+  <div class="cart-footer">
 
-<span id="cartTotal">
-0,00 €
-</span>
+    <div class="total">
 
-</div>
+      <span>
+        Total
+      </span>
 
-<button
-class="primary"
-style="width:100%"
-onclick="finishSimulation()"
->
-🎓 Continuar
-</button>
+      <span id="cartTotal">
+        0,00 €
+      </span>
 
-</div>
+    </div>
+
+    <button
+      class="primary"
+      style="width:100%"
+      onclick="simularCompra()"
+    >
+      🎓 Continuar
+    </button>
+
+  </div>
 
 </aside>
 
 
-<!-- PERSONALIZACIÓN -->
+<!-- ================= PERSONALIZACION ================= -->
 
 <div class="modal" id="customModal">
 
-<div class="modal-box">
+  <div class="modal-box">
 
-<h2 id="customTitle">
-Personaliza tu regalo
-</h2>
+    <h2 id="customTitle">
+      Personaliza tu regalo
+    </h2>
 
-<p style="color:#718995;margin:8px 0 20px">
-Mira cómo quedaría antes de añadirlo al carrito.
-</p>
+    <p style="color:#718995;margin:8px 0 20px">
+      Puedes añadir texto y una fotografía.
+    </p>
 
-<div class="modal-grid">
 
-<div class="preview">
+    <div class="modal-grid">
 
-<div class="preview-product">
 
-<div class="preview-icon" id="previewIcon">
-☕
+      <div class="preview">
+
+        <div class="preview-product">
+
+          <div
+            class="preview-icon"
+            id="previewIcon"
+          >
+            🎁
+          </div>
+
+          <div
+            class="preview-text"
+            id="previewText"
+          >
+            Tu texto
+          </div>
+
+          <img
+            id="previewImage"
+            class="preview-image hidden"
+            alt="Foto personalizada"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="form-group">
+
+          <label>
+            Texto personalizado
+          </label>
+
+          <input
+            id="customText"
+            placeholder="Ej. Para María ❤️"
+            oninput="actualizarPreview()"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Fotografía
+          </label>
+
+          <input
+            type="file"
+            accept="image/*"
+            onchange="cargarFoto(event)"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Cantidad
+          </label>
+
+          <select id="customQuantity">
+
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+          <button
+            class="cancel"
+            onclick="cerrarPersonalizacion()"
+          >
+            Cancelar
+          </button>
+
+          <button
+            class="primary"
+            onclick="anadirPersonalizado()"
+          >
+            🛒 Añadir
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
-<div
-class="preview-text"
-id="previewText"
->
-Tu texto
-</div>
 
-<img
-id="previewImage"
-class="preview-image hidden"
->
-
-</div>
-
-</div>
-
-
-<div>
-
-<div class="form-group">
-
-<label>
-Texto personalizado
-</label>
-
-<input
-id="customText"
-placeholder="Ej. Para María ❤️"
-oninput="updatePreview()"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Foto
-</label>
-
-<input
-type="file"
-accept="image/*"
-onchange="loadPhoto(event)"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Cantidad
-</label>
-
-<select id="customQuantity">
-
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-
-</select>
-
-</div>
-
-
-<div class="modal-buttons">
-
-<button
-class="cancel"
-onclick="closeCustomization()"
->
-Cancelar
-</button>
-
-<button
-class="primary"
-onclick="addCustomized()"
->
-🛒 Añadir
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-/* =====================================================
-ROSAL
-Versión estable
-===================================================== */
+/* =========================================================
+   PRODUCTOS
+========================================================= */
 
+const productos = [
 
-/* -----------------------------
-PRODUCTOS
------------------------------ */
+/* RELAX */
 
-var categories = [
+["Vela aromática de vainilla",9.90,"Relax","🕯️"],
+["Vela de lavanda",10.90,"Relax","🪻"],
+["Vela de coco",11.90,"Relax","🥥"],
+["Vela de frutos rojos",10.90,"Relax","🍓"],
+["Vela de jazmín",12.90,"Relax","🌼"],
+["Vela relajante",13.90,"Relax","🧘"],
+["Vela minimalista",14.90,"Relax","🕯️"],
+["Vela artesanal",15.90,"Relax","🏺"],
+["Vela premium",18.90,"Relax","✨"],
+["Set de velas aromáticas",19.90,"Relax","🕯️"],
 
-{
-name:"Relax",
-emoji:"🕯️",
-tags:["relax","tranquila","hogar"],
-products:[
-"Vela aromática",
-"Vela de lavanda",
-"Vela de vainilla",
-"Vela de coco",
-"Vela de jazmín",
-"Vela relajante",
-"Vela artesanal",
-"Vela minimalista",
-"Set de velas",
-"Pack aromático"
-]
-},
+/* PERSONALIZADOS */
 
-{
-name:"Personalizados",
-emoji:"☕",
-tags:["personalizado","sentimental","foto"],
-products:[
-"Taza personalizada",
-"Taza con foto",
-"Taza con frase",
-"Botella personalizada",
-"Llavero personalizado",
-"Diario personalizado",
-"Marco personalizado",
-"Álbum personalizado",
-"Pulsera personalizada",
-"Caja personalizada"
-]
-},
+["Taza personalizada",12.90,"Personalizados","☕"],
+["Taza con frase",13.90,"Personalizados","💬"],
+["Taza con foto",14.90,"Personalizados","📸"],
+["Botella personalizada",17.90,"Personalizados","🍼"],
+["Llavero personalizado",9.90,"Personalizados","🔑"],
+["Diario personalizado",14.90,"Personalizados","📔"],
+["Pulsera personalizada",15.90,"Personalizados","📿"],
+["Marco personalizado",16.90,"Personalizados","🖼️"],
+["Caja personalizada",19.90,"Personalizados","🎁"],
+["Álbum personalizado",24.90,"Personalizados","📒"],
 
-{
-name:"Recuerdos",
-emoji:"📸",
-tags:["recuerdos","fotografía","sentimental"],
-products:[
-"Álbum de fotos",
-"Marco de fotos",
-"Caja de recuerdos",
-"Mini álbum",
-"Álbum de viaje",
-"Marco minimalista",
-"Marco múltiple",
-"Libro de recuerdos",
-"Pack de fotografías",
-"Tarjeta de recuerdos"
-]
-},
+/* RECUERDOS */
 
-{
-name:"Gourmet",
-emoji:"🍫",
-tags:["comida","dulces","café","chocolate"],
-products:[
-"Caja de chocolates",
-"Caja de chuches",
-"Pack de café",
-"Pack de tés",
-"Caja de galletas",
-"Pack de bombones",
-"Pack desayuno",
-"Caja gourmet",
-"Pack de dulces",
-"Pack degustación"
-]
-},
+["Álbum de fotos",24.90,"Recuerdos","📸"],
+["Marco de fotos",11.90,"Recuerdos","🖼️"],
+["Caja de recuerdos",18.90,"Recuerdos","📦"],
+["Mini álbum",16.90,"Recuerdos","📔"],
+["Álbum de viaje",22.90,"Recuerdos","🌍"],
+["Marco minimalista",14.90,"Recuerdos","🖼️"],
+["Marco múltiple",19.90,"Recuerdos","🖼️"],
+["Libro de recuerdos",27.90,"Recuerdos","📚"],
+["Tarjeta de recuerdos",6.90,"Recuerdos","💌"],
+["Pack de fotografías",12.90,"Recuerdos","📷"],
 
-{
-name:"Bienestar",
-emoji:"🧘",
-tags:["bienestar","relax","cuidado"],
-products:[
-"Kit de relajación",
-"Kit de cuidado personal",
-"Jabones artesanales",
-"Kit spa",
-"Masajeador",
-"Set de aromaterapia",
-"Kit de baño",
-"Antifaz relajante",
-"Cojín relajante",
-"Pack bienestar"
-]
-},
+/* GOURMET */
 
-{
-name:"Creatividad",
-emoji:"🎨",
-tags:["creativa","arte","pintura","dibujo"],
-products:[
-"Kit de pintura",
-"Set de dibujo",
-"Set de rotuladores",
-"Kit de acuarelas",
-"Cuaderno creativo",
-"Set de lettering",
-"Kit de manualidades",
-"Bloc de ilustración",
-"Set de pinceles",
-"Kit artístico"
-]
-},
+["Caja de chocolates",10.90,"Gourmet","🍫"],
+["Caja de chuches",8.90,"Gourmet","🍬"],
+["Pack de café",14.90,"Gourmet","☕"],
+["Pack de tés",12.90,"Gourmet","🍵"],
+["Caja de galletas",11.90,"Gourmet","🍪"],
+["Pack de bombones",16.90,"Gourmet","🍫"],
+["Pack desayuno",19.90,"Gourmet","🥐"],
+["Caja gourmet",24.90,"Gourmet","🧺"],
+["Pack de dulces",13.90,"Gourmet","🍭"],
+["Pack degustación",29.90,"Gourmet","🍽️"],
 
-{
-name:"Papelería",
-emoji:"📓",
-tags:["papelería","estudio","organizada","escritura"],
-products:[
-"Set de papelería",
-"Agenda bonita",
-"Cuaderno premium",
-"Set de bolígrafos",
-"Planificador semanal",
-"Estuche creativo",
-"Agenda académica",
-"Set de notas",
-"Diario de ideas",
-"Pack de escritorio"
-]
-},
+/* BIENESTAR */
 
-{
-name:"Tecnología",
-emoji:"📱",
-tags:["tecnología","móvil","práctica"],
-products:[
-"Soporte para móvil",
-"Mini altavoz",
-"Mini altavoz Bluetooth",
-"Soporte para tablet",
-"Luz LED",
-"Organizador de cables",
-"Base para móvil",
-"Lámpara USB",
-"Hub USB",
-"Accesorio tecnológico"
-]
-},
+["Kit de relajación",19.90,"Bienestar","🧘"],
+["Kit de cuidado personal",18.90,"Bienestar","🧴"],
+["Jabones artesanales",9.90,"Bienestar","🧼"],
+["Kit spa",24.90,"Bienestar","🛁"],
+["Masajeador",29.90,"Bienestar","💆"],
+["Set de aromaterapia",21.90,"Bienestar","🌿"],
+["Kit de baño",17.90,"Bienestar","🛀"],
+["Antifaz relajante",9.90,"Bienestar","😴"],
+["Cojín relajante",22.90,"Bienestar","🛋️"],
+["Pack bienestar",32.90,"Bienestar","💚"],
 
-{
-name:"Gaming",
-emoji:"🎮",
-tags:["gaming","videojuegos","tecnología"],
-products:[
-"Accesorio gaming",
-"Soporte para auriculares",
-"Alfombrilla gaming",
-"Soporte para mando",
-"Luz gaming",
-"Organizador gaming",
-"Set de escritorio gaming",
-"Soporte RGB",
-"Accesorio para consola",
-"Pack gaming"
-]
-},
+/* CREATIVIDAD */
 
-{
-name:"Lectura",
-emoji:"📖",
-tags:["libros","lectura","cultura","curiosa"],
-products:[
-"Libro",
-"Novela",
-"Libro de misterio",
-"Libro de fantasía",
-"Libro de aventuras",
-"Libro de cocina",
-"Libro de viajes",
-"Libro ilustrado",
-"Libro de desarrollo personal",
-"Edición especial"
-]
-},
+["Kit de pintura",17.90,"Creatividad","🎨"],
+["Set de dibujo",14.90,"Creatividad","✏️"],
+["Set de rotuladores",12.90,"Creatividad","🖍️"],
+["Kit de acuarelas",18.90,"Creatividad","🖌️"],
+["Cuaderno creativo",10.90,"Creatividad","📓"],
+["Set de lettering",16.90,"Creatividad","✒️"],
+["Kit de manualidades",21.90,"Creatividad","🧵"],
+["Bloc de ilustración",13.90,"Creatividad","📝"],
+["Set de pinceles",11.90,"Creatividad","🖌️"],
+["Kit artístico premium",34.90,"Creatividad","🎨"],
 
-{
-name:"Viajes",
-emoji:"✈️",
-tags:["viajes","aventurera","curiosa"],
-products:[
-"Diario de viaje",
-"Mapa para rascar",
-"Organizador de viaje",
-"Etiqueta de maleta",
-"Neceser de viaje",
-"Cuaderno viajero",
-"Kit de viaje",
-"Portadocumentos",
-"Pack viajero",
-"Accesorio viajero"
-]
-},
+/* PAPELERIA */
 
-{
-name:"Deporte",
-emoji:"🏋️",
-tags:["deporte","fitness","gimnasio","activa"],
-products:[
-"Botella deportiva",
-"Accesorio deportivo",
-"Toalla deportiva",
-"Cinta deportiva",
-"Bolsa deportiva",
-"Set fitness",
-"Accesorio running",
-"Accesorio gimnasio",
-"Pack deportivo",
-"Botella premium"
-]
-},
+["Set de papelería",11.90,"Papelería","📚"],
+["Agenda bonita",15.90,"Papelería","📅"],
+["Cuaderno premium",14.90,"Papelería","📓"],
+["Set de bolígrafos",9.90,"Papelería","🖊️"],
+["Planificador semanal",12.90,"Papelería","📋"],
+["Estuche creativo",13.90,"Papelería","🗂️"],
+["Agenda académica",17.90,"Papelería","🎓"],
+["Set de notas",8.90,"Papelería","🗒️"],
+["Diario de ideas",14.90,"Papelería","💡"],
+["Pack de escritorio",22.90,"Papelería","🖥️"],
 
-{
-name:"Música",
-emoji:"🎵",
-tags:["música","musical","guitarra"],
-products:[
-"Accesorio musical",
-"Mini altavoz musical",
-"Soporte para guitarra",
-"Cuaderno musical",
-"Púa personalizada",
-"Pack musical",
-"Accesorio para instrumentos",
-"Decoración musical",
-"Set para músicos",
-"Pack fan de la música"
-]
-},
+/* TECNOLOGIA */
 
-{
-name:"Hogar",
-emoji:"🏠",
-tags:["hogar","decoración","plantas"],
-products:[
-"Mini planta",
-"Mini cactus",
-"Maceta decorativa",
-"Cojín decorativo",
-"Marco decorativo",
-"Organizador de escritorio",
-"Decoración minimalista",
-"Lámpara decorativa",
-"Caja organizadora",
-"Pack para el hogar"
-]
-},
+["Soporte para móvil",9.90,"Tecnología","📱"],
+["Mini altavoz",24.90,"Tecnología","🔊"],
+["Mini altavoz Bluetooth",24.90,"Tecnología","🔊"],
+["Soporte para tablet",17.90,"Tecnología","📱"],
+["Luz LED de escritorio",19.90,"Tecnología","💡"],
+["Organizador de cables",8.90,"Tecnología","🔌"],
+["Base para móvil",12.90,"Tecnología","📱"],
+["Lámpara USB",15.90,"Tecnología","💡"],
+["Hub USB",21.90,"Tecnología","🔌"],
+["Accesorio tecnológico",18.90,"Tecnología","⚙️"],
 
-{
-name:"Moda",
-emoji:"🧦",
-tags:["moda","coqueta","accesorios"],
-products:[
-"Calcetines divertidos",
-"Neceser",
-"Gorra",
-"Bufanda",
-"Pulsera",
-"Collar sencillo",
-"Accesorio de moda",
-"Pack de accesorios",
-"Bolso pequeño",
-"Set de moda"
-]
-},
+/* GAMING */
 
-{
-name:"Experiencias",
-emoji:"🎟️",
-tags:["experiencias","ocio","aventurera","social"],
-products:[
-"Vale por una experiencia",
-"Vale para cine",
-"Vale gastronómico",
-"Vale para actividad",
-"Experiencia sorpresa",
-"Pack de ocio",
-"Plan para dos",
-"Experiencia creativa",
-"Actividad aventurera",
-"Experiencia premium"
-]
-},
+["Accesorio gaming",16.90,"Gaming","🎮"],
+["Soporte para auriculares",14.90,"Gaming","🎧"],
+["Alfombrilla gaming",19.90,"Gaming","🖱️"],
+["Soporte para mando",17.90,"Gaming","🎮"],
+["Luz gaming",24.90,"Gaming","💡"],
+["Organizador gaming",21.90,"Gaming","🗃️"],
+["Set de escritorio gaming",29.90,"Gaming","🖥️"],
+["Soporte RGB",22.90,"Gaming","🌈"],
+["Accesorio para consola",19.90,"Gaming","🎮"],
+["Pack gaming",39.90,"Gaming","🎮"],
 
-{
-name:"Diversión",
-emoji:"🎲",
-tags:["juegos","diversión","social"],
-products:[
-"Juego de cartas",
-"Puzzle",
-"Puzzle personalizado",
-"Juego de mesa",
-"Juego para amigos",
-"Juego de preguntas",
-"Juego de retos",
-"Pack de juegos",
-"Puzzle premium",
-"Kit de diversión"
-]
-},
+/* LECTURA */
 
-{
-name:"Cocina",
-emoji:"🧑‍🍳",
-tags:["cocina","gastronomía","recetas"],
-products:[
-"Kit de cocina",
-"Delantal",
-"Set de utensilios",
-"Libro de recetas",
-"Molde creativo",
-"Pack de especias",
-"Set de repostería",
-"Accesorio de cocina",
-"Pack gastronómico",
-"Kit chef"
-]
-},
+["Libro",14.90,"Lectura","📖"],
+["Novela",15.90,"Lectura","📕"],
+["Libro de misterio",17.90,"Lectura","🕵️"],
+["Libro de fantasía",16.90,"Lectura","🧙"],
+["Libro de aventuras",15.90,"Lectura","🗺️"],
+["Libro de cocina",22.90,"Lectura","👨‍🍳"],
+["Libro de viajes",19.90,"Lectura","🌍"],
+["Libro ilustrado",21.90,"Lectura","🎨"],
+["Libro de desarrollo personal",18.90,"Lectura","🌱"],
+["Edición especial",29.90,"Lectura","✨"],
 
-{
-name:"Aventura",
-emoji:"🗺️",
-tags:["aventura","explorar","curiosa","viajes"],
-products:[
-"Mapa para explorar",
-"Brújula decorativa",
-"Kit aventurero",
-"Diario de aventuras",
-"Accesorio outdoor",
-"Pack explorador",
-"Kit excursión",
-"Cuaderno explorador",
-"Pack aventura",
-"Kit explorador"
-]
-},
+/* VIAJES */
 
-{
-name:"Sorpresa",
-emoji:"🎁",
-tags:["sorpresa","divertida","curiosa"],
-products:[
-"Producto sorpresa",
-"Caja sorpresa",
-"Mini sorpresa",
-"Sorpresa premium",
-"Caja misteriosa",
-"Pack sorpresa",
-"Regalo misterioso",
-"Sorpresa divertida",
-"Sorpresa romántica",
-"Gran sorpresa"
-]
-}
+["Diario de viaje",14.90,"Viajes","🧳"],
+["Mapa para rascar",19.90,"Viajes","🗺️"],
+["Organizador de viaje",15.90,"Viajes","🗂️"],
+["Etiqueta de maleta",8.90,"Viajes","🏷️"],
+["Neceser de viaje",16.90,"Viajes","🧴"],
+["Cuaderno viajero",13.90,"Viajes","📓"],
+["Kit de viaje",24.90,"Viajes","🧳"],
+["Portadocumentos",19.90,"Viajes","📁"],
+["Pack viajero",29.90,"Viajes","🌍"],
+["Accesorio para viajeros",18.90,"Viajes","✈️"],
+
+/* DEPORTE */
+
+["Balón de fútbol",19.90,"Deporte","⚽"],
+["Botella deportiva",12.90,"Deporte","🥤"],
+["Toalla deportiva",13.90,"Deporte","🏃"],
+["Cinta deportiva",9.90,"Deporte","🎽"],
+["Bolsa deportiva",24.90,"Deporte","🎒"],
+["Set fitness",19.90,"Deporte","🏋️"],
+["Accesorio running",15.90,"Deporte","🏃"],
+["Accesorio gimnasio",18.90,"Deporte","🏋️"],
+["Pack deportivo",29.90,"Deporte","🏆"],
+["Botella premium",22.90,"Deporte","🥤"],
+
+/* MUSICA */
+
+["Accesorio musical",12.90,"Música","🎵"],
+["Mini altavoz musical",24.90,"Música","🔊"],
+["Soporte para guitarra",19.90,"Música","🎸"],
+["Cuaderno musical",11.90,"Música","🎼"],
+["Púa personalizada",7.90,"Música","🎸"],
+["Pack musical",18.90,"Música","🎶"],
+["Accesorio para instrumentos",16.90,"Música","🎺"],
+["Decoración musical",14.90,"Música","🎵"],
+["Set para músicos",27.90,"Música","🎼"],
+["Pack fan de la música",29.90,"Música","🎧"],
+
+/* HOGAR */
+
+["Mini planta",9.90,"Hogar","🪴"],
+["Mini cactus",7.90,"Hogar","🌵"],
+["Maceta decorativa",13.90,"Hogar","🪴"],
+["Cojín decorativo",19.90,"Hogar","🛋️"],
+["Marco decorativo",15.90,"Hogar","🖼️"],
+["Organizador de escritorio",14.90,"Hogar","🗃️"],
+["Decoración minimalista",18.90,"Hogar","🏠"],
+["Lámpara decorativa",29.90,"Hogar","🛋️"],
+["Caja organizadora",17.90,"Hogar","📦"],
+["Pack para el hogar",34.90,"Hogar","🏠"],
+
+/* MODA */
+
+["Calcetines divertidos",8.90,"Moda","🧦"],
+["Neceser",13.90,"Moda","👜"],
+["Gorra",14.90,"Moda","🧢"],
+["Bufanda",19.90,"Moda","🧣"],
+["Pulsera",9.90,"Moda","📿"],
+["Collar sencillo",18.90,"Moda","📿"],
+["Accesorio de moda",12.90,"Moda","👗"],
+["Pack de accesorios",24.90,"Moda","👜"],
+["Bolso pequeño",29.90,"Moda","👜"],
+["Set de moda",34.90,"Moda","👗"],
+
+/* EXPERIENCIAS */
+
+["Vale por una experiencia",20,"Experiencias","🎟️"],
+["Vale para cine",15,"Experiencias","🎬"],
+["Vale gastronómico",25,"Experiencias","🍽️"],
+["Vale para actividad",30,"Experiencias","🎟️"],
+["Experiencia sorpresa",20,"Experiencias","🎁"],
+["Pack de ocio",29.90,"Experiencias","🎉"],
+["Plan para dos",35,"Experiencias","❤️"],
+["Experiencia creativa",27.90,"Experiencias","🎨"],
+["Actividad aventurera",39.90,"Experiencias","🧗"],
+["Experiencia premium",49.90,"Experiencias","⭐"],
+
+/* DIVERSION */
+
+["Juego de cartas",11.90,"Diversión","🃏"],
+["Puzzle",14.90,"Diversión","🧩"],
+["Puzzle personalizado",19.90,"Diversión","🧩"],
+["Juego de mesa pequeño",18.90,"Diversión","🎲"],
+["Juego para amigos",16.90,"Diversión","👥"],
+["Juego de preguntas",12.90,"Diversión","❓"],
+["Juego de retos",13.90,"Diversión","🔥"],
+["Pack de juegos",24.90,"Diversión","🎲"],
+["Puzzle premium",29.90,"Diversión","🧩"],
+["Kit de diversión",22.90,"Diversión","🎉"],
+
+/* COCINA */
+
+["Kit de cocina",19.90,"Cocina","🍳"],
+["Delantal",15.90,"Cocina","👨‍🍳"],
+["Set de utensilios",24.90,"Cocina","🥄"],
+["Libro de recetas",17.90,"Cocina","📖"],
+["Molde creativo",12.90,"Cocina","🧁"],
+["Pack de especias",14.90,"Cocina","🌶️"],
+["Set de repostería",21.90,"Cocina","🧁"],
+["Accesorio de cocina",13.90,"Cocina","🍴"],
+["Pack gastronómico",29.90,"Cocina","🍽️"],
+["Kit chef",34.90,"Cocina","👨‍🍳"],
+
+/* AVENTURA */
+
+["Mapa para rascar",19.90,"Aventura","🗺️"],
+["Brújula decorativa",14.90,"Aventura","🧭"],
+["Kit aventurero",24.90,"Aventura","🎒"],
+["Diario de aventuras",16.90,"Aventura","📔"],
+["Accesorio outdoor",18.90,"Aventura","🏕️"],
+["Pack explorador",29.90,"Aventura","🧭"],
+["Kit excursión",25.90,"Aventura","🥾"],
+["Cuaderno explorador",13.90,"Aventura","📓"],
+["Pack aventura",34.90,"Aventura","🏔️"],
+["Kit explorador premium",44.90,"Aventura","🧭"],
+
+/* SORPRESA */
+
+["Producto sorpresa",9.90,"Sorpresa","🎁"],
+["Caja sorpresa",14.90,"Sorpresa","🎁"],
+["Mini sorpresa",7.90,"Sorpresa","🎀"],
+["Sorpresa premium",24.90,"Sorpresa","✨"],
+["Caja misteriosa",19.90,"Sorpresa","❓"],
+["Pack sorpresa",29.90,"Sorpresa","🎁"],
+["Regalo misterioso",17.90,"Sorpresa","🎁"],
+["Sorpresa divertida",12.90,"Sorpresa","😂"],
+["Sorpresa romántica",22.90,"Sorpresa","❤️"],
+["Gran sorpresa",39.90,"Sorpresa","🎁"]
 
 ];
 
 
-/* -----------------------------
-CREAR LOS 200 PRODUCTOS
------------------------------ */
+/* =========================================================
+   CONVERTIR DATOS
+========================================================= */
 
-var products=[];
+const categorias = [];
 
-var id=1;
+const listaProductos = productos.map(function(p,index){
 
-for(var c=0;c<categories.length;c++){
+  if(!categorias.includes(p[2])){
+    categorias.push(p[2]);
+  }
 
-var category=categories[c];
-
-for(var p=0;p<category.products.length;p++){
-
-var basePrice=8.90 + ((p*3.17+c*1.41)%31);
-
-basePrice=Math.round(basePrice*100)/100;
-
-products.push({
-
-id:id++,
-
-name:category.products[p],
-
-category:category.name,
-
-emoji:category.emoji,
-
-tags:category.tags,
-
-price:basePrice,
-
-customizable:
-category.name==="Personalizados" ||
-category.products[p].toLowerCase().indexOf("foto")>=0 ||
-category.products[p].toLowerCase().indexOf("personalizado")>=0 ||
-category.products[p].toLowerCase().indexOf("álbum")>=0 ||
-category.products[p].toLowerCase().indexOf("marco")>=0 ||
-category.products[p].toLowerCase().indexOf("diario")>=0 ||
-category.products[p].toLowerCase().indexOf("puzzle")>=0
+  return {
+    id:index+1,
+    nombre:p[0],
+    precio:p[1],
+    categoria:p[2],
+    icono:p[3]
+  };
 
 });
 
-}
+
+/* =========================================================
+   TAGS PARA LIA
+========================================================= */
+
+const tagsCategoria = {
+
+  "Relax":[
+    "relax","tranquila","hogar","aromas","bienestar"
+  ],
+
+  "Personalizados":[
+    "personalizado","sentimental","foto","recuerdos"
+  ],
+
+  "Recuerdos":[
+    "recuerdos","foto","sentimental","familia"
+  ],
+
+  "Gourmet":[
+    "comida","chocolate","dulces","cafe","te","gourmet"
+  ],
+
+  "Bienestar":[
+    "bienestar","relax","cuidado","salud"
+  ],
+
+  "Creatividad":[
+    "creativa","arte","pintura","dibujo","manualidades"
+  ],
+
+  "Papelería":[
+    "papeleria","estudio","organizada","escritura","creativa"
+  ],
+
+  "Tecnología":[
+    "tecnologia","movil","digital","practica","organizada"
+  ],
+
+  "Gaming":[
+    "gaming","videojuegos","tecnologia","competitiva","juvenil"
+  ],
+
+  "Lectura":[
+    "libros","lectura","cultura","curiosa","intelectual"
+  ],
+
+  "Viajes":[
+    "viajes","aventurera","curiosa","viajar","organizada"
+  ],
+
+  "Deporte":[
+    "deporte","futbol","fitness","gimnasio","activa","saludable"
+  ],
+
+  "Música":[
+    "musica","musical","guitarra","artistica","creativa"
+  ],
+
+  "Hogar":[
+    "hogar","decoracion","plantas","minimalista","tranquila"
+  ],
+
+  "Moda":[
+    "moda","coqueta","divertida","accesorios","estilo"
+  ],
+
+  "Experiencias":[
+    "experiencias","ocio","aventurera","social","romantica"
+  ],
+
+  "Diversión":[
+    "juegos","diversion","social","amigos","competitiva"
+  ],
+
+  "Cocina":[
+    "cocina","gastronomia","recetas","creativa","practica"
+  ],
+
+  "Aventura":[
+    "aventura","explorar","curiosa","aventurera","viajes"
+  ],
+
+  "Sorpresa":[
+    "sorpresa","divertida","curiosa","aventurera","novedad"
+  ]
+
+};
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let carrito = [];
+
+let favoritos = [];
+
+let productoPersonalizado = null;
+
+let fotoPersonalizada = null;
+
+let recomendaciones = [];
+
+let pasoLia = 0;
+
+let respuestasLia = {};
+
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
+
+function dinero(numero){
+
+  return numero.toLocaleString(
+    "es-ES",
+    {
+      style:"currency",
+      currency:"EUR"
+    }
+  );
 
 }
 
 
-/* -----------------------------
-ESTADO
------------------------------ */
+function escapar(texto){
 
-var answers={};
+  return String(texto)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-var questionIndex=0;
-
-var cartItems=[];
-
-var favorites=[];
-
-var currentResults=[];
-
-var selectedProduct=null;
-
-var selectedPhoto="";
-
-
-/* -----------------------------
-PREGUNTAS
------------------------------ */
-
-var questions=[
-
-{
-key:"relationship",
-text:"¿Para quién es el regalo?",
-options:[
-"Pareja",
-"Familiar",
-"Amigo/a",
-"Compañero/a",
-"Otra persona"
-]
-},
-
-{
-key:"age",
-text:"¿Qué edad aproximada tiene?",
-options:[
-"Menos de 18",
-"18–25",
-"26–35",
-"36–50",
-"Más de 50"
-]
-},
-
-{
-key:"likes",
-text:"¿Qué cosas le gustan?",
-input:true
-},
-
-{
-key:"personality",
-text:"¿Cómo describirías su personalidad?",
-options:[
-"Tranquila / hogareña",
-"Divertida / social",
-"Creativa / artística",
-"Aventurera / curiosa",
-"Práctica / organizada"
-]
-},
-
-{
-key:"occasion",
-text:"¿Qué ocasión celebráis?",
-options:[
-"Cumpleaños",
-"Aniversario",
-"Navidad",
-"Amigo invisible",
-"Graduación",
-"Otra ocasión"
-]
-},
-
-{
-key:"budget",
-text:"¿Cuál es tu presupuesto?",
-options:[
-"Hasta 20 €",
-"20–35 €",
-"35–50 €",
-"50–75 €",
-"Más de 75 €"
-]
 }
+
+
+function mostrarToast(texto){
+
+  const toast=document.getElementById("toast");
+
+  toast.textContent=texto;
+
+  toast.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer=setTimeout(function(){
+
+    toast.classList.remove("show");
+
+  },1800);
+
+}
+
+
+/* =========================================================
+   CATEGORIAS
+========================================================= */
+
+function cargarCategorias(){
+
+  const catalogo=document.getElementById("catalogCategory");
+
+  const resultados=document.getElementById("resultCategory");
+
+  categorias.forEach(function(categoria){
+
+    const opcion1=document.createElement("option");
+
+    opcion1.value=categoria;
+
+    opcion1.textContent=categoria;
+
+    catalogo.appendChild(opcion1);
+
+
+    const opcion2=document.createElement("option");
+
+    opcion2.value=categoria;
+
+    opcion2.textContent=categoria;
+
+    resultados.appendChild(opcion2);
+
+  });
+
+}
+
+
+/* =========================================================
+   TARJETA DE PRODUCTO
+========================================================= */
+
+function crearTarjeta(producto){
+
+  const esFavorito=favoritos.includes(producto.id);
+
+  return `
+
+    <article class="card">
+
+      <button
+        class="favorite"
+        onclick="alternarFavorito(${producto.id})"
+      >
+        ${esFavorito ? "❤️" : "♡"}
+      </button>
+
+
+      <div class="product-icon">
+
+        ${producto.icono}
+
+      </div>
+
+
+      <div class="category">
+
+        ${escapar(producto.categoria)}
+
+      </div>
+
+
+      <h3>
+
+        ${escapar(producto.nombre)}
+
+      </h3>
+
+
+      <div class="price">
+
+        ${dinero(producto.precio)}
+
+      </div>
+
+
+      <div class="tags">
+
+        ${tagsCategoria[producto.categoria]
+          .slice(0,3)
+          .join(" · ")}
+
+      </div>
+
+
+      <div class="card-actions">
+
+        <button
+          class="add"
+          onclick="anadirCarrito(${producto.id})"
+        >
+          Añadir
+        </button>
+
+
+        <button
+          class="custom"
+          onclick="abrirPersonalizacion(${producto.id})"
+        >
+          Personalizar
+        </button>
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================================================
+   CATALOGO
+========================================================= */
+
+function mostrarCatalogo(){
+
+  const texto=document
+    .getElementById("catalogSearch")
+    .value
+    .toLowerCase()
+    .trim();
+
+  const categoria=document
+    .getElementById("catalogCategory")
+    .value;
+
+
+  const filtrados=listaProductos.filter(function(producto){
+
+    const coincideCategoria=
+      categoria==="Todas" ||
+      producto.categoria===categoria;
+
+
+    const contenido=(
+      producto.nombre+
+      " "+
+      producto.categoria+
+      " "+
+      tagsCategoria[producto.categoria].join(" ")
+    ).toLowerCase();
+
+
+    const coincideTexto=
+      texto==="" ||
+      contenido.includes(texto);
+
+
+    return coincideCategoria && coincideTexto;
+
+  });
+
+
+  const contenedor=
+    document.getElementById("catalogGrid");
+
+
+  if(filtrados.length===0){
+
+    contenedor.innerHTML=
+      `<div class="empty">
+        No he encontrado productos.
+      </div>`;
+
+    return;
+
+  }
+
+
+  contenedor.innerHTML=
+    filtrados
+      .map(crearTarjeta)
+      .join("");
+
+}
+
+
+/* =========================================================
+   FAVORITOS
+========================================================= */
+
+function alternarFavorito(id){
+
+  if(favoritos.includes(id)){
+
+    favoritos=
+      favoritos.filter(function(x){
+        return x!==id;
+      });
+
+  }else{
+
+    favoritos.push(id);
+
+  }
+
+
+  mostrarCatalogo();
+
+  mostrarResultados();
+
+}
+
+
+/* =========================================================
+   CARRITO
+========================================================= */
+
+function anadirCarrito(id,cantidad=1,personalizacion={}){
+
+  const producto=
+    listaProductos.find(function(p){
+      return p.id===id;
+    });
+
+
+  if(!producto){
+    return;
+  }
+
+
+  const clave=
+    id+
+    "|" +
+    (personalizacion.texto || "");
+
+
+  const existente=
+    carrito.find(function(item){
+      return item.clave===clave;
+    });
+
+
+  if(existente){
+
+    existente.cantidad+=cantidad;
+
+  }else{
+
+    carrito.push({
+
+      clave:clave,
+
+      id:id,
+
+      cantidad:cantidad,
+
+      texto:personalizacion.texto || "",
+
+      foto:personalizacion.foto || ""
+
+    });
+
+  }
+
+
+  actualizarCarrito();
+
+  mostrarToast("🎁 Producto añadido al carrito");
+
+}
+
+
+function actualizarCarrito(){
+
+  const numero=
+    carrito.reduce(function(total,item){
+      return total+item.cantidad;
+    },0);
+
+
+  document.getElementById("cartNumber")
+    .textContent=numero;
+
+
+  const contenedor=
+    document.getElementById("cartItems");
+
+
+  if(carrito.length===0){
+
+    contenedor.innerHTML=
+      `<div class="empty">
+        Tu carrito está vacío.
+      </div>`;
+
+    document.getElementById("cartTotal")
+      .textContent=dinero(0);
+
+    return;
+
+  }
+
+
+  let total=0;
+
+
+  contenedor.innerHTML=
+    carrito.map(function(item,index){
+
+      const producto=
+        listaProductos.find(function(p){
+          return p.id===item.id;
+        });
+
+
+      total+=
+        producto.precio*
+        item.cantidad;
+
+
+      return `
+
+        <div class="cart-item">
+
+          <div class="cart-icon">
+
+            ${producto.icono}
+
+          </div>
+
+
+          <div class="cart-info">
+
+            <strong>
+              ${escapar(producto.nombre)}
+            </strong>
+
+
+            ${
+              item.texto
+              ?
+              `<div style="font-size:13px;color:#718894">
+                ${escapar(item.texto)}
+              </div>`
+              :
+              ""
+            }
+
+
+            <div style="
+              color:#287ba3;
+              font-weight:bold;
+              margin-top:5px;
+            ">
+              ${dinero(producto.precio)}
+            </div>
+
+
+            <div class="quantity">
+
+              <button
+                onclick="cambiarCantidad(${index},-1)"
+              >
+                −
+              </button>
+
+              <span>
+                ${item.cantidad}
+              </span>
+
+              <button
+                onclick="cambiarCantidad(${index},1)"
+              >
+                +
+              </button>
+
+              <button
+                onclick="eliminarCarrito(${index})"
+                style="
+                  margin-left:auto;
+                  width:auto;
+                  padding:4px 8px;
+                  background:#fff0f4;
+                  color:#d94d72;
+                "
+              >
+                Eliminar
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+
+  document.getElementById("cartTotal")
+    .textContent=dinero(total);
+
+}
+
+
+function cambiarCantidad(indice,cambio){
+
+  carrito[indice].cantidad+=cambio;
+
+
+  if(carrito[indice].cantidad<=0){
+
+    carrito.splice(indice,1);
+
+  }
+
+
+  actualizarCarrito();
+
+}
+
+
+function eliminarCarrito(indice){
+
+  carrito.splice(indice,1);
+
+  actualizarCarrito();
+
+}
+
+
+function abrirCarrito(){
+
+  document.getElementById("cart")
+    .classList.add("open");
+
+  document.getElementById("overlay")
+    .classList.add("show");
+
+}
+
+
+function cerrarCarrito(){
+
+  document.getElementById("cart")
+    .classList.remove("open");
+
+  if(
+    !document
+      .getElementById("customModal")
+      .classList.contains("show")
+  ){
+
+    document.getElementById("overlay")
+      .classList.remove("show");
+
+  }
+
+}
+
+
+/* =========================================================
+   PERSONALIZACION
+========================================================= */
+
+function abrirPersonalizacion(id){
+
+  productoPersonalizado=
+    listaProductos.find(function(p){
+      return p.id===id;
+    });
+
+
+  if(!productoPersonalizado){
+    return;
+  }
+
+
+  fotoPersonalizada=null;
+
+
+  document.getElementById("customTitle")
+    .textContent=
+      "Personaliza: "+
+      productoPersonalizado.nombre;
+
+
+  document.getElementById("customText")
+    .value="";
+
+
+  document.getElementById("customQuantity")
+    .value="1";
+
+
+  document.getElementById("previewIcon")
+    .textContent=
+      productoPersonalizado.icono;
+
+
+  document.getElementById("previewText")
+    .textContent="Tu texto";
+
+
+  document.getElementById("previewImage")
+    .classList.add("hidden");
+
+
+  document.getElementById("customModal")
+    .classList.add("show");
+
+
+  document.getElementById("overlay")
+    .classList.add("show");
+
+}
+
+
+function actualizarPreview(){
+
+  const texto=
+    document.getElementById("customText")
+      .value
+      .trim();
+
+
+  document.getElementById("previewText")
+    .textContent=
+      texto || "Tu texto";
+
+}
+
+
+function cargarFoto(event){
+
+  const archivo=
+    event.target.files[0];
+
+
+  if(!archivo){
+    return;
+  }
+
+
+  const lector=
+    new FileReader();
+
+
+  lector.onload=function(){
+
+    fotoPersonalizada=
+      lector.result;
+
+
+    const imagen=
+      document.getElementById("previewImage");
+
+
+    imagen.src=
+      fotoPersonalizada;
+
+
+    imagen.classList.remove("hidden");
+
+  };
+
+
+  lector.readAsDataURL(archivo);
+
+}
+
+
+function anadirPersonalizado(){
+
+  if(!productoPersonalizado){
+    return;
+  }
+
+
+  const cantidad=
+    Number(
+      document.getElementById("customQuantity")
+        .value
+    );
+
+
+  const texto=
+    document.getElementById("customText")
+      .value
+      .trim();
+
+
+  anadirCarrito(
+
+    productoPersonalizado.id,
+
+    cantidad,
+
+    {
+      texto:texto,
+      foto:fotoPersonalizada
+    }
+
+  );
+
+
+  cerrarPersonalizacion();
+
+}
+
+
+function cerrarPersonalizacion(){
+
+  document.getElementById("customModal")
+    .classList.remove("show");
+
+
+  if(
+    !document
+      .getElementById("cart")
+      .classList.contains("open")
+  ){
+
+    document.getElementById("overlay")
+      .classList.remove("show");
+
+  }
+
+
+  productoPersonalizado=null;
+
+}
+
+
+/* =========================================================
+   LIA
+========================================================= */
+
+const preguntasLia=[
+
+  {
+    clave:"relacion",
+    pregunta:"¿Para quién es el regalo?",
+    opciones:[
+      "Pareja",
+      "Amiga/o",
+      "Familia",
+      "Compañera/o",
+      "Otra persona"
+    ]
+  },
+
+  {
+    clave:"edad",
+    pregunta:"¿Qué edad aproximada tiene?",
+    opciones:[
+      "Menos de 18",
+      "18–25",
+      "26–40",
+      "41–60",
+      "Más de 60"
+    ]
+  },
+
+  {
+    clave:"gustos",
+    pregunta:"¿Qué le gusta más?",
+    opciones:[
+      "Relax y bienestar",
+      "Tecnología y gaming",
+      "Arte y creatividad",
+      "Libros y cultura",
+      "Deporte y aventura",
+      "Comida y cocina",
+      "Moda y hogar",
+      "Música y ocio"
+    ]
+  },
+
+  {
+    clave:"personalidad",
+    pregunta:"¿Cómo describirías su personalidad?",
+    opciones:[
+      "Tranquila",
+      "Creativa",
+      "Curiosa",
+      "Activa",
+      "Organizada",
+      "Divertida",
+      "Romántica",
+      "Competitiva"
+    ]
+  },
+
+  {
+    clave:"ocasion",
+    pregunta:"¿Para qué ocasión es?",
+    opciones:[
+      "Cumpleaños",
+      "Aniversario",
+      "Amistad",
+      "Navidad",
+      "Detalle especial",
+      "Sin motivo"
+    ]
+  },
+
+  {
+    clave:"presupuesto",
+    pregunta:"¿Cuál es tu presupuesto?",
+    opciones:[
+      "Hasta 10 €",
+      "10–20 €",
+      "20–30 €",
+      "30–40 €",
+      "Más de 40 €"
+    ]
+  }
 
 ];
 
 
-/* -----------------------------
-FUNCIONES LIA
------------------------------ */
+function iniciarLia(){
 
-function startLia(){
+  pasoLia=0;
 
-answers={};
+  respuestasLia={};
 
-questionIndex=0;
+  document
+    .getElementById("resultsSection")
+    .classList.add("hidden");
 
-document
-.getElementById("liaSection")
-.scrollIntoView({behavior:"smooth"});
 
-showQuestion();
+  document
+    .getElementById("liaStatus")
+    .textContent=
+      "Vamos a encontrar algo especial…";
 
-}
-
-
-function animateLia(){
-
-var avatar=document.getElementById("liaAvatar");
-
-avatar.classList.add("talking");
-
-document.getElementById("liaStatus").textContent=
-"LIA está hablando...";
-
-setTimeout(function(){
-
-avatar.classList.remove("talking");
-
-document.getElementById("liaStatus").textContent=
-"Tu asesora inteligente de regalos";
-
-},800);
-
-}
-
-
-function showQuestion(){
-
-var box=document.getElementById("chatBox");
-
-var question=questions[questionIndex];
-
-box.innerHTML="";
-
-var message=document.createElement("div");
-
-message.className="message lia-message";
-
-message.textContent=question.text;
-
-box.appendChild(message);
-
-animateLia();
-
-
-if(question.input){
-
-var input=document.createElement("input");
-
-input.className="text-input";
-
-input.id="liaInput";
-
-input.placeholder=
-"Ej. fútbol, música, café, viajes...";
-
-box.appendChild(input);
-
-
-var button=document.createElement("button");
-
-button.className="primary";
-
-button.textContent="Continuar →";
-
-button.onclick=function(){
-
-var value=
-document.getElementById("liaInput").value.trim();
-
-if(value===""){
-
-alert("Escribe algo para que LIA pueda ayudarte.");
-
-return;
-
-}
-
-answerQuestion(value);
-
-};
-
-box.appendChild(button);
-
-return;
-}
-
-
-var options=document.createElement("div");
-
-options.className="options";
-
-for(var i=0;i<question.options.length;i++){
-
-var option=document.createElement("button");
-
-option.className="option";
-
-option.textContent=question.options[i];
-
-option.onclick=function(){
-
-answerQuestion(this.textContent);
-
-};
-
-options.appendChild(option);
-
-}
-
-box.appendChild(options);
-
-}
-
-
-function answerQuestion(value){
-
-answers[questions[questionIndex].key]=value;
-
-var box=document.getElementById("chatBox");
-
-var user=document.createElement("div");
-
-user.className="message user-message";
-
-user.textContent=value;
-
-box.appendChild(user);
-
-questionIndex++;
-
-if(questionIndex<questions.length){
-
-setTimeout(showQuestion,300);
-
-}else{
-
-showThinking();
-
-}
-
-}
-
-
-/* -----------------------------
-PENSAMIENTO
------------------------------ */
-
-function showThinking(){
-
-var box=document.getElementById("chatBox");
-
-box.innerHTML=
-
-'<div class="loading">'+
-
-'<div class="loading-emoji">🤓</div>'+
-
-'<h2>LIA está pensando...</h2>'+
-
-'<p id="thinkingText">Analizando personalidad...</p>'+
-
-'</div>';
-
-animateLia();
-
-setTimeout(function(){
-
-document.getElementById("thinkingText").textContent=
-"Buscando coincidencias...";
-
-},900);
-
-setTimeout(function(){
-
-document.getElementById("thinkingText").textContent=
-"Comparando productos...";
-
-},1700);
-
-setTimeout(function(){
-
-document.getElementById("thinkingText").textContent=
-"Preparando la sorpresa... 🎁";
-
-},2500);
-
-setTimeout(function(){
-
-generateResults();
-
-},3200);
-
-}
-
-
-/* -----------------------------
-RECOMENDACIONES
------------------------------ */
-
-function getBudget(){
-
-var value=answers.budget||"";
-
-if(value.indexOf("20–35")>=0){
-return 35;
-}
-
-if(value.indexOf("35–50")>=0){
-return 50;
-}
-
-if(value.indexOf("50–75")>=0){
-return 75;
-}
-
-if(value.indexOf("Más de 75")>=0){
-return 1000;
-}
-
-return 20;
-}
-
-
-function generateResults(){
-
-var budget=getBudget();
-
-var allText="";
-
-for(var key in answers){
-
-allText+=" "+answers[key].toLowerCase();
-
-}
-
-
-var scored=[];
-
-
-for(var i=0;i<products.length;i++){
-
-var product=products[i];
-
-var score=0;
-
-for(var t=0;t<product.tags.length;t++){
-
-if(allText.indexOf(product.tags[t])>=0){
-
-score+=5;
-
-}
 
-}
-
-if(product.price<=budget){
-
-score+=3;
-
-}else{
-
-score-=10;
-
-}
-
-if(
-answers.likes &&
-product.tags.some(function(tag){
-
-return answers.likes
-.toLowerCase()
-.indexOf(tag)>=0;
-
-})
-){
-
-score+=8;
-
-}
-
-scored.push({
-
-product:product,
-
-score:score
-
-});
-
-}
-
-
-scored.sort(function(a,b){
-
-return b.score-a.score;
-
-});
-
-
-currentResults=[];
-
-
-for(var r=0;r<scored.length && currentResults.length<12;r++){
-
-if(scored[r].product.price<=budget){
-
-currentResults.push(scored[r].product);
-
-}
-
-}
-
-
-if(currentResults.length===0){
-
-currentResults=products.slice(0,12);
-
-}
-
-
-var compatibility=70+Math.floor(Math.random()*26);
-
-document.getElementById("compatibility").textContent=
-"✨ "+compatibility+"% compatibilidad";
-
-document.getElementById("resultText").textContent=
-"LIA ha encontrado "+currentResults.length+
-" regalos que podrían encajar contigo.";
-
-
-document
-.getElementById("resultsSection")
-.classList.remove("hidden");
-
-
-fillResultCategories();
-
-renderResults();
-
-
-document
-.getElementById("resultsSection")
-.scrollIntoView({behavior:"smooth"});
-
-}
-
-
-/* -----------------------------
-CATEGORÍAS
------------------------------ */
-
-function fillCategories(){
-
-var select=document.getElementById("catalogCategory");
-
-for(var i=0;i<categories.length;i++){
-
-var option=document.createElement("option");
-
-option.value=categories[i].name;
-
-option.textContent=categories[i].name;
-
-select.appendChild(option);
-
-}
-
-}
-
-
-function fillResultCategories(){
-
-var select=document.getElementById("resultCategory");
-
-if(select.options.length>1){
-return;
-}
-
-for(var i=0;i<categories.length;i++){
-
-var option=document.createElement("option");
-
-option.value=categories[i].name;
+  document
+    .getElementById("liaSection")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
 
-option.textContent=categories[i].name;
 
-select.appendChild(option);
+  mostrarPreguntaLia();
 
 }
-
-}
-
-
-/* -----------------------------
-TARJETAS
------------------------------ */
-
-function createCard(product){
-
-var favorite=
-favorites.indexOf(product.id)>=0;
-
-var html="";
-
-html+='<article class="card">';
-
-html+='<button class="favorite" '+
-'onclick="toggleFavorite('+product.id+')">'+
-(favorite?"❤️":"♡")+
-'</button>';
-
-html+='<div class="card-icon">'+
-product.emoji+
-'</div>';
-
-html+='<div class="card-category">'+
-product.category+
-'</div>';
-
-html+='<h3>'+
-product.name+
-'</h3>';
-
-html+='<div class="price">'+
-product.price.toFixed(2).replace(".",",")+
-' €</div>';
 
-html+='<p>'+
-'🤓 Una opción seleccionada por ROSAL.'+
-'</p>';
 
-html+='<div class="card-buttons">';
+function mostrarPreguntaLia(){
 
-if(product.customizable){
+  if(pasoLia>=preguntasLia.length){
 
-html+='<button class="custom-button" '+
-'onclick="openCustomization('+product.id+')">'+
-'✏️ Personalizar'+
-'</button>';
+    terminarLia();
 
-}
+    return;
 
-html+='<button class="add-button" '+
-'onclick="addProduct('+product.id+')">'+
-'🛒 Añadir'+
-'</button>';
+  }
 
-html+='</div>';
 
-html+='</article>';
+  const pregunta=
+    preguntasLia[pasoLia];
 
-return html;
 
-}
+  const avatar=
+    document.getElementById("liaAvatar");
 
 
-/* -----------------------------
-CATÁLOGO
------------------------------ */
+  avatar.classList.add("talking");
 
-function renderCatalog(){
 
-var search=
-document.getElementById("catalogSearch")
-.value
-.toLowerCase();
+  setTimeout(function(){
 
-var category=
-document.getElementById("catalogCategory")
-.value;
+    avatar.classList.remove("talking");
 
+  },500);
 
-var visible=[];
 
+  const htmlOpciones=
+    pregunta.opciones
+      .map(function(opcion){
 
-for(var i=0;i<products.length;i++){
+        return `
 
-var product=products[i];
+          <button
+            class="option"
+            onclick='responderLia(${JSON.stringify(
+              pregunta.clave
+            )},${JSON.stringify(
+              opcion
+            )})'
+          >
 
-var matchSearch=
-product.name.toLowerCase().indexOf(search)>=0;
+            ${escapar(opcion)}
 
-var matchCategory=
-category==="all" ||
-product.category===category;
+          </button>
 
-if(matchSearch && matchCategory){
+        `;
 
-visible.push(product);
+      }).join("");
 
-}
 
-}
+  document.getElementById("chatBox")
+    .innerHTML=`
 
+      <div class="message lia-message">
 
-var html="";
+        ${pregunta.pregunta}
 
-for(var x=0;x<visible.length;x++){
+      </div>
 
-html+=createCard(visible[x]);
+      <div class="options">
 
-}
+        ${htmlOpciones}
 
+      </div>
 
-document.getElementById("catalogGrid").innerHTML=html;
+    `;
 
 }
-
-
-/* -----------------------------
-RESULTADOS
------------------------------ */
-
-function renderResults(){
 
-var search=
-document.getElementById("resultSearch")
-.value
-.toLowerCase();
 
-var category=
-document.getElementById("resultCategory")
-.value;
+function responderLia(clave,respuesta){
 
+  respuestasLia[clave]=respuesta;
 
-var visible=[];
 
+  document.getElementById("chatBox")
+    .innerHTML=`
 
-for(var i=0;i<currentResults.length;i++){
+      <div class="message user-message">
 
-var product=currentResults[i];
+        ${escapar(respuesta)}
 
-var matchSearch=
-product.name.toLowerCase().indexOf(search)>=0;
+      </div>
 
-var matchCategory=
-category==="all" ||
-product.category===category;
+      <div class="message lia-message">
 
-if(matchSearch && matchCategory){
+        Perfecto 🤓.
+        Lo tendré en cuenta.
 
-visible.push(product);
+      </div>
 
-}
-
-}
+    `;
 
 
-var html="";
+  pasoLia++;
 
-for(var x=0;x<visible.length;x++){
 
-html+=createCard(visible[x]);
+  setTimeout(
+    mostrarPreguntaLia,
+    450
+  );
 
 }
-
 
-document.getElementById("resultsGrid").innerHTML=html;
 
-}
+/* =========================================================
+   RECOMENDACION DE LIA
+========================================================= */
 
+function puntuarProducto(producto){
 
-/* -----------------------------
-FAVORITOS
------------------------------ */
+  let puntos=0;
 
-function toggleFavorite(id){
 
-var position=favorites.indexOf(id);
+  const categoria=
+    producto.categoria;
 
-if(position>=0){
 
-favorites.splice(position,1);
+  const tags=
+    tagsCategoria[categoria] || [];
 
-}else{
 
-favorites.push(id);
+  const gustos=
+    respuestasLia.gustos || "";
 
-}
 
-renderCatalog();
+  const personalidad=
+    respuestasLia.personalidad || "";
 
-if(currentResults.length>0){
 
-renderResults();
+  const relacion=
+    respuestasLia.relacion || "";
 
-}
 
-}
+  const ocasion=
+    respuestasLia.ocasion || "";
 
 
-/* -----------------------------
-CARRITO
------------------------------ */
+  const presupuesto=
+    respuestasLia.presupuesto || "";
 
-function addProduct(id){
 
-var product=null;
+  /* GUSTOS */
 
-for(var i=0;i<products.length;i++){
+  const mapaGustos={
 
-if(products[i].id===id){
+    "Relax y bienestar":[
+      "Relax",
+      "Bienestar",
+      "Hogar"
+    ],
 
-product=products[i];
+    "Tecnología y gaming":[
+      "Tecnología",
+      "Gaming"
+    ],
 
-break;
+    "Arte y creatividad":[
+      "Creatividad",
+      "Papelería",
+      "Cocina"
+    ],
 
-}
+    "Libros y cultura":[
+      "Lectura",
+      "Papelería"
+    ],
 
-}
+    "Deporte y aventura":[
+      "Deporte",
+      "Aventura",
+      "Viajes"
+    ],
 
-if(!product){
-return;
-}
+    "Comida y cocina":[
+      "Gourmet",
+      "Cocina"
+    ],
 
+    "Moda y hogar":[
+      "Moda",
+      "Hogar"
+    ],
 
-var existing=null;
+    "Música y ocio":[
+      "Música",
+      "Experiencias",
+      "Diversión"
+    ]
 
+  };
 
-for(var x=0;x<cartItems.length;x++){
 
-if(
-cartItems[x].id===id &&
-cartItems[x].customText===""
-){
+  const categoriasGusto=
+    mapaGustos[gustos] || [];
 
-existing=cartItems[x];
 
-break;
+  if(categoriasGusto.includes(categoria)){
 
-}
+    puntos+=10;
 
-}
+  }
 
 
-if(existing){
+  /* PERSONALIDAD */
 
-existing.quantity++;
+  const mapaPersonalidad={
 
-}else{
+    "Tranquila":[
+      "Relax",
+      "Bienestar",
+      "Hogar"
+    ],
 
-cartItems.push({
+    "Creativa":[
+      "Creatividad",
+      "Papelería",
+      "Cocina",
+      "Música"
+    ],
 
-id:product.id,
+    "Curiosa":[
+      "Lectura",
+      "Viajes",
+      "Aventura"
+    ],
 
-name:product.name,
+    "Activa":[
+      "Deporte",
+      "Aventura",
+      "Experiencias"
+    ],
 
-price:product.price,
+    "Organizada":[
+      "Papelería",
+      "Tecnología",
+      "Viajes"
+    ],
 
-emoji:product.emoji,
+    "Divertida":[
+      "Diversión",
+      "Gaming",
+      "Sorpresa",
+      "Experiencias"
+    ],
 
-quantity:1,
+    "Romántica":[
+      "Personalizados",
+      "Recuerdos",
+      "Experiencias",
+      "Sorpresa"
+    ],
 
-customText:"",
+    "Competitiva":[
+      "Gaming",
+      "Deporte",
+      "Diversión"
+    ]
 
-photo:""
+  };
 
-});
 
-}
+  const categoriasPersonalidad=
+    mapaPersonalidad[personalidad] || [];
 
 
-updateCart();
+  if(
+    categoriasPersonalidad.includes(categoria)
+  ){
 
-openCart();
+    puntos+=7;
 
-}
+  }
 
 
-function updateCart(){
+  /* RELACION */
 
-var container=
-document.getElementById("cartItems");
+  if(
+    relacion==="Pareja" &&
+    [
+      "Personalizados",
+      "Recuerdos",
+      "Experiencias",
+      "Sorpresa"
+    ].includes(categoria)
+  ){
 
-var count=0;
+    puntos+=5;
 
-var total=0;
+  }
 
-for(var i=0;i<cartItems.length;i++){
 
-count+=cartItems[i].quantity;
+  if(
+    relacion==="Familia" &&
+    [
+      "Recuerdos",
+      "Hogar",
+      "Gourmet",
+      "Cocina"
+    ].includes(categoria)
+  ){
 
-total+=
-cartItems[i].price*
-cartItems[i].quantity;
+    puntos+=4;
 
-}
+  }
 
 
-document.getElementById("cartNumber").textContent=count;
+  if(
+    relacion==="Amiga/o" &&
+    [
+      "Moda",
+      "Diversión",
+      "Experiencias",
+      "Sorpresa"
+    ].includes(categoria)
+  ){
 
-document.getElementById("cartTotal").textContent=
-total.toFixed(2).replace(".",",")+
-" €";
+    puntos+=4;
 
+  }
 
-if(cartItems.length===0){
 
-container.innerHTML=
+  /* OCASION */
 
-'<div style="text-align:center;padding:50px 10px">'+
-'<div style="font-size:60px">🛒</div>'+
-'<h3>Tu carrito está vacío</h3>'+
-'<p style="color:#718995">Añade algún regalo.</p>'+
-'</div>';
+  if(
+    ocasion==="Aniversario" &&
+    [
+      "Personalizados",
+      "Recuerdos",
+      "Experiencias"
+    ].includes(categoria)
+  ){
 
-return;
+    puntos+=6;
 
-}
+  }
 
 
-var html="";
+  if(
+    ocasion==="Cumpleaños" &&
+    [
+      "Diversión",
+      "Experiencias",
+      "Sorpresa"
+    ].includes(categoria)
+  ){
 
+    puntos+=5;
 
-for(var x=0;x<cartItems.length;x++){
+  }
 
-var item=cartItems[x];
 
-html+=
+  if(
+    ocasion==="Amistad" &&
+    [
+      "Diversión",
+      "Experiencias",
+      "Moda"
+    ].includes(categoria)
+  ){
 
-'<div class="cart-item">'+
+    puntos+=4;
 
-'<div class="cart-icon">'+
-item.emoji+
-'</div>'+
+  }
 
-'<div class="cart-info">'+
 
-'<strong>'+
-item.name+
-'</strong>';
+  /* PRESUPUESTO */
 
+  let minimo=0;
 
-if(item.customText){
+  let maximo=999;
 
-html+=
-'<div style="font-size:12px;color:#6b8795">'+
-'✏️ '+item.customText+
-'</div>';
 
-}
+  if(presupuesto==="Hasta 10 €"){
 
+    maximo=10;
 
-html+=
+  }
 
-'<div style="margin-top:5px">'+
-(item.price*item.quantity)
-.toFixed(2)
-.replace(".",",")+
-' €'+
-'</div>'+
+  if(presupuesto==="10–20 €"){
 
-'<div class="quantity">'+
+    minimo=10;
+    maximo=20;
 
-'<button onclick="changeQuantity('+x+',-1)">−</button>'+
+  }
 
-'<span>'+item.quantity+'</span>'+
+  if(presupuesto==="20–30 €"){
 
-'<button onclick="changeQuantity('+x+',1)">+</button>'+
+    minimo=20;
+    maximo=30;
 
-'<button onclick="removeItem('+x+')">🗑️</button>'+
+  }
 
-'</div>'+
+  if(presupuesto==="30–40 €"){
 
-'</div>'+
+    minimo=30;
+    maximo=40;
 
-'</div>';
+  }
 
-}
+  if(presupuesto==="Más de 40 €"){
 
+    minimo=40;
 
-container.innerHTML=html;
+  }
 
-}
 
+  if(
+    producto.precio>=minimo &&
+    producto.precio<=maximo
+  ){
 
-function changeQuantity(index,change){
+    puntos+=8;
 
-cartItems[index].quantity+=change;
+  }else if(
+    producto.precio<=maximo+5
+  ){
 
-if(cartItems[index].quantity<=0){
+    puntos+=2;
 
-cartItems.splice(index,1);
+  }
 
-}
 
-updateCart();
+  /* EDAD */
 
-}
+  const nombre=
+    producto.nombre.toLowerCase();
 
 
-function removeItem(index){
+  if(
+    respuestasLia.edad==="Menos de 18" &&
+    (
+      categoria==="Gaming" ||
+      categoria==="Diversión" ||
+      categoria==="Creatividad"
+    )
+  ){
 
-cartItems.splice(index,1);
+    puntos+=3;
 
-updateCart();
+  }
 
-}
 
+  if(
+    respuestasLia.edad==="18–25" &&
+    (
+      categoria==="Gaming" ||
+      categoria==="Moda" ||
+      categoria==="Experiencias" ||
+      categoria==="Tecnología"
+    )
+  ){
 
-function openCart(){
+    puntos+=3;
 
-document
-.getElementById("cart")
-.classList.add("open");
+  }
 
-document
-.getElementById("overlay")
-.classList.add("show");
 
-}
+  if(
+    respuestasLia.edad==="41–60" &&
+    (
+      categoria==="Hogar" ||
+      categoria==="Gourmet" ||
+      categoria==="Bienestar" ||
+      categoria==="Lectura"
+    )
+  ){
 
+    puntos+=3;
 
-function closeCart(){
+  }
 
-document
-.getElementById("cart")
-.classList.remove("open");
 
-document
-.getElementById("overlay")
-.classList.remove("show");
+  return puntos;
 
 }
-
-
-/* -----------------------------
-PERSONALIZACIÓN
------------------------------ */
 
-function openCustomization(id){
 
-selectedProduct=null;
+function terminarLia(){
 
-for(var i=0;i<products.length;i++){
+  const puntuados=
+    listaProductos.map(function(producto){
 
-if(products[i].id===id){
+      return {
 
-selectedProduct=products[i];
+        producto:producto,
 
-break;
+        puntos:
+          puntuarProducto(producto)
 
-}
-
-}
-
+      };
 
-if(!selectedProduct){
-return;
-}
-
+    });
 
-selectedPhoto="";
 
+  puntuados.sort(function(a,b){
 
-document.getElementById("customTitle").textContent=
-"Personaliza "+selectedProduct.name;
+    if(b.puntos!==a.puntos){
 
+      return b.puntos-a.puntos;
 
-document.getElementById("previewIcon").textContent=
-selectedProduct.emoji;
+    }
 
+    return a.producto.precio-b.producto.precio;
 
-document.getElementById("customText").value="";
+  });
 
 
-document.getElementById("previewText").textContent=
-"Tu texto";
+  recomendaciones=
+    puntuados
+      .slice(0,12)
+      .map(function(x){
+        return x.producto.id;
+      });
 
 
-document.getElementById("previewImage")
-.classList.add("hidden");
+  const maximo=
+    puntuados.length>0
+      ?
+      puntuados[0].puntos
+      :
+      1;
 
 
-document.getElementById("customQuantity").value="1";
+  const media=
+    puntuados
+      .slice(0,5)
+      .reduce(
+        function(total,item){
+          return total+item.puntos;
+        },
+        0
+      );
 
 
-document
-.getElementById("customModal")
-.classList.add("show");
+  let porcentaje=
+    Math.round(
+      (media/(5*Math.max(maximo,1)))*100
+    );
 
 
-document
-.getElementById("overlay")
-.classList.add("show");
+  porcentaje=
+    Math.max(
+      70,
+      Math.min(
+        98,
+        porcentaje
+      )
+    );
 
-}
 
+  document.getElementById("compatibility")
+    .textContent=
+      "✨ "+
+      porcentaje+
+      "% compatibilidad";
 
-function updatePreview(){
 
-var text=
-document.getElementById("customText").value;
+  document.getElementById("resultText")
+    .textContent=
+      "He analizado tus respuestas y he seleccionado "+
+      recomendaciones.length+
+      " regalos para ti.";
 
-document.getElementById("previewText").textContent=
-text || "Tu texto";
-
-}
 
+  document.getElementById("resultsSection")
+    .classList.remove("hidden");
 
-function loadPhoto(event){
 
-var file=event.target.files[0];
+  document.getElementById("liaStatus")
+    .textContent=
+      "¡Recomendaciones listas! ✨";
 
-if(!file){
-return;
-}
 
+  document.getElementById("chatBox")
+    .innerHTML=`
 
-var reader=new FileReader();
+      <div class="message lia-message">
 
+        ¡Listo! 🤓
 
-reader.onload=function(e){
+        He tenido en cuenta tus respuestas
+        para seleccionar estos regalos.
 
-selectedPhoto=e.target.result;
+      </div>
 
-var image=
-document.getElementById("previewImage");
+      <button
+        class="primary"
+        onclick="iniciarLia()"
+      >
+        Volver a hablar con LIA
+      </button>
 
-image.src=selectedPhoto;
+    `;
 
-image.classList.remove("hidden");
 
-};
+  mostrarResultados();
 
 
-reader.readAsDataURL(file);
+  document
+    .getElementById("resultsSection")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
 
 }
-
 
-function addCustomized(){
-
-if(!selectedProduct){
-return;
-}
 
+/* =========================================================
+   RESULTADOS
+========================================================= */
 
-var text=
-document.getElementById("customText").value.trim();
+function mostrarResultados(){
 
+  const texto=
+    document
+      .getElementById("resultSearch")
+      .value
+      .toLowerCase()
+      .trim();
 
-var quantity=
-Number(
-document.getElementById("customQuantity").value
-);
 
+  const categoria=
+    document
+      .getElementById("resultCategory")
+      .value;
 
-cartItems.push({
 
-id:selectedProduct.id,
+  const lista=
+    recomendaciones
+      .map(function(id){
 
-name:selectedProduct.name,
+        return listaProductos.find(
+          function(p){
+            return p.id===id;
+          }
+        );
 
-price:selectedProduct.price,
+      })
+      .filter(function(producto){
 
-emoji:selectedProduct.emoji,
+        if(!producto){
+          return false;
+        }
 
-quantity:quantity,
 
-customText:text,
+        const coincideCategoria=
+          categoria==="Todas" ||
+          producto.categoria===categoria;
 
-photo:selectedPhoto
 
-});
+        const contenido=(
+          producto.nombre+
+          " "+
+          producto.categoria+
+          " "+
+          tagsCategoria[
+            producto.categoria
+          ].join(" ")
+        ).toLowerCase();
 
 
-updateCart();
+        const coincideTexto=
+          texto==="" ||
+          contenido.includes(texto);
 
-closeCustomization();
 
-openCart();
+        return
+          coincideCategoria &&
+          coincideTexto;
 
-}
+      });
 
 
-function closeCustomization(){
+  const contenedor=
+    document.getElementById("resultsGrid");
 
-document
-.getElementById("customModal")
-.classList.remove("show");
 
-document
-.getElementById("overlay")
-.classList.remove("show");
+  if(lista.length===0){
 
-}
+    contenedor.innerHTML=
+      `<div class="empty">
+        No hay resultados con ese filtro.
+      </div>`;
 
+    return;
 
-function closeEverything(){
+  }
 
-closeCart();
 
-closeCustomization();
+  contenedor.innerHTML=
+    lista
+      .map(crearTarjeta)
+      .join("");
 
 }
 
 
-/* -----------------------------
-SIMULACIÓN FINAL
------------------------------ */
+/* =========================================================
+   SIMULACION
+========================================================= */
 
-function finishSimulation(){
+function simularCompra(){
 
-if(cartItems.length===0){
+  if(carrito.length===0){
 
-alert(
-"Tu carrito está vacío. Añade algún regalo primero."
-);
-
-return;
-
-}
+    mostrarToast(
+      "El carrito está vacío"
+    );
 
+    return;
 
-var total=0;
+  }
 
-for(var i=0;i<cartItems.length;i++){
 
-total+=
-cartItems[i].price*
-cartItems[i].quantity;
+  alert(
+    "🎓 ROSAL\n\n"+
+    "Esta es una simulación educativa.\n\n"+
+    "No se ha realizado ningún pago "+
+    "ni ninguna compra real."
+  );
 
 }
 
 
-alert(
+/* =========================================================
+   NAVEGACION
+========================================================= */
 
-"🎓 ROSAL · SIMULACIÓN\n\n"+
-"Tu selección está preparada.\n\n"+
-"Total simulado: "+
-total.toFixed(2).replace(".",",")+
-" €\n\n"+
-"No se ha realizado ningún pago.\n"+
-"No se ha realizado ninguna compra.\n\n"+
-"ROSAL es un proyecto educativo."
+function irCatalogo(){
 
-);
+  document
+    .getElementById("catalogSection")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
 
 }
 
 
-/* -----------------------------
-NAVEGACIÓN
------------------------------ */
+function cerrarTodo(){
 
-function goCatalog(){
+  cerrarCarrito();
 
-document
-.getElementById("catalogSection")
-.scrollIntoView({
-behavior:"smooth"
-});
+  cerrarPersonalizacion();
 
 }
 
 
-/* -----------------------------
-INICIO
------------------------------ */
+/* =========================================================
+   INICIO
+========================================================= */
 
-fillCategories();
+cargarCategorias();
 
-renderCatalog();
+mostrarCatalogo();
 
-updateCart();
+actualizarCarrito();
 
 </script>
 
